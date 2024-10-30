@@ -1,6 +1,9 @@
 .ui.button.round {
     border-radius: var(--radius-xs);
 }
+a {
+    text-decoration: none;
+}
 
 .ui.button.size-xs {
     height: 70px;
