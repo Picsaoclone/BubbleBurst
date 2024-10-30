@@ -61,13 +61,13 @@
     color: var(--pink_a200) !important;
     padding-left: 31px;
     padding-right:31px;
-
     background-color: var(--gray_50) !important;
     box-shadow: var(--shadow-xs) !important;
     height: 70px;
     min-width: 200px;
     border-radius: 34px !important;
     border: 3px solid var(--pink_a200);
+    justify-content:center;
 }
 
 .header_actions_join-now {
@@ -77,7 +77,7 @@
     background-color: var(--pink_a200) !important;
     box-shadow: var(--shadow-xs) !important;
     height: 70px;
-    min-width: 200px;
+    min-width: 50px;
     border-radius: 34px !important;
 }
 
@@ -122,6 +122,7 @@
     color: var(--gray_900) !important;
     margin-top: 50px;
     text-align: justify;
+    justify-content: center;
     width: 54%;
     line-height: 40px;
 }
@@ -174,6 +175,7 @@
     min-width: 366px;
     border-radius: 34px !important;
     border: 3px solid var(--pink_a200);
+    justify-content: center;
 }
 
 .content-section_invitation {
