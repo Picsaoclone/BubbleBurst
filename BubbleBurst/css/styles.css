@@ -1,0 +1,12 @@
+:root{
+    --black_900_0c:#0c0c0d0c;
+    --gray_50: #fff0f9;
+    --gray_900: #0f0223;
+    --pink_a100: #fc68b6;
+    --pink_a200: #ff3d96;
+    --pink_a700: #d6056e;
+    --red_50: #ffe7f5;
+    --white_a700: #ffffff;
+    --shadows-xs: 0 4px 4px -4px #0c0c0d0c;
+    --radius-xs: 34px;
+}

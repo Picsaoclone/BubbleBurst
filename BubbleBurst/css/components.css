@@ -1,0 +1,95 @@
+.ui.button.round {
+    border-radius: var(--radius-xs);
+}
+
+.ui.button.size-xs {
+    height: 70px;
+    padding-left: 34px;
+    padding-right: 34px;
+    font-size: 32px;
+}
+
+.ui.button.fill.gray_50 {
+    background-color: var(--gray_50);
+    box-shadow: var(--shadow-xs);
+    color: var(--pink_a200);
+}
+
+.ui.button.fill.pink_a200 {
+    background-color: var(--pink_a200);
+    box-shadow: var(--shadow-xs);
+    color: var(--white_a700);
+}
+
+.ui.button {
+    text-align: center;
+    display: flex;
+    cursor: pointer;
+    flex-direction: row;
+    align-items: center;
+    justify-self: center;
+    white-space: nowrap;
+    font-size: 32px;
+    font-weight: 700;
+    border-radius: var(--radius-xs);
+}
+
+@media only screen and (max-width: 1440px) {
+    .ui.button {
+        font-size: 27px;
+    }
+}
+
+@media only screen and (max-width: 1050px) {
+    .ui.button {
+        font-size: 26px;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .ui.button {
+        font-size: 24px;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
+
+.ui.heading .size-texts {
+    font-size: 32px;
+    font-weight: bold;    
+}
+
+@media only screen and (max-width: 1440px) {
+    .ui.heading .size-texts {
+        font-size: 27px;
+    }
+}
+
+.ui.heading.size-headingxs {
+    font-size: 72px;
+    font-weight: 700;
+}
+
+@media only screen and (max-width: 1440px) {
+    .ui.heading.size-headingxs {
+        font-size: 72px;
+    }
+}
+
+@media only screen and (max-width: 1050px) {
+    .ui.heading.size-headingxs {
+        font-size: 48px;
+    }
+}
+
+.ui.heading {
+    color: var(--pink_a700);
+    font-family: Quicksand;
+}
+
+.container-xs {
+    max-width: 1520px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
