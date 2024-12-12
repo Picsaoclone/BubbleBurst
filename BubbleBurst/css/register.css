@@ -21,7 +21,7 @@ header {
     display: flex;
     justify-content: flex-start; /* Align logo to the left */
     padding: 20px 0; /* Khoảng cách trên dưới cho header */
-    padding-left: 150px; /* Điều chỉnh khoảng cách từ logo đến cạnh trái */
+    padding-left: 80px; /* Điều chỉnh khoảng cách từ logo đến cạnh trái */
     background-color: #fff0f9;
     box-shadow: 0px 4px 8px #0c0c0d0c; /* Shadow under the header */
 }
@@ -34,7 +34,7 @@ header {
 
 .imglogo {
     height: 70px;
-    width: 200px;
+    width: 250px;
     object-fit: contain;
 }
 
@@ -45,15 +45,15 @@ header {
     align-items: center;
     text-align: center;
     width: 100%;
-    margin-top: 20px;
+    margin-top: 80px;
 }
 
 .card {
     background-color: #ffeef5;
-    padding: 30px;
+    padding: 70px;
     border-radius: 20px;
     box-shadow: 0 8px 16px #0c0c0d0c;
-    width: 300px;
+    width: 400px;
     text-align: center;
 }
 
