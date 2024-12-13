@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="styleguide.css" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=Quicksand:500,400,700");
+* {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+:root {
+  --mim: 0px 1px 9.399999618530273px 0px rgba(140, 103, 122, 0.29);
+}
+
+html,
+body {
+  margin: 0px;
+  height: 100%;
+  font-family: "Quicksand";
+}
+/* a blue color as a generic focus style */
+button:focus-visible {
+  outline: 2px solid #4a90e2 !important;
+  outline: -webkit-focus-ring-color auto 5px !important;
+}
+a {
+  text-decoration: none;
+}
+.TRANG-CH-LOGIN {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.TRANG-CH-LOGIN .div {
+  background-color: #ff3d96;
+  width: 1920px;
+  height: 1481px;
+  position: relative;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.TRANG-CH-LOGIN .overlap {
+  position: absolute;
+  width: 1922px;
+  height: 1341px;
+  top: 140px;
+  left: 0;
+}
+
+.TRANG-CH-LOGIN .overlap-group {
+  position: absolute;
+  width: 1922px;
+  height: 1341px;
+  top: 0;
+  left: 0;
+}
+
+.TRANG-CH-LOGIN .overlap-2 {
+  position: absolute;
+  width: 1922px;
+  height: 1130px;
+  top: 211px;
+  left: 0;
+}
+
+.TRANG-CH-LOGIN .illustration {
+  position: absolute;
+  width: 1232px;
+  height: 753px;
+  top: 47px;
+  left: 344px;
+}
+
+.TRANG-CH-LOGIN .searchbar {
+  display: flex;
+  width: 999px;
+  height: 74px;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 10px 16px;
+  position: absolute;
+  top: 0;
+  left: 509px;
+  background-color: #ffffff;
+  border-radius: 99px;
+  box-shadow: var(--mim);
+  position: absolute;
+}
+.searchbar {
+  display: flex; /* Sử dụng flexbox để căn chỉnh các phần tử */
+  align-items: center; /* Căn giữa theo chiều dọc */
+  background-color: #fff; /* Màu nền trắng */
+  border-radius: 50px; /* Bo tròn giống thiết kế */
+  padding: 10px 20px; /* Khoảng cách nội bộ */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Hiệu ứng bóng */
+}
+
+.search-input {
+  flex: 1; /* Input chiếm toàn bộ không gian còn lại */
+  border: none; /* Xóa viền mặc định */
+  outline: none; /* Xóa viền focus mặc định */
+  font-size: 30px; /* Kích thước chữ */
+  font-family: "Quicksand"; /* Font chữ đồng bộ */
+  color: #7d7d7d; /* Màu chữ */
+  background-color: transparent; /* Nền trong suốt */
+  padding-left: 20px;
+}
+
+
+
+.TRANG-CH-LOGIN .search-icon {
+width: 52.57px;
+  height: 52.6px;
+ position: relative;
+ right: 30px;
+  cursor: pointer; /* Con trỏ chuột khi hover vào icon */
+}
+
+.TRANG-CH-LOGIN .text-wrapper {
+  position: relative;
+  width: 911px;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 500;
+  color: #b095a2;
+  font-size: 32px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 0;
+  -webkit-box-orient: vertical;
+}
+
+.TRANG-CH-LOGIN .vector {
+  position: absolute;
+  width: 52.57px;
+  height: 52.6px;
+  margin-top: -10.30px;
+  margin-bottom: -10.30px;
+  right: 400px;
+}
+
+.TRANG-CH-LOGIN .page-bottom {
+  position: absolute;
+  width: 1922px;
+  height: 438px;
+  top: 692px;
+  left: 0;
+}
+
+.TRANG-CH-LOGIN .overlap-3 {
+  position: absolute;
+  width: 1968px;
+  height: 486px;
+  top: -8px;
+  left: -24px;
+  background-image: url(https://c.animaapp.com/RVLMzR8m/img/vector-1-1.svg);
+  background-size: 100% 100%;
+}
+
+.TRANG-CH-LOGIN .powerful-freelance {
+  position: absolute;
+  width: 420px;
+  height: 77px;
+  top: 239px;
+  left: 224px;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 400;
+  color: #ff3d96;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.TRANG-CH-LOGIN .layer {
+  position: absolute;
+  width: 377px;
+  height: 86px;
+  top: 132px;
+  left: 224px;
+}
+
+.TRANG-CH-LOGIN .group {
+  position: absolute;
+  width: 279px;
+  height: 92px;
+  top: 164px;
+  left: 884px;
+}
+
+.TRANG-CH-LOGIN .text-wrapper-2 {
+  position: absolute;
+  height: 22px;
+  top: 0;
+  left: 0;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 700;
+  color: #ff3d96;
+  font-size: 32px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.TRANG-CH-LOGIN .text-wrapper-3 {
+  position: absolute;
+  height: 17px;
+  top: 44px;
+  left: 0;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 500;
+  color: #ff3d96;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.TRANG-CH-LOGIN .text-wrapper-4 {
+  position: absolute;
+  height: 17px;
+  top: 75px;
+  left: 0;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 500;
+  color: #ff3d96;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.TRANG-CH-LOGIN .group-2 {
+  position: absolute;
+  width: 248px;
+  height: 92px;
+  top: 164px;
+  left: 1214px;
+}
+
+.TRANG-CH-LOGIN .group-3 {
+  position: absolute;
+  width: 190px;
+  height: 185px;
+  top: 164px;
+  left: 1544px;
+}
+
+.TRANG-CH-LOGIN .text-wrapper-5 {
+  position: absolute;
+  height: 17px;
+  top: 106px;
+  left: 0;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 500;
+  color: #ff3d96;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.TRANG-CH-LOGIN .text-wrapper-6 {
+  position: absolute;
+  height: 17px;
+  top: 137px;
+  left: 0;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 500;
+  color: #ff3d96;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.TRANG-CH-LOGIN .text-wrapper-7 {
+  position: absolute;
+  height: 17px;
+  top: 168px;
+  left: 0;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 500;
+  color: #ff3d96;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.TRANG-CH-LOGIN .copyright {
+  position: absolute;
+  width: 1922px;
+  height: 59px;
+  top: 387px;
+  left: 24px;
+}
+
+.TRANG-CH-LOGIN .div-wrapper {
+  position: relative;
+  width: 1920px;
+  height: 59px;
+  background-color: #fff0f9;
+}
+
+.TRANG-CH-LOGIN .p {
+  position: absolute;
+  height: 17px;
+  top: 21px;
+  left: 737px;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 500;
+  color: #ff3d96;
+  font-size: 24px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.TRANG-CH-LOGIN .rectangle {
+  position: absolute;
+  width: 4px;
+  height: 241px;
+  top: 0;
+  left: 1534px;
+  background-color: #fc68b6;
+  border-radius: 61px;
+}
+
+.TRANG-CH-LOGIN .all {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 7px;
+  position: absolute;
+  top: 36px;
+  left: 1100px;
+  border-radius: 32px;
+}
+
+.TRANG-CH-LOGIN .text-wrapper-8 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1.00px;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 500;
+  color: #ff3d96;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.TRANG-CH-LOGIN .all-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 7px;
+  position: absolute;
+  top: 36px;
+  left: 1146px;
+  border-radius: 32px;
+}
+
+.TRANG-CH-LOGIN .overlap-4 {
+  position: absolute;
+  width: 1920px;
+  height: 133px;
+  top: 0;
+  left: 0;
+}
+
+.TRANG-CH-LOGIN .group-4 {
+  position: absolute;
+  width: 1920px;
+  height: 133px;
+  top: 0;
+  left: 0;
+  background-color: #fff0f9;
+  box-shadow: 0px 4px 4px -4px #0c0c0d0d, 0px 16px 32px -4px #0c0c0d1a;
+}
+
+.TRANG-CH-LOGIN .frame {
+  left: 539px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  position: absolute;
+  top: 55px;
+}
+
+.TRANG-CH-LOGIN .text-wrapper-9 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1.00px;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 500;
+  color: #ff3d96;
+  font-size: 32px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.TRANG-CH-LOGIN .frame-2 {
+  left: 860px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  position: absolute;
+  top: 55px;
+}
+
+.TRANG-CH-LOGIN .overlap-wrapper {
+  position: absolute;
+  width: 74px;
+  height: 77px;
+  top: 28px;
+  left: 1601px;
+}
+
+.TRANG-CH-LOGIN .overlap-5 {
+  position: relative;
+  height: 77px;
+}
+
+.TRANG-CH-LOGIN .avatar {
+  position: absolute;
+  width: 74px;
+  height: 74px;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+}
+
+.TRANG-CH-LOGIN .overlap-group-wrapper {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  top: 51px;
+  left: 48px;
+  background-color: #fff0f9;
+  border-radius: 12.99px;
+}
+
+.TRANG-CH-LOGIN .vector-wrapper {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  top: 3px;
+  left: 3px;
+  background-color: #ff3d96;
+  border-radius: 9.87px;
+}
+
+.TRANG-CH-LOGIN .img {
+  position: absolute;
+  width: 13px;
+  height: 7px;
+  top: 7px;
+  left: 4px;
+}
+
+.TRANG-CH-LOGIN .group-5 {
+  position: absolute;
+  width: 58px;
+  height: 58px;
+  top: 37px;
+  left: 1501px;
+  background-color: #ffffff;
+  border-radius: 28.88px;
+}
+
+.TRANG-CH-LOGIN .overlap-6 {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  top: 4px;
+  left: 11px;
+}
+
+.TRANG-CH-LOGIN .vector-2 {
+  position: absolute;
+  width: 37px;
+  height: 37px;
+  top: 7px;
+  left: 0;
+}
+
+.TRANG-CH-LOGIN .huynh-quang-thinh-wrapper {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  top: 0;
+  left: 30px;
+  background-color: #fff0f9;
+  border-radius: 7.12px;
+}
+
+.TRANG-CH-LOGIN .huynh-quang-thinh {
+  position: relative;
+  width: 11px;
+  height: 11px;
+  top: 2px;
+  left: 2px;
+  background-color: #ff2600;
+  border-radius: 5.41px;
+}
+
+.TRANG-CH-LOGIN .group-6 {
+  position: absolute;
+  width: 58px;
+  height: 58px;
+  top: 37px;
+  left: 1404px;
+  background-color: #ffffff;
+  border-radius: 28.88px;
+}
+
+.TRANG-CH-LOGIN .overlap-7 {
+  position: relative;
+  width: 44px;
+  height: 46px;
+  top: 4px;
+  left: 11px;
+}
+
+.TRANG-CH-LOGIN .vector-3 {
+  position: absolute;
+  width: 37px;
+  height: 46px;
+  top: 1px;
+  left: 0;
+}
+
+.TRANG-CH-LOGIN .layer-2 {
+  position: absolute;
+  width: 310px;
+  height: 71px;
+  top: 31px;
+  left: 200px;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="TRANG-CH-LOGIN">
+      <div class="div">
+        <div class="overlap">
+          <div class="overlap-group">
+            <div class="overlap-2">
+              <img class="illustration" src="https://c.animaapp.com/RVLMzR8m/img/illustration---composition-18.svg" />
+              <div class="searchbar">
+                <input type="text" class="search-input" placeholder="What services are you looking for today?" />
+                <img class="search-icon" src="https://c.animaapp.com/RVLMzR8m/img/vector-3.svg" alt="Search Icon" />
+              </div>
+              <div class="page-bottom">
+                <div class="overlap-3">
+                  <p class="powerful-freelance">
+                    Powerful Freelance Marketplace System with ability to change the Users (Freelancers &amp; Clients)
+                  </p>
+                  <img class="layer" src="https://c.animaapp.com/RVLMzR8m/img/layer-3-1@2x.png" />
+                  <div class="group">
+                    <div class="text-wrapper-2">For Clients</div>
+                    <div class="text-wrapper-3">How BubbleBurst Works</div>
+                    <div class="text-wrapper-4">Trust &amp; Safety</div>
+                  </div>
+                  <div class="group-2">
+                    <div class="text-wrapper-2">For Freelancers</div>
+                    <div class="text-wrapper-3">Become a Freelancer</div>
+                    <div class="text-wrapper-4">Guides</div>
+                  </div>
+                  <div class="group-3">
+                    <div class="text-wrapper-2">Company</div>
+                    <div class="text-wrapper-3">About us</div>
+                    <div class="text-wrapper-4">Help &amp; Support</div>
+                    <a
+                      href="https://www.fiverr.com/legal-portal?source=footer"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      ><div class="text-wrapper-5">Term of Service</div></a
+                    >
+                    <div class="text-wrapper-6">Privacy Policy</div>
+                    <div class="text-wrapper-7">Invite a Friend</div>
+                  </div>
+                  <div class="copyright">
+                    <div class="div-wrapper"><p class="p">© 2024 BubbleBurst. All rights reserved.</p></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="all"><div class="text-wrapper-8">All</div></div>
+          <div class="all-wrapper"><div class="text-wrapper-8">Unread</div></div>
+        </div>
+        <div class="overlap-4">
+          <div class="group-4">
+            <div class="frame"><div class="text-wrapper-9">Recruit Freelancers</div></div>
+            <div class="frame-2"><div class="text-wrapper-9">Explore Jobs</div></div>
+            <div class="overlap-wrapper">
+              <div class="overlap-5">
+                <img class="avatar" src="https://c.animaapp.com/RVLMzR8m/img/avatar@2x.png" />
+                <div class="overlap-group-wrapper">
+                  <div class="vector-wrapper">
+                    <img class="img" src="https://c.animaapp.com/RVLMzR8m/img/vector.svg" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="group-5">
+              <div class="overlap-6">
+                <img class="vector-2" src="https://c.animaapp.com/RVLMzR8m/img/vector-1.svg" />
+                <div class="huynh-quang-thinh-wrapper"><div class="huynh-quang-thinh"></div></div>
+              </div>
+            </div>
+            <div class="group-6">
+              <div class="overlap-7">
+                <img class="vector-3" src="https://c.animaapp.com/RVLMzR8m/img/vector-2.svg" />
+                <div class="huynh-quang-thinh-wrapper"><div class="huynh-quang-thinh"></div></div>
+              </div>
+            </div>
+          </div>
+          <img class="layer-2" src="https://c.animaapp.com/RVLMzR8m/img/layer-3@2x.png" />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
