@@ -2,9 +2,10 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="globals.css" />
-    <link rel="stylesheet" href="styleguide.css" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="./css/index.css">
+    <link rel="stylesheet" type="text/css" href="./css/font.css">
+    <link rel="stylesheet" type="text/css" href="./css/styles.css">
+    <link rel="stylesheet" type="text/css" href="./css/components.css">
     <style>
         :root {
   --mim: 0px 1px 9.399999618530273px 0px rgba(140, 103, 122, 0.29);
@@ -19,6 +20,9 @@
   --collection-1-color-7: rgba(255, 240, 249, 1);
   --collection-1-stroke: rgba(176, 149, 163, 0.5);
   --collection-1-shape-stroke: rgba(176, 149, 163, 0.23);
+}
+body{
+    font-family: "Quicksand";
 }
 .profile-view {
   background-color: #fff4fa;
@@ -246,7 +250,7 @@
 .profile-view .text-wrapper-2 {
   position: relative;
   width: fit-content;
-  font-family: "Quicksand", Helvetica;
+  font-family: "Quicksand";
   font-weight: 600;
   color: #1d083a;
   font-size: 40px;
@@ -254,19 +258,42 @@
   line-height: normal;
   white-space: nowrap;
 }
-
-.profile-view .SORT {
+.SORT {
   display: inline-flex;
   align-items: center;
-  gap: 17px;
-  padding: 8px 26px;
+  gap: 10px;
+  padding: 8px 20px;
+  padding-right: 2px;
   position: relative;
-  flex: 0 0 auto;
   background-color: #fff9fd;
   border-radius: 62px;
-  border: 2px solid;
-  border-color: var(--collection-1-shape-stroke);
+  border: 2px solid var(--collection-1-shape-stroke);
   box-shadow: var(--lower-mim);
+  cursor: pointer;
+}
+.SORT select.dropdown {
+  appearance: none; /* Xóa kiểu mặc định của dropdown */
+  background-color: transparent; /* Nền trong suốt để hòa vào thiết kế */
+  border: none; /* Xóa viền mặc định */
+  font-family: "Quicksand", Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #1d083a;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+  text-align: center;
+}
+
+
+/* Hiệu ứng hover */
+.SORT:hover {
+  background-color: #f3e7f3;
+}
+.ic-round-expand-more {
+  position: absolute;
+  right: 10px;
+  pointer-events: none;
 }
 
 .profile-view .text-wrapper-3 {
@@ -419,7 +446,7 @@
   position: absolute;
 }
 
-.profile-view .text-wrapper-7 {
+/* .profile-view .text-wrapper-7 {
   position: relative;
   width: fit-content;
   margin-top: -1.50px;
@@ -430,7 +457,7 @@
   letter-spacing: 0;
   line-height: normal;
   white-space: nowrap;
-}
+} */
 
 .profile-view .project-title-2 {
   position: absolute;
@@ -578,6 +605,21 @@
   border-color: #b095a23b;
   box-shadow: var(--mim);
 }
+.frame-6 input {
+  flex: 1; /* Đảm bảo input chiếm hết không gian trong khung */
+  border: none; /* Xóa viền mặc định */
+  outline: none; /* Xóa viền focus mặc định */
+  font-family:"Quicksand", Helvetica; /* Đồng bộ font chữ */
+  font-size: 25px; /* Đồng bộ kích thước chữ */
+  color: #1d083a; /* Đồng bộ màu chữ */
+  padding: 5px; /* Khoảng cách bên trong */
+  background-color: transparent; /* Đảm bảo input hòa quyện với khung cha */
+}
+.frame-6 input:focus {
+  border: none; /* Xóa viền focus mặc định */
+  outline: none; /* Xóa outline focus */
+  box-shadow: none; /* Xóa bóng khi focus */
+}
 
 .profile-view .ic-round-expand-more-2 {
   position: relative;
@@ -655,9 +697,9 @@
   height: 55px;
   align-items: center;
   gap: 10px;
-  top: 0;
+  top: 40px;
   display: flex;
-  padding: 17px 27px;
+  padding: 10px 27px;
   position: absolute;
   left: 0;
   background-color: #ffffff;
@@ -699,6 +741,71 @@
   position: absolute;
   border-radius: 50px;
   overflow: hidden;
+}
+.project-title,
+.project-title-2,
+.project-title-3,
+.project-title-4,
+.project-title-5,
+.project-title-6,
+.project-title-7,
+.project-title-8,
+.project-title-9,
+.project-title-10 {
+  margin-bottom: 20px;
+}
+
+.project-title label,
+.project-title-2 label,
+.project-title-3 label,
+.project-title-4 label,
+.project-title-5 label,
+.project-title-6 label {
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  color: #1d083a;
+  margin-bottom: 5px;
+  
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 10px 15px;
+  font-size: 25px;
+  font-family: "Quicksand", Helvetica;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  outline: none;
+  box-shadow: var(--lower-mim);
+  border-color: transparent; /* Loại bỏ màu viền khi focus */
+  box-shadow: none;
+}
+
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #ff3d96;
+}
+
+button#save-changes {
+  background-color: #ff3d96;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button#save-changes:hover {
+  background-color: #e63285;
 }
 
 .profile-view .text-wrapper-13 {
@@ -988,9 +1095,16 @@ a {
           <div class="frame-2">
             <div class="text-wrapper-2">Thinh Huynh Quang</div>
             <div class="SORT">
-              <div class="text-wrapper-3">Freelancer</div>
-              <img class="ic-round-expand-more" src="https://c.animaapp.com/eKaXFwfJ/img/ic-round-expand-more.svg" />
-            </div>
+                <select id="job-category" class="dropdown">
+                  <option value="freelancer" selected>Freelancer</option>
+                  <option value="developer">Developer</option>
+                  <option value="designer">Designer</option>
+                  <option value="writer">Writer</option>
+                  <option value="marketer">Marketer</option>
+                </select>
+                <img class="ic-round-expand-more" src="https://c.animaapp.com/eKaXFwfJ/img/ic-round-expand-more.svg" />
+
+              </div>
           </div>
           <div class="text-wrapper-4">PROFILE</div>
         </div>
@@ -1006,62 +1120,67 @@ a {
               <button class="button delete-button" onclick="clearAvatar()"><span class="text-wrapper-5">Delete</span></button>
             </div>
           </div>
-        <div class="project-title">
-          <div class="text-wrapper-6">Name*</div>
-          <div class="frame-3"><div class="text-wrapper-7">Thinh Huynh Quang</div></div>
-        </div>
-        <div class="project-title-2">
-          <div class="text-wrapper-6">Address*</div>
-          <div class="frame-3"><div class="text-wrapper-8">Enter your address</div></div>
-        </div>
-        <div class="project-title-3">
-          <div class="text-wrapper-6">Portfolio*</div>
-          <div class="frame-3"><div class="text-wrapper-8">Share your portfolio link</div></div>
-        </div>
-        <div class="project-title-4">
-          <div class="text-wrapper-6">Skills*</div>
-          <div class="frame-4"><p class="text-wrapper-9">List your skills, each separated by a comma</p></div>
-        </div>
-        <div class="project-title-5">
-          <div class="text-wrapper-6">Certifications</div>
-          <div class="frame-4"><div class="text-wrapper-9">List your certifications</div></div>
-        </div>
-        <div class="project-title-6">
-          <div class="text-wrapper-6">Work experience*</div>
-          <div class="frame-4"><div class="text-wrapper-9">Share your career journey</div></div>
-        </div>
-        <div class="project-title-7">
-          <div class="text-wrapper-10">Email*</div>
-          <div class="frame-5"><div class="text-wrapper-7">22521407@gm.uit.edu.vn</div></div>
-        </div>
-        <div class="project-title-8">
-          <div class="text-wrapper-10">Phone number</div>
-          <div class="frame-6">
-            <div class="text-wrapper-7">+84</div>
-            <img class="ic-round-expand-more-2" src="https://c.animaapp.com/eKaXFwfJ/img/ic-round-expand-more-1.svg" />
-            <div class="text-wrapper-11">Enter your phone number</div>
+          <div class="project-title">
+            <label class="text-wrapper-6" for="name">Name*</label>
+            <input type="text" id="name" class="frame-3" placeholder="Enter your name" value="Thinh Huynh Quang" required />
           </div>
-        </div>
-        <div class="group-6">
-          <div class="project-title-9">
-            <div class="text-wrapper-10">Pay per hour*</div>
-            <div class="frame-7">
-              <div class="text-wrapper-7">$</div>
-              <div class="text-wrapper-8">Set your hourly rate</div>
+          
+          <div class="project-title-2">
+            <label class="text-wrapper-6" for="address">Address*</label>
+            <input type="text" id="address" class="frame-3" placeholder="Enter your address" required />
+          </div>
+          
+          <div class="project-title-3">
+            <label class="text-wrapper-6" for="portfolio">Portfolio*</label>
+            <input type="url" id="portfolio" class="frame-3" placeholder="Share your portfolio link" required />
+          </div>
+          
+          <div class="project-title-4">
+            <label class="text-wrapper-6" for="skills">Skills*</label>
+            <textarea id="skills" class="frame-4" placeholder="List your skills, each separated by a comma"></textarea>
+          </div>
+          
+          <div class="project-title-5">
+            <label class="text-wrapper-6" for="certifications">Certifications</label>
+            <textarea id="certifications" class="frame-4" placeholder="List your certifications"></textarea>
+          </div>
+          
+          <div class="project-title-6">
+            <label class="text-wrapper-6" for="work-experience">Work experience*</label>
+            <textarea id="work-experience" class="frame-4" placeholder="Share your career journey"></textarea>
+          </div>
+          
+          <div class="project-title-7">
+            <label class="text-wrapper-10" for="email">Email*</label>
+            <input type="email" id="email" class="frame-5" placeholder="Enter your email" value="22521407@gm.uit.edu.vn" required />
+          </div>
+          
+          <div class="project-title-8">
+            <label class="text-wrapper-10" for="phone-number">Phone number</label>
+            <div class="frame-6">
+              <input type="tel" id="phone-number" class="text-wrapper-7" placeholder="Enter your phone number" />
             </div>
           </div>
-          <div class="project-title-10">
-            <div class="text-wrapper-10">Availability*</div>
-            <div class="overlap-group-2">
-              <div class="frame-8"><div class="text-wrapper-12">Set your schedule</div></div>
-              <img
-                class="ic-round-expand-more-3"
-                src="https://c.animaapp.com/eKaXFwfJ/img/ic-round-expand-more-2.svg"
-              />
+          
+          <div class="group-6">
+            <div class="project-title-9">
+              <label class="text-wrapper-10" for="pay-per-hour">Pay per hour*</label>
+              <input type="number" id="pay-per-hour" class="frame-7" placeholder="Set your hourly rate" />
+            </div>
+          
+            <div class="project-title-10">
+              <label class="text-wrapper-10" for="availability">Availability*</label>
+              <select id="availability" class="frame-8">
+                <option value="full-time">Full-time</option>
+                <option value="part-time">Part-time</option>
+                <option value="freelance">Freelance</option>
+              </select>
             </div>
           </div>
-        </div>
-        <div class="joinnow-button-2"><div class="text-wrapper-13">Save changes</div></div>
+          
+          <button id="save-changes" class="joinnow-button-2">
+            <div class="text-wrapper-13">Save changes</div>
+          </button>
         <div class="page-bottom">
           <div class="overlap-4">
             <img class="vector-3" src="https://c.animaapp.com/eKaXFwfJ/img/vector-1-1.svg" />
@@ -1121,6 +1240,31 @@ function clearAvatar() {
   avatarElement.style.backgroundImage = ''; // Xóa background-image
   alert('Avatar đã được xóa.');
 }
+document.getElementById('job-category').addEventListener('change', function (event) {
+  const selectedCategory = event.target.value; // Lấy giá trị danh mục đã chọn
+  console.log(`Bạn đã chọn: ${selectedCategory}`);
+  // Bạn có thể xử lý thêm (ví dụ gửi dữ liệu lên server, hiển thị UI tương ứng, v.v.)
+});
+document.getElementById('save-changes').addEventListener('click', function () {
+  // Lấy dữ liệu từ các input
+  const profileData = {
+    name: document.getElementById('name').value,
+    address: document.getElementById('address').value,
+    portfolio: document.getElementById('portfolio').value,
+    skills: document.getElementById('skills').value,
+    certifications: document.getElementById('certifications').value,
+    workExperience: document.getElementById('work-experience').value,
+    email: document.getElementById('email').value,
+    phoneNumber: document.getElementById('phone-number').value,
+    payPerHour: document.getElementById('pay-per-hour').value,
+    availability: document.getElementById('availability').value,
+  };
+
+  // Lưu dữ liệu vào localStorage (hoặc xử lý logic khác nếu cần)
+  localStorage.setItem('profileData', JSON.stringify(profileData));
+
+  alert('Thông tin của bạn đã được lưu thành công!');
+});
 
     </script>
   </body>
