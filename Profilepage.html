@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="styleguide.css" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        :root {
+  --mim: 0px 1px 9.399999618530273px 0px rgba(140, 103, 122, 0.29);
+  --lower-mim: 0px 1px 1.2999999523162842px 0px rgba(140, 103, 122, 0.05);
+  --med-mim: 0px 0px 2.9000000953674316px 0px rgba(140, 103, 122, 0.12);
+  --collection-1-color: rgba(255, 61, 150, 1);
+  --collection-1-color-2: rgba(214, 5, 110, 1);
+  --collection-1-color-3: rgba(15, 2, 35, 1);
+  --collection-1-color-4: rgba(29, 8, 58, 1);
+  --collection-1-color-5: rgba(3, 0, 89, 1);
+  --collection-1-color-6: rgba(0, 0, 130, 1);
+  --collection-1-color-7: rgba(255, 240, 249, 1);
+  --collection-1-stroke: rgba(176, 149, 163, 0.5);
+  --collection-1-shape-stroke: rgba(176, 149, 163, 0.23);
+}
+.profile-view {
+  background-color: #fff4fa;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.profile-view .div {
+  background-color: #fff4fa;
+  overflow: hidden;
+  width: 1920px;
+  height: 2883px;
+  position: relative;
+}
+
+.profile-view .overlap {
+  position: absolute;
+  width: 1920px;
+  height: 133px;
+  top: 0;
+  left: 0;
+}
+
+.profile-view .group {
+  position: absolute;
+  width: 1920px;
+  height: 133px;
+  top: 0;
+  left: 0;
+  background-color: #fff0f9;
+  box-shadow: 0px 4px 4px -4px #0c0c0d0d, 0px 16px 32px -4px #0c0c0d1a;
+}
+
+.profile-view .frame {
+  display: inline-flex;
+  gap: 5px;
+  top: 55px;
+  left: 539px;
+  align-items: center;
+  position: absolute;
+}
+
+.profile-view .text-wrapper {
+  position: relative;
+  width: fit-content;
+  margin-top: -1.00px;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 500;
+  color: #ff3d96;
+  font-size: 32px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.profile-view .div-wrapper {
+  display: inline-flex;
+  gap: 5px;
+  top: 55px;
+  left: 860px;
+  align-items: center;
+  position: absolute;
+}
+
+.profile-view .overlap-wrapper {
+  position: absolute;
+  width: 74px;
+  height: 77px;
+  top: 28px;
+  left: 1601px;
+}
+
+.profile-view .overlap-group {
+  position: relative;
+  height: 77px;
+}
+
+.profile-view .avatar {
+  position: absolute;
+  width: 74px;
+  height: 74px;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+}
+
+.profile-view .overlap-group-wrapper {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  top: 51px;
+  left: 48px;
+  background-color: #fff0f9;
+  border-radius: 12.99px;
+}
+
+.profile-view .vector-wrapper {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  top: 3px;
+  left: 3px;
+  background-color: #ff3d96;
+  border-radius: 9.87px;
+}
+
+.profile-view .vector {
+  position: absolute;
+  width: 13px;
+  height: 7px;
+  top: 7px;
+  left: 4px;
+}
+
+.profile-view .group-2 {
+  position: absolute;
+  width: 58px;
+  height: 58px;
+  top: 37px;
+  left: 1501px;
+  background-color: #ffffff;
+  border-radius: 28.88px;
+}
+
+.profile-view .overlap-2 {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  top: 4px;
+  left: 11px;
+}
+
+.profile-view .img {
+  height: 37px;
+  top: 7px;
+  position: absolute;
+  width: 37px;
+  left: 0;
+}
+
+.profile-view .huynh-quang-thinh-wrapper {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  top: 0;
+  left: 30px;
+  background-color: #fff0f9;
+  border-radius: 7.12px;
+}
+
+.profile-view .huynh-quang-thinh {
+  position: relative;
+  width: 11px;
+  height: 11px;
+  top: 2px;
+  left: 2px;
+  background-color: #ff2600;
+  border-radius: 5.41px;
+}
+
+.profile-view .group-3 {
+  position: absolute;
+  width: 58px;
+  height: 58px;
+  top: 37px;
+  left: 1404px;
+  background-color: #ffffff;
+  border-radius: 28.88px;
+}
+
+.profile-view .overlap-3 {
+  position: relative;
+  width: 44px;
+  height: 46px;
+  top: 4px;
+  left: 11px;
+}
+
+.profile-view .vector-2 {
+  height: 46px;
+  top: 1px;
+  position: absolute;
+  width: 37px;
+  left: 0;
+}
+
+.profile-view .layer {
+  position: absolute;
+  width: 310px;
+  height: 71px;
+  top: 31px;
+  left: 200px;
+}
+
+.profile-view .group-4 {
+  position: absolute;
+  width: 792px;
+  height: 140px;
+  top: 245px;
+  left: 422px;
+}
+
+.profile-view .avatar-2 {
+  width: 140px;
+  height: 140px;
+  border-radius: 70px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ff3d96;
+  box-shadow: var(--lower-mim);
+}
+
+.profile-view .frame-2 {
+  display: inline-flex;
+  gap: 17px;
+  top: 46px;
+  left: 155px;
+  align-items: center;
+  position: absolute;
+}
+
+.profile-view .text-wrapper-2 {
+  position: relative;
+  width: fit-content;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 600;
+  color: #1d083a;
+  font-size: 40px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.profile-view .SORT {
+  display: inline-flex;
+  align-items: center;
+  gap: 17px;
+  padding: 8px 26px;
+  position: relative;
+  flex: 0 0 auto;
+  background-color: #fff9fd;
+  border-radius: 62px;
+  border: 2px solid;
+  border-color: var(--collection-1-shape-stroke);
+  box-shadow: var(--lower-mim);
+}
+
+.profile-view .text-wrapper-3 {
+  position: relative;
+  width: fit-content;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 500;
+  color: #1d083a;
+  font-size: 28px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.profile-view .ic-round-expand-more {
+  position: relative;
+  width: 32px;
+  height: 32px;
+}
+
+.profile-view .text-wrapper-4 {
+  position: absolute;
+  height: 17px;
+  top: 23px;
+  left: 155px;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 500;
+  color: #8c677a;
+  font-size: 24px;
+  letter-spacing: 9.60px;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.profile-view .group-5 {
+  position: absolute;
+  width: 551px;
+  height: 88px;
+  top: 429px;
+  left: 685px;
+}
+
+.profile-view .avatar-3 {
+  width: 88px;
+  height: 88px;
+  border-radius: 44px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ff3d96;
+  box-shadow: var(--lower-mim);
+}
+.avatar-3{
+    
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background-color: #ff3d96; /* Màu nền mặc định nếu không có ảnh */
+  background-size: cover; /* Đảm bảo ảnh lấp đầy vùng hiển thị */
+  background-position: center; /* Căn giữa ảnh */
+  box-shadow: var(--lower-mim);
+
+}
+.profile-view .joinnow-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px 21px 20px 20px;
+  position: absolute;
+  top: 14px;
+  left: 115px;
+  background-color: #fffafd;
+  border-radius: 50px;
+  overflow: hidden;
+  border: 2px solid;
+  border-color: var(--collection-1-shape-stroke);
+  box-shadow: var(--lower-mim);
+}
+
+.profile-view .text-wrapper-5 {
+  position: relative;
+  width: fit-content;
+  margin-top: -2.00px;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 600;
+  color: #1d083a;
+  font-size: 28px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.profile-view .button {
+  all: unset;
+  box-sizing: border-box;
+  padding: 20px 21px 20px 20px;
+  top: 14px;
+  left: 423px;
+  background-color: #fffafd;
+  border: 2px solid;
+  border-color: var(--collection-1-shape-stroke);
+  box-shadow: var(--lower-mim);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: absolute;
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.profile-view .project-title {
+  position: absolute;
+  width: 1078px;
+  height: 96px;
+  top: 561px;
+  left: 422px;
+}
+
+.profile-view .text-wrapper-6 {
+  position: absolute;
+  width: 804px;
+  height: 22px;
+  top: 0;
+  left: 14px;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 600;
+  color: #1d083a;
+  font-size: 32px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.profile-view .frame-3 {
+  display: flex;
+  width: 1076px;
+  height: 55px;
+  gap: 10px;
+  padding: 17px 27px;
+  top: 41px;
+  left: 0;
+  background-color: #ffffff;
+  border-radius: 18px;
+  border: 2px solid;
+  border-color: #b095a23b;
+  box-shadow: var(--mim);
+  align-items: center;
+  position: absolute;
+}
+
+.profile-view .text-wrapper-7 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1.50px;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 500;
+  color: #1d083a;
+  font-size: 28px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.profile-view .project-title-2 {
+  position: absolute;
+  width: 1078px;
+  height: 96px;
+  top: 701px;
+  left: 422px;
+}
+
+.profile-view .text-wrapper-8 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1.50px;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 500;
+  color: #b095a2;
+  font-size: 28px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.profile-view .project-title-3 {
+  position: absolute;
+  width: 1078px;
+  height: 96px;
+  top: 981px;
+  left: 422px;
+}
+
+.profile-view .project-title-4 {
+  position: absolute;
+  width: 1078px;
+  height: 317px;
+  top: 1121px;
+  left: 422px;
+}
+
+.profile-view .frame-4 {
+  width: 1076px;
+  height: 276px;
+  align-items: flex-start;
+  gap: 10px;
+  top: 41px;
+  display: flex;
+  padding: 17px 27px;
+  position: absolute;
+  left: 0;
+  background-color: #ffffff;
+  border-radius: 18px;
+  border: 2px solid;
+  border-color: #b095a23b;
+  box-shadow: var(--mim);
+}
+
+.profile-view .text-wrapper-9 {
+  position: relative;
+  width: fit-content;
+  margin-top: -2.00px;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 500;
+  color: #b095a2;
+  font-size: 28px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.profile-view .project-title-5 {
+  position: absolute;
+  width: 1078px;
+  height: 317px;
+  top: 1482px;
+  left: 422px;
+}
+
+.profile-view .project-title-6 {
+  position: absolute;
+  width: 1078px;
+  height: 317px;
+  top: 1843px;
+  left: 422px;
+}
+
+.profile-view .project-title-7 {
+  position: absolute;
+  width: 523px;
+  height: 96px;
+  top: 841px;
+  left: 422px;
+}
+
+.profile-view .text-wrapper-10 {
+  position: absolute;
+  height: 22px;
+  top: 0;
+  left: 14px;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 600;
+  color: #1d083a;
+  font-size: 32px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.profile-view .frame-5 {
+  width: 521px;
+  height: 55px;
+  align-items: center;
+  gap: 10px;
+  top: 41px;
+  display: flex;
+  padding: 17px 27px;
+  position: absolute;
+  left: 0;
+  background-color: #ffffff;
+  border-radius: 18px;
+  border: 2px solid;
+  border-color: #b095a23b;
+  box-shadow: var(--mim);
+}
+
+.profile-view .project-title-8 {
+  position: absolute;
+  width: 523px;
+  height: 96px;
+  top: 841px;
+  left: 977px;
+}
+
+.profile-view .frame-6 {
+  width: 521px;
+  height: 55px;
+  align-items: center;
+  gap: 4px;
+  top: 41px;
+  display: flex;
+  padding: 17px 27px;
+  position: absolute;
+  left: 0;
+  background-color: #ffffff;
+  border-radius: 18px;
+  border: 2px solid;
+  border-color: #b095a23b;
+  box-shadow: var(--mim);
+}
+
+.profile-view .ic-round-expand-more-2 {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  margin-top: -1.50px;
+  margin-bottom: -1.50px;
+}
+
+.profile-view .text-wrapper-11 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1.50px;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 500;
+  color: #b095a3;
+  font-size: 28px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.profile-view .group-6 {
+  position: absolute;
+  width: 1076px;
+  height: 96px;
+  top: 2204px;
+  left: 422px;
+}
+
+.profile-view .project-title-9 {
+  position: absolute;
+  width: 518px;
+  height: 96px;
+  top: 0;
+  left: 0;
+}
+
+.profile-view .frame-7 {
+  width: 516px;
+  height: 55px;
+  align-items: center;
+  gap: 10px;
+  top: 41px;
+  display: flex;
+  padding: 17px 27px;
+  position: absolute;
+  left: 0;
+  background-color: #ffffff;
+  border-radius: 18px;
+  border: 2px solid;
+  border-color: #b095a23b;
+  box-shadow: var(--mim);
+}
+
+.profile-view .project-title-10 {
+  position: absolute;
+  width: 518px;
+  height: 96px;
+  top: 0;
+  left: 560px;
+}
+
+.profile-view .overlap-group-2 {
+  position: absolute;
+  width: 516px;
+  height: 55px;
+  top: 41px;
+  left: 0;
+  border-radius: 18px;
+}
+
+.profile-view .frame-8 {
+  width: 516px;
+  height: 55px;
+  align-items: center;
+  gap: 10px;
+  top: 0;
+  display: flex;
+  padding: 17px 27px;
+  position: absolute;
+  left: 0;
+  background-color: #ffffff;
+  border-radius: 18px;
+  border: 2px solid;
+  border-color: #b095a23b;
+  box-shadow: var(--mim);
+}
+
+.profile-view .text-wrapper-12 {
+  position: relative;
+  width: 264px;
+  margin-top: -1.50px;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 500;
+  color: #b095a2;
+  font-size: 28px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.profile-view .ic-round-expand-more-3 {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  top: 12px;
+  left: 468px;
+}
+
+.profile-view .joinnow-button-2 {
+  padding: 20px 46px 20px 45px;
+  top: 2344px;
+  left: 1220px;
+  background-color: #ff3d96;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: absolute;
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.profile-view .text-wrapper-13 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1.00px;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 28px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=Quicksand:400,500,700,600");
+* {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0px;
+  height: 100%;
+}
+/* a blue color as a generic focus style */
+button:focus-visible {
+  outline: 2px solid #4a90e2 !important;
+  outline: -webkit-focus-ring-color auto 5px !important;
+}
+a {
+  text-decoration: none;
+}
+
+.profile-view .page-bottom {
+  position: absolute;
+  width: 1922px;
+  height: 438px;
+  top: 2445px;
+  left: 0;
+}
+
+.profile-view .overlap-4 {
+  position: relative;
+  height: 446px;
+  top: -8px;
+}
+
+.profile-view .vector-3 {
+  position: absolute;
+  width: 1920px;
+  height: 446px;
+  top: 0;
+  left: 0;
+}
+
+.profile-view .powerful-freelance {
+  position: absolute;
+  width: 420px;
+  height: 77px;
+  top: 239px;
+  left: 200px;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 400;
+  color: #ff3d96;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.profile-view .layer-2 {
+  position: absolute;
+  width: 377px;
+  height: 86px;
+  top: 132px;
+  left: 200px;
+}
+
+.profile-view .group-7 {
+  position: absolute;
+  width: 279px;
+  height: 92px;
+  top: 164px;
+  left: 860px;
+}
+
+.profile-view .text-wrapper-14 {
+  position: absolute;
+  height: 22px;
+  top: 0;
+  left: 0;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 700;
+  color: #ff3d96;
+  font-size: 32px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.profile-view .text-wrapper-15 {
+  position: absolute;
+  height: 17px;
+  top: 44px;
+  left: 0;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 500;
+  color: #ff3d96;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.profile-view .text-wrapper-16 {
+  position: absolute;
+  height: 17px;
+  top: 75px;
+  left: 0;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 500;
+  color: #ff3d96;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.profile-view .group-8 {
+  position: absolute;
+  width: 248px;
+  height: 92px;
+  top: 164px;
+  left: 1190px;
+}
+
+.profile-view .group-9 {
+  position: absolute;
+  width: 190px;
+  height: 185px;
+  top: 164px;
+  left: 1520px;
+}
+
+.profile-view .text-wrapper-17 {
+  position: absolute;
+  height: 17px;
+  top: 106px;
+  left: 0;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 500;
+  color: #ff3d96;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.profile-view .text-wrapper-18 {
+  position: absolute;
+  height: 17px;
+  top: 137px;
+  left: 0;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 500;
+  color: #ff3d96;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.profile-view .text-wrapper-19 {
+  position: absolute;
+  height: 17px;
+  top: 168px;
+  left: 0;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 500;
+  color: #ff3d96;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.profile-view .copyright {
+  position: absolute;
+  width: 1922px;
+  height: 59px;
+  top: 387px;
+  left: 0;
+}
+
+.profile-view .overlap-group-3 {
+  position: relative;
+  width: 1920px;
+  height: 59px;
+  background-color: #fff0f9;
+}
+
+.profile-view .p {
+  position: absolute;
+  height: 17px;
+  top: 21px;
+  left: 737px;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 500;
+  color: #ff3d96;
+  font-size: 24px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+.upload-button {
+  position: absolute;
+  right: 860px;
+}
+
+.upload-button input[type="file"] {
+  display: none; /* Ẩn input file */
+}
+
+.upload-button label.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px 21px;
+  background-color: #fffafd;
+  border-radius: 50px;
+  border: 2px solid var(--collection-1-shape-stroke);
+  box-shadow: var(--lower-mim);
+  cursor: pointer;
+}
+
+.upload-button label.button:hover {
+  background-color: #f3e7f3; /* Hiệu ứng hover */
+}
+
+.upload-button label.button .text-wrapper-5 {
+  font-family: "Quicksand", Helvetica;
+  font-weight: 600;
+  color: #1d083a;
+  font-size: 28px;
+  text-align: center;
+  white-space: nowrap;
+}
+    </style>
+  </head>
+  <body>
+    <div class="profile-view">
+      <div class="div">
+        <div class="overlap">
+          <div class="group">
+            <div class="frame"><div class="text-wrapper">Recruit Freelancers</div></div>
+            <div class="div-wrapper"><div class="text-wrapper">Explore Jobs</div></div>
+            <div class="overlap-wrapper">
+              <div class="overlap-group">
+                <img class="avatar" src="https://c.animaapp.com/eKaXFwfJ/img/avatar@2x.png" />
+                <div class="overlap-group-wrapper">
+                  <div class="vector-wrapper">
+                    <img class="vector" src="https://c.animaapp.com/eKaXFwfJ/img/vector.svg" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="group-2">
+              <div class="overlap-2">
+                <img class="img" src="https://c.animaapp.com/eKaXFwfJ/img/vector-1.svg" />
+                <div class="huynh-quang-thinh-wrapper"><div class="huynh-quang-thinh"></div></div>
+              </div>
+            </div>
+            <div class="group-3">
+              <div class="overlap-3">
+                <img class="vector-2" src="https://c.animaapp.com/eKaXFwfJ/img/vector-2.svg" />
+                <div class="huynh-quang-thinh-wrapper"><div class="huynh-quang-thinh"></div></div>
+              </div>
+            </div>
+          </div>
+          <img class="layer" src="https://c.animaapp.com/eKaXFwfJ/img/layer-3@2x.png" />
+        </div>
+        <div class="group-4">
+          <div class="avatar-2"></div>
+          <div class="frame-2">
+            <div class="text-wrapper-2">Thinh Huynh Quang</div>
+            <div class="SORT">
+              <div class="text-wrapper-3">Freelancer</div>
+              <img class="ic-round-expand-more" src="https://c.animaapp.com/eKaXFwfJ/img/ic-round-expand-more.svg" />
+            </div>
+          </div>
+          <div class="text-wrapper-4">PROFILE</div>
+        </div>
+        <div class="group-5">
+            <div class="avatar-3"></div>
+            <div class="button-container">
+              <div class="upload-button">
+                <label for="file-upload" class="button">
+                  <span class="text-wrapper-5">Upload new photo</span>
+                </label>
+                <input id="file-upload" type="file" accept="image/*" onchange="handleFileUpload(event)" />
+              </div>
+              <button class="button delete-button" onclick="clearAvatar()"><span class="text-wrapper-5">Delete</span></button>
+            </div>
+          </div>
+        <div class="project-title">
+          <div class="text-wrapper-6">Name*</div>
+          <div class="frame-3"><div class="text-wrapper-7">Thinh Huynh Quang</div></div>
+        </div>
+        <div class="project-title-2">
+          <div class="text-wrapper-6">Address*</div>
+          <div class="frame-3"><div class="text-wrapper-8">Enter your address</div></div>
+        </div>
+        <div class="project-title-3">
+          <div class="text-wrapper-6">Portfolio*</div>
+          <div class="frame-3"><div class="text-wrapper-8">Share your portfolio link</div></div>
+        </div>
+        <div class="project-title-4">
+          <div class="text-wrapper-6">Skills*</div>
+          <div class="frame-4"><p class="text-wrapper-9">List your skills, each separated by a comma</p></div>
+        </div>
+        <div class="project-title-5">
+          <div class="text-wrapper-6">Certifications</div>
+          <div class="frame-4"><div class="text-wrapper-9">List your certifications</div></div>
+        </div>
+        <div class="project-title-6">
+          <div class="text-wrapper-6">Work experience*</div>
+          <div class="frame-4"><div class="text-wrapper-9">Share your career journey</div></div>
+        </div>
+        <div class="project-title-7">
+          <div class="text-wrapper-10">Email*</div>
+          <div class="frame-5"><div class="text-wrapper-7">22521407@gm.uit.edu.vn</div></div>
+        </div>
+        <div class="project-title-8">
+          <div class="text-wrapper-10">Phone number</div>
+          <div class="frame-6">
+            <div class="text-wrapper-7">+84</div>
+            <img class="ic-round-expand-more-2" src="https://c.animaapp.com/eKaXFwfJ/img/ic-round-expand-more-1.svg" />
+            <div class="text-wrapper-11">Enter your phone number</div>
+          </div>
+        </div>
+        <div class="group-6">
+          <div class="project-title-9">
+            <div class="text-wrapper-10">Pay per hour*</div>
+            <div class="frame-7">
+              <div class="text-wrapper-7">$</div>
+              <div class="text-wrapper-8">Set your hourly rate</div>
+            </div>
+          </div>
+          <div class="project-title-10">
+            <div class="text-wrapper-10">Availability*</div>
+            <div class="overlap-group-2">
+              <div class="frame-8"><div class="text-wrapper-12">Set your schedule</div></div>
+              <img
+                class="ic-round-expand-more-3"
+                src="https://c.animaapp.com/eKaXFwfJ/img/ic-round-expand-more-2.svg"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="joinnow-button-2"><div class="text-wrapper-13">Save changes</div></div>
+        <div class="page-bottom">
+          <div class="overlap-4">
+            <img class="vector-3" src="https://c.animaapp.com/eKaXFwfJ/img/vector-1-1.svg" />
+            <p class="powerful-freelance">
+              Powerful Freelance Marketplace System with ability to change the Users (Freelancers &amp; Clients)
+            </p>
+            <img class="layer-2" src="https://c.animaapp.com/eKaXFwfJ/img/layer-3-1@2x.png" />
+            <div class="group-7">
+              <div class="text-wrapper-14">For Clients</div>
+              <div class="text-wrapper-15">How BubbleBurst Works</div>
+              <div class="text-wrapper-16">Trust &amp; Safety</div>
+            </div>
+            <div class="group-8">
+              <div class="text-wrapper-14">For Freelancers</div>
+              <div class="text-wrapper-15">Become a Freelancer</div>
+              <div class="text-wrapper-16">Guides</div>
+            </div>
+            <div class="group-9">
+              <div class="text-wrapper-14">Company</div>
+              <div class="text-wrapper-15">About us</div>
+              <div class="text-wrapper-16">Help &amp; Support</div>
+              <a href="https://www.fiverr.com/legal-portal?source=footer" target="_blank" rel="noopener noreferrer"
+                ><div class="text-wrapper-17">Term of Service</div></a
+              >
+              <div class="text-wrapper-18">Privacy Policy</div>
+              <div class="text-wrapper-19">Invite a Friend</div>
+            </div>
+            <div class="copyright">
+              <div class="overlap-group-3"><p class="p">© 2024 BubbleBurst. All rights reserved.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+ function handleFileUpload(event) {
+  const file = event.target.files[0]; // Lấy file mà người dùng tải lên
+  if (file) {
+    const reader = new FileReader();
+
+    // Đọc file và chuyển sang URL dạng base64
+    reader.onload = function (e) {
+      const avatarElement = document.querySelector('.avatar-3'); // Tìm .avatar-3
+      avatarElement.style.backgroundImage = `url('${e.target.result}')`; // Đặt ảnh làm background
+      avatarElement.style.backgroundSize = 'cover'; // Căn chỉnh kích thước ảnh
+      avatarElement.style.backgroundPosition = 'center'; // Đặt vị trí căn giữa
+    };
+
+    reader.readAsDataURL(file); // Đọc file
+  } else {
+    alert("Không có file nào được chọn!");
+  }
+}
+
+function clearAvatar() {
+  const avatarElement = document.querySelector('.avatar-3');
+  avatarElement.style.backgroundImage = ''; // Xóa background-image
+  alert('Avatar đã được xóa.');
+}
+
+    </script>
+  </body>
+  
+</html>
