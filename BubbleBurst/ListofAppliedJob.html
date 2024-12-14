@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="styleguide.css" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=Quicksand:400,500,700,600");
+* {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0px;
+  height: 100%; 
+  flex-direction: column; /* Nội dung xếp theo cột */
+
+}
+/* a blue color as a generic focus style */
+button:focus-visible {
+  outline: 2px solid #4a90e2 !important;
+  outline: -webkit-focus-ring-color auto 5px !important;
+}
+a {
+  text-decoration: none;
+}
+:root {
+  --med-mim: 0px 0px 2.9000000953674316px 0px rgba(140, 103, 122, 0.12);
+  --mim: 0px 1px 9.399999618530273px 0px rgba(140, 103, 122, 0.29);
+}
+.FREELANCER-MENU-SAU {
+  background-color: #fff4fa;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Căn giữa nội dung trong container */
+  padding: 20px; /* Khoảng cách từ mép ngoài */
+  gap: 30px; /* Khoảng cách giữa các phần */
+  width: 100%; /* Chiều rộng chiếm toàn bộ */
+  box-sizing: border-box; /* Đảm bảo padding không làm vỡ layout */
+  flex:1;
+}
+
+.FREELANCER-MENU-SAU .div {
+    background-color: #fff4fa;
+  overflow: hidden;
+  width: 1920px;
+  height: 2483px;
+  position: absolute;
+}
+
+.FREELANCER-MENU-SAU .hey-there-thinh {
+  position: absolute;
+  height: 94px;
+  top: 233px;
+  left: 418px;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 600;
+  color: #ff3d96;
+  font-size: 48px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.FREELANCER-MENU-SAU .text-wrapper {
+  position: absolute;
+  height: 34px;
+  top: 305px;
+  left: 829px;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 600;
+  color: #000000;
+  font-size: 48px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.FREELANCER-MENU-SAU .talent {
+  display: flex;
+  width: 500px;
+  height: 71px;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  padding: 24px 21px;
+  position: absolute;
+  top: 443px;
+  left: 710px;
+  background-color: #ff3d96;
+  border-radius: 50px;
+}
+.FREELANCER-MENU-SAU .talent:hover{
+  background-color: #e63285;
+
+}
+.FREELANCER-MENU-SAU .sign-in {
+  position: relative;
+  width: fit-content;
+  margin-top: -2.50px;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 700;
+  color: #fff4fa;
+  font-size: 32px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.FREELANCER-MENU-SAU .vector {
+  position: relative;
+  width: 22px;
+  height: 22px;
+}
+.FREELANCER-MENU-SAU .vector-second {
+  position: relative;
+  width: 22px;
+  height: 22px;
+}
+
+
+.FREELANCER-MENU-SAU .talent-2 {
+  display: flex;
+  width: 500px;
+  height: 71px;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  padding: 24px 21px;
+  position: absolute;
+  top: 540px;
+  left: 710px;
+  background-color: #ffffff;
+  border-radius: 50px;
+  border: 10px solid;
+  border-color: #ff0077;
+  
+}
+.FREELANCER-MENU-SAU .talent-2:hover{
+  background-color: #e63285;
+
+}
+.FREELANCER-MENU-SAU .sign-in-2 {
+  position: relative;
+  width: fit-content;
+  margin-top: -2.50px;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 700;
+  color: #ff3d96;
+  font-size: 32px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.FREELANCER-MENU-SAU .searchbar {
+  display: flex;
+  width: 1012px;
+  height: 74px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 21px 0px;
+  position: absolute;
+  top: 828px;
+  left: 454px;
+  background-color: #ffffff;
+  border-radius: 99px;
+  box-shadow: var(--mim);
+}
+.searchbar {
+  display: flex; /* Sử dụng flexbox để căn chỉnh các phần tử */
+  align-items: center; /* Căn giữa theo chiều dọc */
+  background-color: #fff; /* Màu nền trắng */
+  border-radius: 50px; /* Bo tròn giống thiết kế */
+  padding: 10px 20px; /* Khoảng cách nội bộ */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Hiệu ứng bóng */
+}
+
+.search-input {
+  flex: 1; /* Input chiếm toàn bộ không gian còn lại */
+  border: none; /* Xóa viền mặc định */
+  outline: none; /* Xóa viền focus mặc định */
+  font-size: 30px; /* Kích thước chữ */
+  font-family: "Quicksand"; /* Font chữ đồng bộ */
+  color: #7d7d7d; /* Màu chữ */
+  background-color: transparent; /* Nền trong suốt */
+  padding-left: 20px;
+}
+.FREELANCER-MENU-SAU .search-icon {
+width: 52.57px;
+  height: 52.6px;
+ position: relative;
+ right: 30px;
+  cursor: pointer; /* Con trỏ chuột khi hover vào icon */
+}
+
+.FREELANCER-MENU-SAU .img {
+  position: relative;
+  width: 52.57px;
+  height: 52.6px;
+  margin-top: -8.00px;
+  margin-bottom: -8.00px;
+}
+/* General Job Card Styles */
+
+
+
+.FREELANCER-MENU-SAU .frame {
+  
+    flex-direction: row;
+  display: flex;
+  flex-wrap: wrap;
+  width: 1200px;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 19px 20px;
+  padding: 30px 34px;
+  left: 344px;
+  background-color: #FFF0F9;
+  border-radius: 50px;
+  box-shadow: var(--mim);
+  margin-bottom: 40px;
+  position: relative;
+  cursor:pointer
+
+}
+
+
+.FREELANCER-MENU-SAU .frame-2 {
+  display: flex;
+  flex-direction: column;
+  width: 681px;
+  align-items: flex-start;
+  gap: 8px;
+  position: relative;
+  right: 140px;
+}
+
+.FREELANCER-MENU-SAU .text-wrapper-2 {
+  position: relative;
+  align-self: stretch;
+  margin-top: -1.00px;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 600;
+  color: #1d083a;
+  font-size: 28px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.FREELANCER-MENU-SAU .text-wrapper-3 {
+  position: relative;
+  align-self: stretch;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 400;
+  color: #ff3d96;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.FREELANCER-MENU-SAU .frame-3 {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.FREELANCER-MENU-SAU .group {
+  position: relative;
+  width: 84px;
+  height: 32px;
+}
+
+.FREELANCER-MENU-SAU .overlap-group {
+  position: relative;
+  width: 82px;
+  height: 32px;
+}
+
+.FREELANCER-MENU-SAU .img-2 {
+  position: absolute;
+  width: 15px;
+  height: 25px;
+  top: 10px;
+  left: 2px;
+}
+.FREELANCER-MENU-SAU .location{
+  width: 20px;
+ 
+}
+
+.FREELANCER-MENU-SAU .text-wrapper-4 {
+  position: absolute;
+  height: 17px;
+  top: 8px;
+  left: 25px;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 400;
+  color: #ff3d96;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.FREELANCER-MENU-SAU .group-2 {
+  position: relative;
+  width: 289px;
+  height: 32px;
+}
+
+.FREELANCER-MENU-SAU .text-wrapper-5 {
+  position: absolute;
+  height: 17px;
+  top: 8px;
+  left: 32px;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 400;
+  color: #ff3d96;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.FREELANCER-MENU-SAU .group-3 {
+  position: relative;
+  width: 122px;
+  height: 32px;
+}
+
+.FREELANCER-MENU-SAU .text-wrapper-6 {
+  position: relative;
+  align-self: stretch;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 600;
+  color: #ff3d96;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.FREELANCER-MENU-SAU .text-wrapper-7 {
+  position: relative;
+  align-self: stretch;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 400;
+  color: #1d083a;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.FREELANCER-MENU-SAU .group-4 {
+  position: relative;
+  width: 132px;
+  height: 59px;
+}
+
+.FREELANCER-MENU-SAU .ic-round-message-wrapper {
+  position: absolute;
+  width: 59px;
+  height: 59px;
+  top: 0;
+  left: 73px;
+  background-color: #ff3d96;
+  border-radius: 29.5px;
+  box-shadow: var(--med-mim);
+}
+
+.FREELANCER-MENU-SAU .ic-round-message {
+  position: relative;
+  width: 50px;
+  height: 59px;
+  top: 12px;
+  left: 12px;
+}
+
+.FREELANCER-MENU-SAU .vector-2 {
+  position: absolute;
+  width: 30px;
+  top: 25px;
+  left: 15px;
+}
+
+.FREELANCER-MENU-SAU .ic-round-bookmark-wrapper {
+  position: absolute;
+  width: 59px;
+  height: 59px;
+  top: 0;
+  left: 0;
+  background-color: #fff9fd;
+  border-radius: 29.5px;
+  border: 1px solid;
+  border-color: #d4d4d4;
+  box-shadow: var(--med-mim);
+}
+
+.FREELANCER-MENU-SAU .ic-round-bookmark {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  top: 11px;
+  left: 11px;
+}
+
+.FREELANCER-MENU-SAU .text-wrapper-8 {
+  position: relative;
+  width: fit-content;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 400;
+  color: #6c5f7d;
+  font-size: 18px;
+  text-align: right;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.FREELANCER-MENU-SAU .frame-4 {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1012px;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 19px 20px;
+  padding: 30px 34px;
+  position: absolute;
+  top: 1289px;
+  left: 454px;
+  background-color: #fff9fc;
+  border-radius: 50px;
+  box-shadow: var(--mim);
+}
+
+.FREELANCER-MENU-SAU .frame-5 {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1012px;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 19px 20px;
+  padding: 30px 34px;
+  position: absolute;
+  top: 1582px;
+  left: 454px;
+  background-color: #fff9fc;
+  border-radius: 50px;
+  box-shadow: var(--mim);
+}
+
+.FREELANCER-MENU-SAU .frame-6 {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1012px;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 19px 20px;
+  padding: 30px 34px;
+  position: absolute;
+  top: 1875px;
+  left: 454px;
+  background-color: #fff9fc;
+  border-radius: 50px;
+  box-shadow: var(--mim);
+}
+
+.FREELANCER-MENU-SAU .group-5 {
+  position: absolute;
+  width: 1920px;
+  height: 133px;
+  top: 0;
+  left: 0;
+  background-color: #fff0f9;
+  box-shadow: 0px 4px 4px -4px #0c0c0d0d, 0px 16px 32px -4px #0c0c0d1a;
+}
+
+.FREELANCER-MENU-SAU .div-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  position: absolute;
+  top: 55px;
+  left: 539px;
+}
+
+.FREELANCER-MENU-SAU .text-wrapper-9 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1.00px;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 500;
+  color: #ff3d96;
+  font-size: 32px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.FREELANCER-MENU-SAU .frame-7 {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  position: absolute;
+  top: 55px;
+  left: 860px;
+}
+
+.FREELANCER-MENU-SAU .overlap-wrapper {
+  position: absolute;
+  width: 74px;
+  height: 77px;
+  top: 28px;
+  left: 1601px;
+}
+
+.FREELANCER-MENU-SAU .overlap {
+  position: relative;
+  height: 77px;
+}
+
+.FREELANCER-MENU-SAU .avatar {
+  position: absolute;
+  width: 74px;
+  height: 74px;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+}
+
+.FREELANCER-MENU-SAU .overlap-group-wrapper {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  top: 51px;
+  left: 48px;
+  background-color: #f5eeff;
+  border-radius: 12.99px;
+}
+
+.FREELANCER-MENU-SAU .vector-wrapper {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  top: 3px;
+  left: 3px;
+  background-color: #ff3d96;
+  border-radius: 9.87px;
+}
+
+.FREELANCER-MENU-SAU .vector-3 {
+  position: absolute;
+  width: 13px;
+  height: 7px;
+  top: 7px;
+  left: 4px;
+}
+
+.FREELANCER-MENU-SAU .group-6 {
+  position: absolute;
+  width: 58px;
+  height: 58px;
+  top: 37px;
+  left: 1501px;
+  background-color: #ffffff;
+  border-radius: 28.88px;
+}
+
+.FREELANCER-MENU-SAU .overlap-2 {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  top: 4px;
+  left: 11px;
+}
+
+.FREELANCER-MENU-SAU .vector-4 {
+  position: absolute;
+  width: 37px;
+  height: 37px;
+  top: 7px;
+  left: 0;
+}
+
+.FREELANCER-MENU-SAU .huynh-quang-thinh-wrapper {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  top: 0;
+  left: 30px;
+  background-color: #f5eeff;
+  border-radius: 7.12px;
+}
+
+.FREELANCER-MENU-SAU .huynh-quang-thinh {
+  position: relative;
+  width: 11px;
+  height: 11px;
+  top: 2px;
+  left: 2px;
+  background-color: #ff2600;
+  border-radius: 5.41px;
+}
+
+.FREELANCER-MENU-SAU .group-7 {
+  position: absolute;
+  width: 58px;
+  height: 58px;
+  top: 37px;
+  left: 1404px;
+  background-color: #ffffff;
+  border-radius: 28.88px;
+}
+
+.FREELANCER-MENU-SAU .overlap-3 {
+  position: relative;
+  width: 44px;
+  height: 46px;
+  top: 4px;
+  left: 11px;
+}
+
+.FREELANCER-MENU-SAU .vector-5 {
+  position: absolute;
+  width: 37px;
+  height: 46px;
+  top: 1px;
+  left: 0;
+}
+
+.FREELANCER-MENU-SAU .layer {
+  position: absolute;
+  width: 310px;
+  height: 71px;
+  top: 31px;
+  left: 200px;
+}
+
+.FREELANCER-MENU-SAU .page-bottom {
+    position: relative;
+  width: 1922px;
+  height: 438px;
+  top: 2045px;
+  left: 0;
+  padding: 20px;
+  text-align: center;
+
+}
+
+.FREELANCER-MENU-SAU .overlap-4 {
+    position: relative;
+  height: 446px;
+  top: -28px;
+  right:45px;
+  background-image: url(https://c.animaapp.com/guCknj7Q/img/vector-1-1.svg);
+}
+
+.FREELANCER-MENU-SAU .powerful-freelance {
+  position: absolute;
+  width: 420px;
+  height: 77px;
+  top: 239px;
+  left: 224px;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 400;
+  color: #ff3d96;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.FREELANCER-MENU-SAU .layer-2 {
+  position: absolute;
+  width: 377px;
+  height: 86px;
+  top: 132px;
+  left: 224px;
+}
+
+.FREELANCER-MENU-SAU .group-8 {
+  position: absolute;
+  width: 279px;
+  height: 92px;
+  top: 164px;
+  left: 884px;
+}
+
+.FREELANCER-MENU-SAU .text-wrapper-10 {
+  position: absolute;
+  height: 22px;
+  top: 0;
+  left: 0;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 700;
+  color: #ff3d96;
+  font-size: 32px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.FREELANCER-MENU-SAU .text-wrapper-11 {
+  position: absolute;
+  height: 17px;
+  top: 44px;
+  left: 0;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 500;
+  color: #ff3d96;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.FREELANCER-MENU-SAU .text-wrapper-12 {
+  position: absolute;
+  height: 17px;
+  top: 75px;
+  left: 0;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 500;
+  color: #ff3d96;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.FREELANCER-MENU-SAU .group-9 {
+  position: absolute;
+  width: 248px;
+  height: 92px;
+  top: 164px;
+  left: 1214px;
+}
+
+.FREELANCER-MENU-SAU .group-10 {
+  position: absolute;
+  width: 190px;
+  height: 185px;
+  top: 164px;
+  left: 1544px;
+}
+
+.FREELANCER-MENU-SAU .text-wrapper-13 {
+  position: absolute;
+  height: 17px;
+  top: 106px;
+  left: 0;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 500;
+  color: #ff3d96;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.FREELANCER-MENU-SAU .text-wrapper-14 {
+  position: absolute;
+  height: 17px;
+  top: 137px;
+  left: 0;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 500;
+  color: #ff3d96;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.FREELANCER-MENU-SAU .text-wrapper-15 {
+  position: absolute;
+  height: 17px;
+  top: 168px;
+  left: 0;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 500;
+  color: #ff3d96;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.FREELANCER-MENU-SAU .copyright {
+  position: absolute;
+  width: 1922px;
+  height: 59px;
+  top: 387px;
+  left: 24px;
+}
+
+.FREELANCER-MENU-SAU .overlap-group-2 {
+  position: relative;
+  width: 1920px;
+  height: 59px;
+  background-color: #fff0f9;
+}
+
+.FREELANCER-MENU-SAU .text-wrapper-16 {
+  position: absolute;
+  height: 17px;
+  top: 21px;
+  left: 737px;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 500;
+  color: #ff3d96;
+  font-size: 24px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+.FREELANCER-MENU-SAU .joinnow-button-2 {
+  padding: 20px 46px 20px 45px;
+  width: 500px;
+height: 71px;
+  background-color: #ff3d96;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: absolute;
+  border-radius: 50px;
+  overflow: hidden;
+}
+.FREELANCER-MENU-SAU .joinnow-button-3 {
+  padding: 20px 46px 20px 45px;
+  width: 500px;
+height: 71px;
+  background-color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: absolute;
+  border-radius: 50px;
+  overflow: hidden;
+}
+.FREELANCER-MENU-SAU .joinnow-button-4 {
+  padding: 20px 46px 20px 45px;
+  width: 59px;
+height: 59px;
+  background-color: #ff3d96;;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: absolute;
+  border-radius: 50px;
+  overflow: hidden;
+}
+.FREELANCER-MENU-SAU .joinnow-button-5{
+  padding: 20px 46px 20px 45px;
+  width: 59px;
+height: 59px;
+  background-color: #ffffff;;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: absolute;
+  border-radius: 50px;
+  overflow: hidden;
+}
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #ff3d96;
+}
+
+button#save-changes {
+  background-color: #ff3d96;
+  color: #fff;
+  font-size: 32px;
+  font-weight: bold;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-family: "Quicksand";
+}
+button#save-changes2 {
+  color: #ff3d96;
+  font-size: 32px;
+  font-weight: bold;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-family: "Quicksand";
+}
+button#save-changes3 {
+  color: #ff3d96;
+  font-size: 32px;
+  font-weight: bold;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-family: "Quicksand";
+}
+button#save-changes4 {
+  color: #776d6d;
+  font-size: 32px;
+  font-weight: bold;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-family: "Quicksand";
+}
+button#save-changes:hover {
+  background-color: #e63285;
+}
+button#save-changes2:hover{
+  background-color: #ebebeb;
+}
+button#save-changes3:hover{
+  background-color: #e63285;
+}
+button#save-changes4:hover{
+  background-color: #e9e9e9;
+}
+
+.FREELANCER-MENU-SAU .logo-avatar-for{
+  position: relative;
+  right:160px;
+  top:20px;
+  width: 100px;
+}
+/* Modal Container */
+/* Modal Background */
+.modal {
+  display: none; /* Ẩn modal ban đầu */
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4); /* Màu nền tối */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto; /* Căn giữa dọc */
+  padding: 20px;
+  border-radius: 15px;
+  width: 400px; /* Chiều rộng modal */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+  font-family: "Quicksand";
+
+}
+
+/* Close Button */
+.close-button {
+  color: #ff3d96;
+  font-size: 20px;
+  font-weight: bold;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+}
+
+/* Logo in Modal */
+.modal-logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+/* Modal Title */
+#modal-title {
+  font-family: "Quicksand";
+  font-size: 20px;
+  color: #1d083a;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* Modal Description (TextArea) */
+#modal-description {
+  width: 100%;
+  height: 80px;
+  border: 1px solid #e3e3e3;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 15px;
+  font-family: "Quicksand";
+  font-size: 14px;
+  resize: none;
+  color: #1d083a;
+}
+
+/* Modal Skills Input */
+#modal-skills {
+  width: 100%;
+  height: 40px;
+  border: 1px solid #e3e3e3;
+  border-radius: 10px;
+  padding: 10px;
+  font-family: "Quicksand";
+  font-size: 14px;
+  color: #1d083a;
+  margin-bottom: 20px;
+}
+
+/* Apply Button */
+.apply-button {
+  background-color: #ff3d96;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: "Quicksand";
+
+}
+
+.apply-button:hover {
+  background-color: #e63285;
+}
+p{
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="FREELANCER-MENU-SAU">
+      <div class="div">
+        <div class="text-wrapper">
+          <h1>Applied Jobs</h1>
+        </div>
+       
+     
+    
+        <div class="group-5">
+          <div class="div-wrapper"><div class="text-wrapper-9">Recruit Freelancers</div></div>
+          <div class="frame-7"><div class="text-wrapper-9">Explore Jobs</div></div>
+          <div class="overlap-wrapper">
+            <div class="overlap">
+              <img class="avatar" src="https://c.animaapp.com/guCknj7Q/img/avatar@2x.png" />
+              <div class="overlap-group-wrapper">
+                <div class="vector-wrapper">
+                  <img class="vector-3" src="https://c.animaapp.com/guCknj7Q/img/vector-7.svg" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="group-6">
+            <div class="overlap-2">
+              <img class="vector-4" src="https://c.animaapp.com/guCknj7Q/img/vector-8.svg" />
+              <div class="huynh-quang-thinh-wrapper"><div class="huynh-quang-thinh"></div></div>
+            </div>
+          </div>
+          <div class="group-7">
+            <div class="overlap-3">
+              <img class="vector-5" src="https://c.animaapp.com/guCknj7Q/img/vector-9.svg" />
+              <div class="huynh-quang-thinh-wrapper"><div class="huynh-quang-thinh"></div></div>
+            </div>
+          </div>
+          <img class="layer" src="https://c.animaapp.com/guCknj7Q/img/layer-3@2x.png" />
+        </div>
+        <div id="job-modal" class="modal">
+          <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <img id="modal-logo" class="modal-logo" alt="Job Logo">
+            <h2 id="modal-title">[Job Title]</h2>
+            <p><strong>Project Description:</strong></p>
+            <textarea id="modal-description" readonly></textarea>
+            <p><strong>Skills Required:</strong></p>
+            <input id="modal-skills" type="text" readonly>
+            <button id="apply-button" class="apply-button">Apply</button>
+          </div>
+        </div>
+        
+        <div class="page-bottom">
+          <div class="overlap-4">
+            <p class="powerful-freelance">
+              Powerful Freelance Marketplace System with ability to change the Users (Freelancers &amp; Clients)
+            </p>
+            <img class="layer-2" src="https://c.animaapp.com/guCknj7Q/img/layer-3-1@2x.png" />
+            <div class="group-8">
+              <div class="text-wrapper-10">For Clients</div>
+              <div class="text-wrapper-11">How BubbleBurst Works</div>
+              <div class="text-wrapper-12">Trust &amp; Safety</div>
+            </div>
+            <div class="group-9">
+              <div class="text-wrapper-10">For Freelancers</div>
+              <div class="text-wrapper-11">Become a Freelancer</div>
+              <div class="text-wrapper-12">Guides</div>
+            </div>
+            <div class="group-10">
+              <div class="text-wrapper-10">Company</div>
+              <div class="text-wrapper-11">About us</div>
+              <div class="text-wrapper-12">Help &amp; Support</div>
+              <a href="https://www.fiverr.com/legal-portal?source=footer" target="_blank" rel="noopener noreferrer"
+                ><div class="text-wrapper-13">Term of Service</div></a
+              >
+              <div class="text-wrapper-14">Privacy Policy</div>
+              <div class="text-wrapper-15">Invite a Friend</div>
+            </div>
+            <div class="copyright">
+              <div class="overlap-group-2"><p class="text-wrapper-16">© 2024 BubbleBurst. All rights reserved.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+const divContainer = document.querySelector(".div");
+
+// Danh sách các job card
+const jobs = [
+  {
+    title: "Data Visualization Project",
+    company: "DataWorks Inc.",
+    salary: "$1,000",
+    applications: "5 applications received",
+    location: "Remote",
+    description: "Create interactive dashboards using Power BI.",
+    skills: "Power BI, SQL",
+    date: "December 13, 2024 at 10:35 AM",
+    logo: "https://c.animaapp.com/guCknj7Q/img/logo-avatar-for-dataworks-inc--3@2x.png",
+  },
+  {
+    title: "Frontend Developer",
+    company: "TechFlow Inc.",
+    salary: "$2,500",
+    applications: "8 applications received",
+    location: "Hybrid",
+    description: "Build and optimize user interfaces using React.js.",
+    skills: "React.js, JavaScript, CSS",
+    date: "December 12, 2024 at 9:00 AM",
+    logo: "https://c.animaapp.com/guCknj7Q/img/logo-avatar-for-dataworks-inc--3@2x.png",
+  },
+  {
+    title: "Backend Engineer",
+    company: "Cloud Solutions Ltd.",
+    salary: "$3,000",
+    applications: "12 applications received",
+    location: "Remote",
+    description: "Develop scalable APIs and cloud-based solutions.",
+    skills: "Node.js, API Development, Cloud Services",
+    logo: "https://c.animaapp.com/guCknj7Q/img/logo-avatar-for-dataworks-inc--3@2x.png",
+  },
+  {
+    title: "UX/UI Designer",
+    company: "CreativeWorks Studio",
+    salary: "$1,800",
+    applications: "4 applications received",
+    location: "On-site",
+    description: "Design user-friendly interfaces and experiences.",
+    skills: "Figma, Adobe XD, User Research",
+    date: "December 10, 2024 at 2:00 PM",
+    logo: "https://c.animaapp.com/guCknj7Q/img/logo-avatar-for-dataworks-inc--3@2x.png",
+  },
+];
+
+// Tạo modal (popup)
+const modalHTML = `
+  <div id="job-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <img id="modal-logo" class="modal-logo" alt="Job Logo">
+      <h2 id="modal-title"></h2>
+      <p><strong>Project Description:</strong></p>
+      <textarea id="modal-description" readonly></textarea>
+      <p><strong>Skills Required:</strong></p>
+      <input id="modal-skills" type="text" readonly>
+      <button id="apply-button" class="apply-button">Apply</button>
+    </div>
+  </div>
+`;
+
+// Thêm modal vào body
+document.body.insertAdjacentHTML("beforeend", modalHTML);
+
+// Các biến để xử lý modal
+const modal = document.getElementById("job-modal");
+const closeButton = document.querySelector(".close-button");
+const applyButton = document.getElementById("apply-button");
+
+// Lưu trữ thông tin job hiện tại trong modal
+let currentJobCard = null; // Thẻ job card hiện tại
+
+// Hàm mở modal
+function openModal(job, jobCard) {
+  currentJobCard = jobCard; // Ghi lại thẻ job card hiện tại
+  document.getElementById("modal-logo").src = job.logo;
+  document.getElementById("modal-title").textContent = `Apply for ${job.title}`;
+  document.getElementById("modal-description").value = job.description;
+  document.getElementById("modal-skills").value = job.skills;
+
+  modal.style.display = "block";
+}
+
+// Hàm đóng modal
+function closeModal() {
+  modal.style.display = "none";
+  currentJobCard = null; // Reset thẻ job card
+}
+
+// Thêm sự kiện đóng modal
+closeButton.addEventListener("click", closeModal);
+
+// Đóng modal khi click bên ngoài modal
+window.addEventListener("click", (event) => {
+  if (event.target === modal) {
+    closeModal();
+  }
+});
+
+// Thêm sự kiện vào nút Apply
+applyButton.addEventListener("click", () => {
+  if (currentJobCard) {
+    alert("Your application has been submitted successfully!");
+    currentJobCard.remove(); // Xóa job card khỏi giao diện
+    closeModal();
+  }
+});
+
+// Tạo và thêm từng job card vào bên trong thẻ .div
+jobs.forEach((job) => {
+  const jobCard = document.createElement("div");
+  jobCard.className = "frame";
+
+  jobCard.innerHTML = `
+    <img class="logo-avatar-for" src="${job.logo}" alt="Company Logo" />
+    <div class="frame-2">
+      <div class="text-wrapper-2">${job.title}</div>
+      <div class="text-wrapper-3">${job.company}</div>
+      <div class="frame-3">
+        <div class="group">
+          <img class="img-2 money" src="./img/Vector (3).png" alt="Salary Icon" />
+          <div class="text-wrapper-4">${job.salary}</div>
+        </div>
+        <div class="group-2">
+          <img class="img-2" src="./img/Vector (4).png" alt="Applications Icon" />
+          <div class="text-wrapper-5">${job.applications}</div>
+        </div>
+        <div class="group-3">
+          <img class="img-2 location" src="./img/Vector (5).png" alt="Location Icon" />
+          <div class="text-wrapper-5">${job.location}</div>
+        </div>
+      </div>
+      <div class="text-wrapper-6">Description:</div>
+      <p class="text-wrapper-7">${job.description}</p>
+    </div>
+    <div class="group-4">
+      <div class="ic-round-message-wrapper">
+        <img class="vector-2" src="./img/Vector (2).png" alt="Message Icon" />
+      </div>
+    
+    </div>
+  `;
+  // Thêm sự kiện click để mở modal
+  jobCard.addEventListener("click", () => openModal(job, jobCard));
+
+  // Thêm job card vào thẻ .div
+  divContainer.appendChild(jobCard);
+});
+
+
+  </script>
+</html>
