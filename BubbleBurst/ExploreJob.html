@@ -647,7 +647,7 @@ width: 52.57px;
 
 .FREELANCER-MENU-SAU .page-bottom {
     position: relative;
-  width: 1922px;
+  width: 2022px;
   height: 438px;
   top: 2445px;
   left: 0;
@@ -1231,16 +1231,11 @@ document.body.insertAdjacentHTML("beforeend", modalHTML);
 // Các biến để xử lý modal
 const modal = document.getElementById("job-modal");
 const closeButton = document.querySelector(".close-button");
-const applyButton = document.getElementById("apply-button");
-
-// Lưu trữ thông tin job hiện tại trong modal
-let currentJobCard = null; // Thẻ job card hiện tại
 
 // Hàm mở modal
-function openModal(job, jobCard) {
-  currentJobCard = jobCard; // Ghi lại thẻ job card hiện tại
+function openModal(job) {
   document.getElementById("modal-logo").src = job.logo;
-  document.getElementById("modal-title").textContent = `Apply for ${job.title}`;
+  document.getElementById("modal-title").textContent = ` ${job.title}`;
   document.getElementById("modal-description").value = job.description;
   document.getElementById("modal-skills").value = job.skills;
 
@@ -1250,7 +1245,6 @@ function openModal(job, jobCard) {
 // Hàm đóng modal
 function closeModal() {
   modal.style.display = "none";
-  currentJobCard = null; // Reset thẻ job card
 }
 
 // Thêm sự kiện đóng modal
@@ -1259,15 +1253,6 @@ closeButton.addEventListener("click", closeModal);
 // Đóng modal khi click bên ngoài modal
 window.addEventListener("click", (event) => {
   if (event.target === modal) {
-    closeModal();
-  }
-});
-
-// Thêm sự kiện vào nút Apply
-applyButton.addEventListener("click", () => {
-  if (currentJobCard) {
-    alert("Your application has been submitted successfully!");
-    currentJobCard.remove(); // Xóa job card khỏi giao diện
     closeModal();
   }
 });
@@ -1301,22 +1286,33 @@ jobs.forEach((job) => {
     </div>
     <div class="group-4">
       <div class="ic-round-message-wrapper">
-        <img class="vector-2" src="https://c.animaapp.com/guCknj7Q/img/vector-6.svg" alt="Message Icon" />
+        <button id="save-changes3" class="no-popup-button joinnow-button-4">
+          <img class="vector-2" src="https://c.animaapp.com/guCknj7Q/img/vector-6.svg" alt="Message Icon" />
+        </button> 
       </div>
       <div class="ic-round-bookmark-wrapper">
-        <img class="ic-round-bookmark" src="https://c.animaapp.com/guCknj7Q/img/ic-round-bookmark-border.svg" alt="Bookmark Icon" />
+        <button id ="save-changes4" class="no-popup-button joinnow-button-5">
+          <img class="ic-round-bookmark" src="https://c.animaapp.com/guCknj7Q/img/ic-round-bookmark-border.svg" alt="Bookmark Icon" />
+        </button> 
       </div>
     </div>
     <p class="text-wrapper-8">${job.date}</p>
   `;
 
+  // Ngăn việc mở modal khi click vào các nút trong group-4
+  const noPopupButtons = jobCard.querySelectorAll(".no-popup-button");
+  noPopupButtons.forEach((button) => {
+    button.addEventListener("click", (event) => {
+      event.stopPropagation(); // Ngăn sự kiện click lan đến jobCard
+      alert("Button clicked!"); // Thông báo khi click vào nút
+    });
+  });
+
   // Thêm sự kiện click để mở modal
-  jobCard.addEventListener("click", () => openModal(job, jobCard));
+  jobCard.addEventListener("click", () => openModal(job));
 
   // Thêm job card vào thẻ .div
   divContainer.appendChild(jobCard);
 });
-
-
-  </script>
+</script>
 </html>
