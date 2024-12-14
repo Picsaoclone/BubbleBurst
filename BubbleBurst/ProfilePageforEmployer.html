@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="./css/index.css">
+    <link rel="stylesheet" type="text/css" href="./css/font.css">
+    <link rel="stylesheet" type="text/css" href="./css/styles.css">
+    <link rel="stylesheet" type="text/css" href="./css/components.css">
+    <style>
+        :root {
+  --mim: 0px 1px 9.399999618530273px 0px rgba(140, 103, 122, 0.29);
+  --lower-mim: 0px 1px 1.2999999523162842px 0px rgba(140, 103, 122, 0.05);
+  --med-mim: 0px 0px 2.9000000953674316px 0px rgba(140, 103, 122, 0.12);
+  --collection-1-color: rgba(255, 61, 150, 1);
+  --collection-1-color-2: rgba(214, 5, 110, 1);
+  --collection-1-color-3: rgba(15, 2, 35, 1);
+  --collection-1-color-4: rgba(29, 8, 58, 1);
+  --collection-1-color-5: rgba(3, 0, 89, 1);
+  --collection-1-color-6: rgba(0, 0, 130, 1);
+  --collection-1-color-7: rgba(255, 240, 249, 1);
+  --collection-1-stroke: rgba(176, 149, 163, 0.5);
+  --collection-1-shape-stroke: rgba(176, 149, 163, 0.23);
+}
+body{
+    font-family: "Quicksand";
+}
+.profile-view {
+  background-color: #fff4fa;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.profile-view .div {
+  background-color: #EADBFF;
+  overflow: hidden;
+  width: 1920px;
+  height: 2034px;
+  position: absolute;
+}
+
+.profile-view .overlap {
+  position: absolute;
+  width: 1920px;
+  height: 133px;
+  top: 0;
+  left: 0;
+}
+
+.profile-view .group {
+  position: absolute;
+  width: 1920px;
+  height: 133px;
+  top: 0;
+  left: 0;
+  background-color: #fff0f9;
+  box-shadow: 0px 4px 4px -4px #0c0c0d0d, 0px 16px 32px -4px #0c0c0d1a;
+}
+
+.profile-view .frame {
+  display: inline-flex;
+  gap: 5px;
+  top: 55px;
+  left: 539px;
+  align-items: center;
+  position: absolute;
+}
+
+.profile-view .text-wrapper {
+  position: relative;
+  width: fit-content;
+  margin-top: -1.00px;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 500;
+  color: #6439A1;
+  font-size: 32px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.profile-view .div-wrapper {
+  display: inline-flex;
+  gap: 5px;
+  top: 55px;
+  left: 860px;
+  align-items: center;
+  position: absolute;
+}
+
+.profile-view .overlap-wrapper {
+  position: absolute;
+  width: 74px;
+  height: 77px;
+  top: 28px;
+  left: 1601px;
+}
+
+.profile-view .overlap-group {
+  position: relative;
+  height: 77px;
+}
+
+.profile-view .avatar {
+  position: absolute;
+  width: 74px;
+  height: 74px;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+}
+
+.profile-view .overlap-group-wrapper {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  top: 51px;
+  left: 48px;
+  background-color: #fff0f9;
+  border-radius: 12.99px;
+}
+
+.profile-view .vector-wrapper {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  top: 3px;
+  left: 3px;
+  background-color: #6439A1;
+  border-radius: 9.87px;
+}
+
+.profile-view .vector {
+  position: absolute;
+  width: 13px;
+  height: 7px;
+  top: 7px;
+  left: 4px;
+}
+
+.profile-view .group-2 {
+  position: absolute;
+  width: 58px;
+  height: 58px;
+  top: 37px;
+  left: 1501px;
+  background-color: #ffffff;
+  border-radius: 28.88px;
+}
+
+.profile-view .overlap-2 {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  top: 4px;
+  left: 11px;
+}
+
+.profile-view .img {
+  height: 37px;
+  top: 7px;
+  position: absolute;
+  width: 37px;
+  left: 0;
+}
+
+.profile-view .huynh-quang-thinh-wrapper {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  top: 0;
+  left: 30px;
+  background-color: #fff0f9;
+  border-radius: 7.12px;
+}
+
+.profile-view .huynh-quang-thinh {
+  position: relative;
+  width: 11px;
+  height: 11px;
+  top: 2px;
+  left: 2px;
+  background-color: #ff2600;
+  border-radius: 5.41px;
+}
+
+.profile-view .group-3 {
+  position: absolute;
+  width: 58px;
+  height: 58px;
+  top: 37px;
+  left: 1404px;
+  background-color: #ffffff;
+  border-radius: 28.88px;
+}
+
+.profile-view .overlap-3 {
+  position: relative;
+  width: 44px;
+  height: 46px;
+  top: 4px;
+  left: 11px;
+}
+
+.profile-view .vector-2 {
+  height: 46px;
+  top: 1px;
+  position: absolute;
+  width: 37px;
+  left: 0;
+}
+
+.profile-view .layer {
+  position: absolute;
+  width: 310px;
+  height: 71px;
+  top: 31px;
+  left: 200px;
+}
+
+.profile-view .group-4 {
+  position: absolute;
+  width: 792px;
+  height: 140px;
+  top: 245px;
+  left: 422px;
+}
+
+.profile-view .avatar-2 {
+  width: 140px;
+  height: 140px;
+  border-radius: 70px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #6439A1;
+  box-shadow: var(--lower-mim);
+}
+
+.profile-view .frame-2 {
+  display: inline-flex;
+  gap: 17px;
+  top: 46px;
+  left: 155px;
+  align-items: center;
+  position: absolute;
+}
+
+.profile-view .text-wrapper-2 {
+  position: relative;
+  width: fit-content;
+  font-family: "Quicksand";
+  font-weight: 600;
+  color: #1d083a;
+  font-size: 40px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+.SORT {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 20px;
+  padding-right: 2px;
+  position: relative;
+  background-color: #fff9fd;
+  border-radius: 62px;
+  border: 2px solid var(--collection-1-shape-stroke);
+  box-shadow: var(--lower-mim);
+  cursor: pointer;
+}
+.SORT select.dropdown {
+  appearance: none; /* Xóa kiểu mặc định của dropdown */
+  background-color: transparent; /* Nền trong suốt để hòa vào thiết kế */
+  border: none; /* Xóa viền mặc định */
+  font-family: "Quicksand", Helvetica, sans-serif;
+  font-size: 25px;
+  font-weight: 500;
+  color: #1d083a;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+  text-align: center;
+}
+
+
+/* Hiệu ứng hover */
+.SORT:hover {
+  background-color: #f3e7f3;
+}
+.ic-round-expand-more {
+  position: absolute;
+  right: 10px;
+  pointer-events: none;
+}
+
+.profile-view .text-wrapper-3 {
+  position: relative;
+  width: fit-content;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 500;
+  color: #1d083a;
+  font-size: 28px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.profile-view .ic-round-expand-more {
+  position: relative;
+  width: 32px;
+  height: 32px;
+}
+
+.profile-view .text-wrapper-4 {
+  position: absolute;
+  height: 17px;
+  top: 23px;
+  left: 155px;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 500;
+  color: #8c677a;
+  font-size: 24px;
+  letter-spacing: 9.60px;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.profile-view .group-5 {
+  position: absolute;
+  width: 551px;
+  height: 88px;
+  top: 429px;
+  left: 685px;
+}
+
+.profile-view .avatar-3 {
+  width: 88px;
+  height: 88px;
+  border-radius: 44px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #6439A1;
+  box-shadow: var(--lower-mim);
+}
+.avatar-3{
+    
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background-color: #6439A1; /* Màu nền mặc định nếu không có ảnh */
+  background-size: cover; /* Đảm bảo ảnh lấp đầy vùng hiển thị */
+  background-position: center; /* Căn giữa ảnh */
+  box-shadow: var(--lower-mim);
+
+}
+.profile-view .joinnow-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px 21px 20px 20px;
+  position: absolute;
+  top: 14px;
+  left: 115px;
+  background-color: #fffafd;
+  border-radius: 50px;
+  overflow: hidden;
+  border: 2px solid;
+  border-color: var(--collection-1-shape-stroke);
+  box-shadow: var(--lower-mim);
+}
+
+.profile-view .text-wrapper-5 {
+  position: relative;
+  width: fit-content;
+  margin-top: -2.00px;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 600;
+  color: #1d083a;
+  font-size: 28px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.profile-view .button {
+  all: unset;
+  box-sizing: border-box;
+  padding: 20px 21px 20px 20px;
+  top: 14px;
+  left: 423px;
+  background-color: #fffafd;
+  border: 2px solid;
+  border-color: var(--collection-1-shape-stroke);
+  box-shadow: var(--lower-mim);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: absolute;
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.profile-view .project-title {
+  position: absolute;
+  width: 1078px;
+  height: 96px;
+  top: 561px;
+  left: 422px;
+}
+
+.profile-view .text-wrapper-6 {
+  position: absolute;
+  width: 804px;
+  height: 22px;
+  top: 0;
+  left: 14px;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 600;
+  color: #1d083a;
+  font-size: 32px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.profile-view .frame-3 {
+  display: flex;
+  width: 1076px;
+  height: 55px;
+  gap: 10px;
+  padding: 17px 27px;
+  top: 41px;
+  left: 0;
+  background-color: #ffffff;
+  border-radius: 18px;
+  border: 2px solid;
+  border-color: #b095a23b;
+  box-shadow: var(--mim);
+  align-items: center;
+  position: absolute;
+}
+
+/* .profile-view .text-wrapper-7 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1.50px;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 500;
+  color: #1d083a;
+  font-size: 28px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+} */
+
+.profile-view .project-title-2 {
+  position: absolute;
+  width: 1078px;
+  height: 96px;
+  top: 701px;
+  left: 422px;
+}
+
+.profile-view .text-wrapper-8 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1.50px;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 500;
+  color: #b095a2;
+  font-size: 28px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.profile-view .project-title-3 {
+  position: absolute;
+  width: 1078px;
+  height: 96px;
+  top: 981px;
+  left: 422px;
+}
+
+.profile-view .project-title-4 {
+  position: absolute;
+  width: 1078px;
+  height: 317px;
+  top: 1121px;
+  left: 422px;
+}
+
+.profile-view .frame-4 {
+  width: 1076px;
+  height: 276px;
+  align-items: flex-start;
+  gap: 10px;
+  top: 41px;
+  display: flex;
+  padding: 17px 27px;
+  position: absolute;
+  left: 0;
+  background-color: #ffffff;
+  border-radius: 18px;
+  border: 2px solid;
+  border-color: #b095a23b;
+  box-shadow: var(--mim);
+}
+
+.profile-view .text-wrapper-9 {
+  position: relative;
+  width: fit-content;
+  margin-top: -2.00px;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 500;
+  color: #b095a2;
+  font-size: 28px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+
+
+
+
+.profile-view .project-title-7 {
+  position: absolute;
+  width: 523px;
+  height: 96px;
+  top: 841px;
+  left: 422px;
+}
+
+.profile-view .text-wrapper-10 {
+  position: absolute;
+  height: 22px;
+  top: 0;
+  left: 14px;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 600;
+  color: #1d083a;
+  font-size: 32px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.profile-view .frame-5 {
+  width: 521px;
+  height: 55px;
+  align-items: center;
+  gap: 10px;
+  top: 41px;
+  display: flex;
+  padding: 17px 27px;
+  position: absolute;
+  left: 0;
+  background-color: #ffffff;
+  border-radius: 18px;
+  border: 2px solid;
+  border-color: #b095a23b;
+  box-shadow: var(--mim);
+}
+
+.profile-view .project-title-8 {
+  position: absolute;
+  width: 523px;
+  height: 96px;
+  top: 841px;
+  left: 977px;
+}
+
+.profile-view .frame-6 {
+  width: 521px;
+  height: 55px;
+  align-items: center;
+  gap: 4px;
+  top: 41px;
+  display: flex;
+  padding: 17px 27px;
+  position: absolute;
+  left: 0;
+  background-color: #ffffff;
+  border-radius: 18px;
+  border: 2px solid;
+  border-color: #b095a23b;
+  box-shadow: var(--mim);
+}
+.frame-6 input {
+  flex: 1; /* Đảm bảo input chiếm hết không gian trong khung */
+  border: none; /* Xóa viền mặc định */
+  outline: none; /* Xóa viền focus mặc định */
+  font-family:"Quicksand", Helvetica; /* Đồng bộ font chữ */
+  font-size: 25px; /* Đồng bộ kích thước chữ */
+  color: #1d083a; /* Đồng bộ màu chữ */
+  padding: 5px; /* Khoảng cách bên trong */
+  background-color: transparent; /* Đảm bảo input hòa quyện với khung cha */
+}
+.frame-6 input:focus {
+  border: none; /* Xóa viền focus mặc định */
+  outline: none; /* Xóa outline focus */
+  box-shadow: none; /* Xóa bóng khi focus */
+}
+
+.profile-view .ic-round-expand-more-2 {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  margin-top: -1.50px;
+  margin-bottom: -1.50px;
+}
+
+.profile-view .text-wrapper-11 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1.50px;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 500;
+  color: #b095a3;
+  font-size: 28px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.profile-view .group-6 {
+  position: absolute;
+  width: 1076px;
+  height: 96px;
+  top: 2204px;
+  left: 422px;
+}
+
+.profile-view .project-title-9 {
+  position: absolute;
+  width: 518px;
+  height: 96px;
+  top: 0;
+  left: 0;
+}
+
+.profile-view .frame-7 {
+  width: 516px;
+  height: 55px;
+  align-items: center;
+  gap: 10px;
+  top: 41px;
+  display: flex;
+  padding: 17px 27px;
+  position: absolute;
+  left: 0;
+  background-color: #ffffff;
+  border-radius: 18px;
+  border: 2px solid;
+  border-color: #b095a23b;
+  box-shadow: var(--mim);
+}
+
+.profile-view .project-title-10 {
+  position: absolute;
+  width: 518px;
+  height: 96px;
+  top: 0;
+  left: 560px;
+}
+
+.profile-view .overlap-group-2 {
+  position: absolute;
+  width: 516px;
+  height: 55px;
+  top: 41px;
+  left: 0;
+  border-radius: 18px;
+}
+
+.profile-view .frame-8 {
+  width: 516px;
+  height: 55px;
+  align-items: center;  
+  gap: 10px;
+  top: 40px;
+  display: flex;
+  padding: 10px 27px;
+  position: absolute;
+  left: 0;
+  background-color: #ffffff;
+  border-radius: 18px;
+  border: 2px solid;
+  border-color: #b095a23b;
+  box-shadow: var(--mim);
+}
+
+.profile-view .text-wrapper-12 {
+  position: relative;
+  width: 264px;
+  margin-top: -1.50px;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 500;
+  color: #b095a2;
+  font-size: 28px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.profile-view .ic-round-expand-more-3 {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  top: 12px;
+  left: 468px;
+}
+
+.profile-view .joinnow-button-2 {
+  padding: 20px 46px 20px 45px;
+  top: 1470px;
+  left: 1250px;
+  background-color: #6439A1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: absolute;
+  border-radius: 50px;
+  overflow: hidden;
+}
+.project-title,
+.project-title-2,
+.project-title-3,
+.project-title-4,
+.project-title-7,
+.project-title-8,
+.project-title-9,
+.project-title-10 {
+  margin-bottom: 20px;
+}
+
+.project-title label,
+.project-title-2 label,
+.project-title-3 label,
+.project-title-4 label {
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  color: #1d083a;
+  margin-bottom: 5px;
+  
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 10px 15px;
+  font-size: 25px;
+  font-family: "Quicksand", Helvetica;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  outline: none;
+  box-shadow: var(--lower-mim);
+  border-color: transparent; /* Loại bỏ màu viền khi focus */
+  box-shadow: none;
+}
+
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #6439A1;
+}
+
+button#save-changes {
+  background-color: #6439A1;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button#save-changes:hover {
+  background-color: #e63285;
+}
+
+.profile-view .text-wrapper-13 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1.00px;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 28px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=Quicksand:400,500,700,600");
+* {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0px;
+  height: 100%;
+}
+/* a blue color as a generic focus style */
+button:focus-visible {
+  outline: 2px solid #4a90e2 !important;
+  outline: -webkit-focus-ring-color auto 5px !important;
+}
+a {
+  text-decoration: none;
+}
+
+.profile-view .page-bottom {
+  position: absolute;
+  width: 1922px;
+  height: 438px;
+  top: 1595px;
+  left: 0;
+}
+
+.profile-view .overlap-4 {
+  position: relative;
+  height: 446px;
+  top: -8px;
+}
+
+.profile-view .vector-3 {
+  position: absolute;
+  width: 1920px;
+  height: 446px;
+  top: 0;
+  left: 0;
+}
+
+.profile-view .powerful-freelance {
+  position: absolute;
+  width: 420px;
+  height: 77px;
+  top: 239px;
+  left: 200px;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 400;
+  color: #6439A1;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.profile-view .layer-2 {
+  position: absolute;
+  width: 377px;
+  height: 86px;
+  top: 132px;
+  left: 200px;
+}
+
+.profile-view .group-7 {
+  position: absolute;
+  width: 279px;
+  height: 92px;
+  top: 164px;
+  left: 860px;
+}
+
+.profile-view .text-wrapper-14 {
+  position: absolute;
+  height: 22px;
+  top: 0;
+  left: 0;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 700;
+  color: #6439A1;
+  font-size: 32px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.profile-view .text-wrapper-15 {
+  position: absolute;
+  height: 17px;
+  top: 44px;
+  left: 0;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 500;
+  color: #6439A1;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.profile-view .text-wrapper-16 {
+  position: absolute;
+  height: 17px;
+  top: 75px;
+  left: 0;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 500;
+  color: #6439A1;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.profile-view .group-8 {
+  position: absolute;
+  width: 248px;
+  height: 92px;
+  top: 164px;
+  left: 1190px;
+}
+
+.profile-view .group-9 {
+  position: absolute;
+  width: 190px;
+  height: 185px;
+  top: 164px;
+  left: 1520px;
+}
+
+.profile-view .text-wrapper-17 {
+  position: absolute;
+  height: 17px;
+  top: 106px;
+  left: 0;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 500;
+  color: #6439A1;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.profile-view .text-wrapper-18 {
+  position: absolute;
+  height: 17px;
+  top: 137px;
+  left: 0;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 500;
+  color: #6439A1;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.profile-view .text-wrapper-19 {
+  position: absolute;
+  height: 17px;
+  top: 168px;
+  left: 0;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 500;
+  color: #6439A1;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.profile-view .copyright {
+  position: absolute;
+  width: 1922px;
+  height: 59px;
+  top: 387px;
+  left: 0;
+}
+
+.profile-view .overlap-group-3 {
+  position: relative;
+  width: 1920px;
+  height: 59px;
+  background-color: #fff0f9;
+}
+
+.profile-view .p {
+  position: absolute;
+  height: 17px;
+  top: 21px;
+  left: 737px;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 500;
+  color: #6439A1;
+  font-size: 24px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+.upload-button {
+  position: absolute;
+  right: 860px;
+}
+
+.upload-button input[type="file"] {
+  display: none; /* Ẩn input file */
+}
+
+.upload-button label.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px 21px;
+  background-color: #fffafd;
+  border-radius: 50px;
+  border: 2px solid var(--collection-1-shape-stroke);
+  box-shadow: var(--lower-mim);
+  cursor: pointer;
+}
+
+.upload-button label.button:hover {
+  background-color: #f3e7f3; /* Hiệu ứng hover */
+}
+
+.upload-button label.button .text-wrapper-5 {
+  font-family: "Quicksand", Helvetica;
+  font-weight: 600;
+  color: #1d083a;
+  font-size: 28px;
+  text-align: center;
+  white-space: nowrap;
+}
+    </style>
+  </head>
+  <body>
+    <div class="profile-view">
+      <div class="div">
+        <div class="overlap">
+          <div class="group">
+            <div class="frame"><div class="text-wrapper">Recruit Freelancers</div></div>
+            <div class="div-wrapper"><div class="text-wrapper">Explore Jobs</div></div>
+            <div class="overlap-wrapper">
+              <div class="overlap-group">
+                <img class="avatar" src="https://c.animaapp.com/eKaXFwfJ/img/avatar@2x.png" />
+                <div class="overlap-group-wrapper">
+                  <div class="vector-wrapper">
+                    <img class="vector" src="https://c.animaapp.com/eKaXFwfJ/img/vector.svg" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="group-2">
+              <div class="overlap-2">
+                <img class="img" src="./img/Vector (1).png" />
+                <div class="huynh-quang-thinh-wrapper"><div class="huynh-quang-thinh"></div></div>
+              </div>
+            </div>
+            <div class="group-3">
+              <div class="overlap-3">
+                <img class="vector-2" src="./img/Vector.png" />
+                <div class="huynh-quang-thinh-wrapper"><div class="huynh-quang-thinh"></div></div>
+              </div>
+            </div>
+          </div>
+          <img class="layer" src="./img/Layer 3.png" />
+        </div>
+        <div class="group-4">
+          <div class="avatar-2"></div>
+          <div class="frame-2">
+            <div class="text-wrapper-2">BubbleBurst Inc.</div>
+            <div class="SORT">
+                <select id="job-category" class="dropdown">
+                  <option value="freelancer" selected>Employer</option>
+                  <option value="developer">Developer</option>
+                  <option value="designer">Designer</option>
+                  <option value="writer">Writer</option>
+                  <option value="marketer">Marketer</option>
+                </select>
+                <img class="ic-round-expand-more" src="https://c.animaapp.com/eKaXFwfJ/img/ic-round-expand-more.svg" />
+
+              </div>
+          </div>
+          <div class="text-wrapper-4">PROFILE</div>
+        </div>
+        <div class="group-5">
+            <div class="avatar-3"></div>
+            <div class="button-container">
+              <div class="upload-button">
+                <label for="file-upload" class="button">
+                  <span class="text-wrapper-5">Upload new photo</span>
+                </label>
+                <input id="file-upload" type="file" accept="image/*" onchange="handleFileUpload(event)" />
+              </div>
+              <button class="button delete-button" onclick="clearAvatar()"><span class="text-wrapper-5">Delete</span></button>
+            </div>
+          </div>
+          <div class="project-title">
+            <label class="text-wrapper-6" for="name">Company name*</label>
+            <input type="text" id="name" class="frame-3" placeholder="Enter your name" value="BubbleBurst Inc." required />
+          </div>
+          
+          <div class="project-title-2">
+            <label class="text-wrapper-6" for="address">Workplace*</label>
+            <input type="text" id="address" class="frame-3" placeholder="Enter your address" required />
+          </div>
+          
+          <div class="project-title-3">
+            <label class="text-wrapper-6" for="portfolio">Website*</label>
+            <input type="url" id="portfolio" class="frame-3" placeholder="Share your portfolio link" required />
+          </div>
+          
+          <div class="project-title-4">
+            <label class="text-wrapper-6" for="skills">Introduction*</label>
+            <textarea id="skills" class="frame-4" placeholder="List your skills, each separated by a comma"></textarea>
+          </div>
+
+    
+          
+          <div class="project-title-7">
+            <label class="text-wrapper-10" for="email">Contact information*</label>
+            <input type="email" id="email" class="frame-5" placeholder="Enter your email" value="22521407@gm.uit.edu.vn" required />
+          </div>
+          
+          <div class="project-title-8">
+            <label class="text-wrapper-10" for="phone-number">Business area</label>
+            <div class="frame-6">
+              <input type="tel" id="phone-number" class="text-wrapper-7" placeholder="Enter your phone number" />
+            </div>
+          </div>
+          
+       
+          
+          <button id="save-changes" class="joinnow-button-2">
+            <div class="text-wrapper-13">Save changes</div>
+          </button>
+        <div class="page-bottom">
+          <div class="overlap-4">
+            <img class="vector-3" src="https://c.animaapp.com/eKaXFwfJ/img/vector-1-1.svg" />
+            <p class="powerful-freelance">
+              Powerful Freelance Marketplace System with ability to change the Users (Freelancers &amp; Clients)
+            </p>
+            <img class="layer-2" src="./img/Layer 3.png" />
+            <div class="group-7">
+              <div class="text-wrapper-14">For Clients</div>
+              <div class="text-wrapper-15">How BubbleBurst Works</div>
+              <div class="text-wrapper-16">Trust &amp; Safety</div>
+            </div>
+            <div class="group-8">
+              <div class="text-wrapper-14">For Freelancers</div>
+              <div class="text-wrapper-15">Become a Freelancer</div>
+              <div class="text-wrapper-16">Guides</div>
+            </div>
+            <div class="group-9">
+              <div class="text-wrapper-14">Company</div>
+              <div class="text-wrapper-15">About us</div>
+              <div class="text-wrapper-16">Help &amp; Support</div>
+              <a href="https://www.fiverr.com/legal-portal?source=footer" target="_blank" rel="noopener noreferrer"
+                ><div class="text-wrapper-17">Term of Service</div></a
+              >
+              <div class="text-wrapper-18">Privacy Policy</div>
+              <div class="text-wrapper-19">Invite a Friend</div>
+            </div>
+            <div class="copyright">
+              <div class="overlap-group-3"><p class="p">© 2024 BubbleBurst. All rights reserved.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+ function handleFileUpload(event) {
+  const file = event.target.files[0]; // Lấy file mà người dùng tải lên
+  if (file) {
+    const reader = new FileReader();
+
+    // Đọc file và chuyển sang URL dạng base64
+    reader.onload = function (e) {
+      const avatarElement = document.querySelector('.avatar-3'); // Tìm .avatar-3
+      avatarElement.style.backgroundImage = `url('${e.target.result}')`; // Đặt ảnh làm background
+      avatarElement.style.backgroundSize = 'cover'; // Căn chỉnh kích thước ảnh
+      avatarElement.style.backgroundPosition = 'center'; // Đặt vị trí căn giữa
+    };
+
+    reader.readAsDataURL(file); // Đọc file
+  } else {
+    alert("Không có file nào được chọn!");
+  }
+}
+
+function clearAvatar() {
+  const avatarElement = document.querySelector('.avatar-3');
+  avatarElement.style.backgroundImage = ''; // Xóa background-image
+  alert('Avatar đã được xóa.');
+}
+document.getElementById('job-category').addEventListener('change', function (event) {
+  const selectedCategory = event.target.value; // Lấy giá trị danh mục đã chọn
+  console.log(`Bạn đã chọn: ${selectedCategory}`);
+  // Bạn có thể xử lý thêm (ví dụ gửi dữ liệu lên server, hiển thị UI tương ứng, v.v.)
+});
+document.getElementById('save-changes').addEventListener('click', function () {
+  // Lấy dữ liệu từ các input
+  const profileData = {
+    name: document.getElementById('name').value,
+    address: document.getElementById('address').value,
+    portfolio: document.getElementById('portfolio').value,
+    skills: document.getElementById('skills').value,
+    certifications: document.getElementById('certifications').value,
+    workExperience: document.getElementById('work-experience').value,
+    email: document.getElementById('email').value,
+    phoneNumber: document.getElementById('phone-number').value,
+    payPerHour: document.getElementById('pay-per-hour').value,
+    availability: document.getElementById('availability').value,
+  };
+
+  // Lưu dữ liệu vào localStorage (hoặc xử lý logic khác nếu cần)
+  localStorage.setItem('profileData', JSON.stringify(profileData));
+
+  alert('Thông tin của bạn đã được lưu thành công!');
+});
+
+    </script>
+  </body>
+  
+</html>
