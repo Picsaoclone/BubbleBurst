@@ -368,6 +368,41 @@ width: 52.57px;
   height: 59px;
 }
 
+/* Dropdown menu */
+.dropdown-menu {
+  display: none; /* Ẩn mặc định */
+  position: absolute;
+  top: 80px; /* Điều chỉnh khoảng cách với avatar */
+  right: 15px;
+  width: 180px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+.dropdown-menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-menu li {
+  padding: 10px 15px;
+  cursor: pointer;
+  color: #333;
+}
+
+.dropdown-menu li:hover {
+  background-color: #f0f0f0;
+}
+
+.dropdown-menu a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+}
+
 .FREELANCER-MENU-SAU .ic-round-garbage-wrapper {
   position: absolute;
   width: 59px;
@@ -1062,18 +1097,38 @@ p{
      
     
         <div class="group-5">
-          <div class="div-wrapper"><div class="text-wrapper-9">Recruit Freelancers</div></div>
-          <div class="frame-7"><div class="text-wrapper-9">Explore Jobs</div></div>
+
+          <a href="RecruitFreelancer.html"><div class="div-wrapper"><div class="text-wrapper-9">Recruit Freelancers</div></a></div>
+          <a href="ExploreJob.html"><div class="frame-7"><div class="text-wrapper-9">Explore Jobs</div></a></div>
+
           <div class="overlap-wrapper">
-            <div class="overlap">
+            <div class="overlap" id="avatarDropdownToggle">
+              <!-- Avatar -->
               <img class="avatar" src="https://c.animaapp.com/guCknj7Q/img/avatar@2x.png" />
-              <div class="overlap-group-wrapper">
-                <div class="vector-wrapper">
-                  <img class="vector-3" src="https://c.animaapp.com/guCknj7Q/img/vector-7.svg" />
-                </div>
-              </div>
             </div>
-          </div>
+
+            <!-- Dropdown Menu -->
+            <div class="dropdown-menu" id="dropdownMenu">
+              <ul>
+                <li>Account</li>
+                <a href="Profilepage.html"><li>Your Profile</li></a>
+                <li>Settings & Privacy</li>
+                <li>Help</li>
+                <li>Language</li>
+                <hr>
+                <li>Manage</li>
+                <li>Connected Freelancers</li>
+                <li>Applied Jobs</li>
+                <li>Sign Out</li>
+              </ul>
+            </div>
+
+            <div class="overlap-group-wrapper" id="dropdownToggle">
+              <div class="vector-wrapper">  <!-- mui ten di xuong -->
+                <img class="vector-3" src="https://c.animaapp.com/guCknj7Q/img/vector-7.svg" alt="Dropdown Arrow"/>
+              </div>
+            </div>  
+          </div>   
           <div class="group-6">
             <div class="overlap-2">
               <img class="vector-4" src="./img/Vector (1).png" />
@@ -1305,7 +1360,25 @@ jobs.forEach((job) => {
   // Thêm job card vào thẻ .div
   divContainer.appendChild(jobCard);
 });
-
-
   </script>
+
+  <script>
+      
+    document.addEventListener("DOMContentLoaded", () => {
+      const avatarDropdownToggle = document.getElementById("avatarDropdownToggle");
+      const dropdownMenu = document.getElementById("dropdownMenu");
+    
+      // Toggle dropdown khi click vào avatar
+      avatarDropdownToggle.addEventListener("click", (event) => {
+        event.stopPropagation(); // Ngăn chặn sự kiện lan ra ngoài
+        dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
+      });
+    
+      // Ẩn dropdown khi click ra ngoài
+      window.addEventListener("click", () => {
+        dropdownMenu.style.display = "none";
+      });
+    });
+    
+</script>
 </html>
