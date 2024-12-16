@@ -110,6 +110,8 @@ body{
   top: 0;
   left: 0;
   object-fit: cover;
+  border-radius: 50%; /* Bo tròn ảnh */
+
 }
 
 .profile-view .overlap-group-wrapper {
@@ -1144,7 +1146,7 @@ a{
         <div class="group-4">
           <div class="avatar-2"></div>
           <div class="frame-2">
-            <div class="text-wrapper-2">Thinh Huynh Quang</div>
+            <div class="text-wrapper-2"><h3 id="welcomeMessage"></h3></div>
             <div class="SORT">
                 <select id="job-category" class="dropdown">
                   <option value="freelancer" selected>Freelancer</option>
@@ -1171,7 +1173,7 @@ a{
           </div>
           <div class="project-title">
             <label class="text-wrapper-6" for="name">Name*</label>
-            <input type="text" id="name" class="frame-3" placeholder="Enter your name" value="Thinh Huynh Quang" required />
+            <input type="text" id="name" class="frame-3" placeholder="Enter your name" value="" required />
           </div>
           
           <div class="project-title-2">
@@ -1227,7 +1229,7 @@ a{
             </div>
           </div>
           
-          <button id="save-changes" class="joinnow-button-2">
+          <button id="save-changes" onclick="saveChanges()" class="joinnow-button-2">
             <div class="text-wrapper-13">Save changes</div>
           </button>
         <div class="page-bottom">
@@ -1276,63 +1278,74 @@ a{
           </div>
         </div>  
 
-    <script>
-     // DOM Elements
-const modal = document.getElementById('confirmation-modal');
+    <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-storage.js";
+
+// Firebase Configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyA5v1pvNZFDdTnk_KXDxT1FAG1MrfKrnFc",
+    authDomain: "bubbleburst-ca46f.firebaseapp.com",
+    projectId: "bubbleburst-ca46f",
+    storageBucket: "bubbleburst-ca46f.appspot.com",
+    messagingSenderId: "1083004742952",
+    appId: "1:1083004742952:web:3ded2f979aa3784bc5741d",
+    measurementId: "G-0BLTWVCZTZ"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const storage = getStorage(app);
+
+// DOM Elements
 const saveChangesButton = document.getElementById('save-changes');
+const modal = document.getElementById('confirmation-modal');
 const confirmSyncButton = document.getElementById('confirm-sync');
 const cancelSyncButton = document.getElementById('cancel-sync');
 
-// Handle File Upload
-function handleFileUpload(event) {
-    const file = event.target.files[0];
-    if (file) {
-        const reader = new FileReader();
-        reader.onload = function (e) {
-            const avatarElement = document.querySelector('.avatar-3');
-            avatarElement.style.backgroundImage = `url('${e.target.result}')`;
-            avatarElement.style.backgroundSize = 'cover';
-            avatarElement.style.backgroundPosition = 'center';
-        };
-        reader.readAsDataURL(file);
-    } else {
-        alert("Không có file nào được chọn!");
-    }
-}
+let avatarFile = null; // Biến để lưu file avatar
 
-// Clear Avatar
-function clearAvatar() {
-    const avatarElement = document.querySelector('.avatar-3');
-    avatarElement.style.backgroundImage = '';
-    alert('Avatar đã được xóa.');
-}
+// Xử lý Upload Avatar
+// Handle File Upload
+
+// Handle File Upload
 
 // Handle Job Category Change
 document.getElementById('job-category').addEventListener('change', function (event) {
     const selectedCategory = event.target.value;
-    console.log(`Bạn đã chọn: ${selectedCategory}`);
     if (selectedCategory === 'developer') {
         window.location.href = 'ProfilePageforEmployer.html';
     }
 });
-
-// Hiển thị Modal khi nhấn "Save Changes"
+// Hiển thị modal xác nhận
 saveChangesButton.addEventListener('click', function () {
-    console.log("Save Changes button clicked!");
-    modal.style.display = 'flex'; // Hiển thị modal
+    modal.style.display = 'flex';
 });
 
-// Đóng Modal khi nhấn "Không"
+// Đóng modal khi nhấn "Không"
 cancelSyncButton.addEventListener('click', function () {
-    modal.style.display = 'none'; // Ẩn modal
+    modal.style.display = 'none';
 });
 
-// Xử lý khi nhấn "Có" trong Modal
-confirmSyncButton.addEventListener('click', function () {
-    modal.style.display = 'none'; // Ẩn modal
+// Xác nhận lưu thông tin và upload lên Firestore
+confirmSyncButton.addEventListener('click', async function () {
+    modal.style.display = 'none';
+
+    // Lấy thông tin user từ sessionStorage
+    const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+    if (!currentUser) {
+        alert("Bạn cần đăng nhập để lưu thông tin!");
+        window.location.href = "SignIn.html";
+        return;
+    }
+
+    const userId = currentUser.userId;
 
     // Lấy dữ liệu từ các input
     const profileData = {
+        userId: userId, // Thêm userId
         name: document.getElementById('name').value,
         address: document.getElementById('address').value,
         portfolio: document.getElementById('portfolio').value,
@@ -1343,15 +1356,76 @@ confirmSyncButton.addEventListener('click', function () {
         phoneNumber: document.getElementById('phone-number').value,
         payPerHour: document.getElementById('pay-per-hour').value,
         availability: document.getElementById('availability').value,
+        updatedAt: new Date().toISOString(),
     };
 
-    console.log("Dữ liệu sẽ được lưu:", profileData);
+    try {
+        // Nếu có avatar, upload lên Firebase Storage
+        if (avatarFile) {
+            const avatarRef = ref(storage, `avatars/${userId}`);
+            await uploadBytes(avatarRef, avatarFile); // Upload file
+            const avatarURL = await getDownloadURL(avatarRef); // Lấy URL
+            profileData.avatarURL = avatarURL; // Ghi URL vào dữ liệu profile
+        }
 
-    // Lưu dữ liệu vào localStorage
-    localStorage.setItem('profileData', JSON.stringify(profileData));
-    alert("Thông tin của bạn đã được lưu thành công!");
+        // Lưu thông tin lên Firestore
+        await setDoc(doc(db, "user_profiles", userId), profileData, { merge: true });
+        alert("Thông tin của bạn đã được cập nhật thành công!");
+    } catch (error) {
+        console.error("Lỗi khi cập nhật dữ liệu:", error);
+        alert("Đã xảy ra lỗi khi lưu dữ liệu. Vui lòng thử lại.");
+    }
 });
+
     </script>
+<script>
+  let uploadedAvatarURL = ""; // Biến lưu URL của ảnh đã upload tạm thời
+ 
+ // Xử lý upload file và lưu tạm URL
+ function handleFileUpload(event) {
+     const file = event.target.files[0];
+     if (file) {
+         const reader = new FileReader();
+         reader.onload = function (e) {
+             uploadedAvatarURL = e.target.result; // Lưu tạm URL base64 của ảnh
+             console.log("Avatar đã upload:", uploadedAvatarURL); // Kiểm tra log
+         };
+         reader.readAsDataURL(file);
+     } else {
+         alert("Không có file nào được chọn!");
+     }
+ }
+ 
+ // Xử lý khi nhấn Save Changes
+ function saveChanges() {
+     const avatarImage = document.querySelector('.avatar'); // img.avatar
+     const avatarElement = document.querySelector('.avatar-3'); // div.avatar-3
+ 
+     if (uploadedAvatarURL) {
+         // Thay đổi avatar
+         avatarImage.src = uploadedAvatarURL; // Cập nhật ảnh trong img.avatar
+         avatarElement.style.backgroundImage = `url("${uploadedAvatarURL}")`; // Cập nhật background div.avatar-3
+         alert("Avatar đã được cập nhật thành công!");
+ 
+         // TODO: Lưu URL avatar này lên Firestore tại đây nếu cần
+     } else {
+         alert("Bạn chưa upload ảnh nào!");
+     }
+ }
+ 
+ // Clear Avatar
+ function clearAvatar() {
+     const avatarImage = document.querySelector('.avatar');
+     const avatarElement = document.querySelector('.avatar-3');
+     
+     uploadedAvatarURL = ""; // Xóa URL tạm thời
+     avatarImage.src = ""; // Xóa src của img.avatar
+     avatarElement.style.backgroundImage = ""; // Xóa background
+ 
+     alert("Avatar đã được xóa.");
+ }
+ </script>
+    
        <script type="module">
         import { checkUserLogin, fetchUserData, saveUserActivity } from "./auth.js";
     
@@ -1361,7 +1435,7 @@ confirmSyncButton.addEventListener('click', function () {
             const { userId, username, name } = currentUser;
     
             // Display welcome message
-            document.getElementById("welcomeMessage").innerText = `Welcome, ${name}!`;
+            document.getElementById("welcomeMessage").innerText = `${name}`;
     
             // Fetch user-specific data
             fetchUserData(userId).then((userData) => {

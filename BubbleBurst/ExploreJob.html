@@ -1066,7 +1066,9 @@ p{
   margin-right: 20px;
   cursor: pointer;
 }
-
+h3{
+  font-weight: bold;
+}
 .bell-icon img {
   width: 40px;
   height: 40px;
@@ -1087,6 +1089,7 @@ p{
 
 /* Dropdown menu */
 .dropdown {
+  font-family: "Quicksand";
   position: absolute;
   top: 50px;
   right: 0;
@@ -1360,6 +1363,7 @@ const jobs = [
     salary: "$1,000",
     applications: "5 applications received",
     location: "Remote",
+    rating:"4.3/5",
     description: "Create interactive dashboards using Power BI.",
     skills: "Power BI, SQL",
     date: "December 13, 2024 at 10:35 AM",
@@ -1371,6 +1375,7 @@ const jobs = [
     salary: "$2,500",
     applications: "8 applications received",
     location: "Hybrid",
+    rating:"4.5/5",
     description: "Build and optimize user interfaces using React.js.",
     skills: "React.js, JavaScript, CSS",
     date: "December 12, 2024 at 9:00 AM",
@@ -1382,6 +1387,7 @@ const jobs = [
     salary: "$3,000",
     applications: "12 applications received",
     location: "Remote",
+    rating:"4.6/5",
     description: "Develop scalable APIs and cloud-based solutions.",
     skills: "Node.js, API Development, Cloud Services",
     date: "December 11, 2024 at 3:45 PM",
@@ -1393,6 +1399,7 @@ const jobs = [
     salary: "$1,800",
     applications: "4 applications received",
     location: "On-site",
+    rating:"4.9/5",
     description: "Design user-friendly interfaces and experiences.",
     skills: "Figma, Adobe XD, User Research",
     date: "December 10, 2024 at 2:00 PM",
@@ -1458,25 +1465,31 @@ window.addEventListener("click", (event) => {
 });
 // Hàm lưu công việc vào Firestore
 async function saveJobToFirestore(job) {
-  const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+  const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
   if (!currentUser) {
-    alert("Bạn cần đăng nhập để ứng tuyển!");
-    window.location.href = "SignIn.html";
+    alert("You need to log in first!");
+    window.location.href = "SingIn.html";
     return;
   }
 
   const userId = currentUser.userId;
 
   try {
-    await addDoc(collection(db, "user_jobs"), {
+    await addDoc(collection(db, "notifications"), {
       userId: userId,
-      job: job,
+      title: job.title || "No Title",
+      company: job.company || "No Company",
+      salary: job.salary || "N/A",
+      location: job.location || "N/A",
+      description: job.description || "No Description",
+      skills: job.skills || "No Skills",
+      logo: job.logo || "https://via.placeholder.com/150",
       appliedAt: new Date().toISOString(),
     });
     alert("Your application has been submitted successfully!");
   } catch (error) {
-    console.error("Lỗi khi lưu công việc vào Firestore:", error);
-    alert("Đã xảy ra lỗi khi ứng tuyển. Vui lòng thử lại.");
+    console.error("Error saving job to Firestore:", error);
+    alert("Failed to save job. Please try again.");
   }
 }
 // Thêm sự kiện vào nút Apply
@@ -1528,6 +1541,10 @@ jobs.forEach((job) => {
         <div class="group-3">
           <img class="img-2" src="https://c.animaapp.com/guCknj7Q/img/ic-round-location-on.svg" alt="Location Icon" />
           <div class="text-wrapper-5">${job.location}</div>
+        </div>
+         <div class="group-3">
+          <img class="img-2" src="./img/star.png" alt="star iconn" />
+          <div class="text-wrapper-5">${job.rating}</div>
         </div>
       </div>
       <div class="text-wrapper-6">Description:</div>

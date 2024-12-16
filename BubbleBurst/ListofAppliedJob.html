@@ -216,12 +216,12 @@ width: 52.57px;
     flex-direction: row;
   display: flex;
   flex-wrap: wrap;
-  width: 1200px;
+  width: 1400px;
   align-items: flex-start;
   justify-content: flex-end;
   gap: 19px 20px;
   padding: 30px 34px;
-  left: 344px;
+  left: 244px;
   background-color: #FFF0F9;
   border-radius: 50px;
   box-shadow: var(--mim);
@@ -289,10 +289,11 @@ width: 52.57px;
 
 .FREELANCER-MENU-SAU .img-2 {
   position: absolute;
-  width: 15px;
-  height: 25px;
+  width: 35px;
+  height: 30px;
   top: 10px;
-  left: 2px;
+  left: 0px;
+  margin-right: 5px;
 }
 .FREELANCER-MENU-SAU .location{
   width: 20px;
@@ -942,7 +943,7 @@ button#save-changes4:hover{
 
 .FREELANCER-MENU-SAU .logo-avatar-for{
   position: relative;
-  right:160px;
+  right:200px;
   top:20px;
   width: 100px;
 }
@@ -1062,7 +1063,7 @@ p{
     
         <div class="group-5">
           <div class="div-wrapper"><div class="text-wrapper-9">Recruit Freelancers</div></div>
-          <div class="frame-7"><div class="text-wrapper-9"><a href="ExploreJob.html">Explore Jobs</a></div></div>
+          <div class="frame-7"><div class="text-wrapper-9">Explore Jobs</div></div>
           <div class="overlap-wrapper">
             <div class="overlap">
               <img class="avatar" src="https://c.animaapp.com/guCknj7Q/img/avatar@2x.png" />
@@ -1085,7 +1086,7 @@ p{
               <div class="huynh-quang-thinh-wrapper"><div class="huynh-quang-thinh"></div></div>
             </div>
           </div>
-          <a href="Homepageafterlogin.html"><img class="layer" src="https://c.animaapp.com/guCknj7Q/img/layer-3@2x.png" /></a>
+          <img class="layer" src="https://c.animaapp.com/guCknj7Q/img/layer-3@2x.png" />
         </div>
         <div id="job-modal" class="modal">
           <div class="modal-content">
@@ -1116,7 +1117,7 @@ p{
               <div class="text-wrapper-11">Become a Freelancer</div>
               <div class="text-wrapper-12">Guides</div>
             </div>
-            <div class="group-10">
+            <div class="group-10">  
               <div class="text-wrapper-10">Company</div>
               <div class="text-wrapper-11">About us</div>
               <div class="text-wrapper-12">Help &amp; Support</div>
@@ -1134,89 +1135,102 @@ p{
       </div>
     </div>
   </body>
-  <script>
-import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-import { getFirestore, collection, query, where, onSnapshot } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+    import { getFirestore, collection, query, where, onSnapshot } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+    
+    // Firebase Configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyA5v1pvNZFDdTnk_KXDxT1FAG1MrfKrnFc",
+      authDomain: "bubbleburst-ca46f.firebaseapp.com",
+      projectId: "bubbleburst-ca46f",
+      storageBucket: "bubbleburst-ca46f.appspot.com",
+      messagingSenderId: "1083004742952",
+      appId: "1:1083004742952:web:3ded2f979aa3784bc5741d",
+    };
+    
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    
+    // DOM Element
+    const divContainer = document.querySelector(".div"); // Thẻ .div chứa các job card
+    const jobContainer = document.querySelector(".div"); // Chọn phần .div
 
-// Firebase Configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyA5v1pvNZFDdTnk_KXDxT1FAG1MrfKrnFc",
-  authDomain: "bubbleburst-ca46f.firebaseapp.com",
-  projectId: "bubbleburst-ca46f",
-  storageBucket: "bubbleburst-ca46f.appspot.com",
-  messagingSenderId: "1083004742952",
-  appId: "1:1083004742952:web:3ded2f979aa3784bc5741d",
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-// DOM Element
-const divContainer = document.querySelector(".div"); // Thẻ .div chứa các job card
-
-// Hàm lấy danh sách job đã apply
-function fetchAppliedJobs() {
-  const currentUser = JSON.parse(sessionStorage.getItem("currentUser")); // Lấy user từ sessionStorage
-  if (!currentUser) {
-    alert("You need to log in first!");
-    window.location.href = "SignIn.html"; // Chuyển hướng nếu chưa đăng nhập
-    return;
-  }
-
-  // Query Firestore: Lấy job của user hiện tại
-  const q = query(collection(db, "applied_jobs"), where("userId", "==", currentUser.userId));
-
-  onSnapshot(q, (snapshot) => {
-    divContainer.innerHTML = ""; // Xóa danh sách cũ
-
-    if (snapshot.empty) {
-      divContainer.innerHTML = `<h2>No applied jobs found!</h2>`; // Hiển thị nếu không có job
-      return;
+    // Hàm lấy danh sách job đã apply
+    function fetchAppliedJobs() {
+      const currentUser = JSON.parse(sessionStorage.getItem("currentUser")); // Lấy user từ sessionStorage
+      if (!currentUser) {
+        alert("You need to log in first!");
+        window.location.href = "SignIn.html"; // Chuyển hướng nếu chưa đăng nhập
+        return;
+      }
+    
+      console.log("Fetching jobs for user:", currentUser.userId);
+    
+      // Query Firestore: Lấy job của user hiện tại
+      const q = query(collection(db, "notifications"), where("userId", "==", currentUser.userId));
+    
+      onSnapshot(q, (snapshot) => {
+    
+        if (snapshot.empty) {
+          divContainer.innerHTML = `<h2>No applied jobs found!</h2>`; // Hiển thị nếu không có job
+          return;
+        }
+    
+        snapshot.forEach((doc) => {
+          const notification = doc.data(); // Dữ liệu từ Firestore
+          const job = notification.jobDetails; // Truy cập vào object jobDetails
+    
+          if (!job) {
+            console.error("Missing jobDetails in notification:", notification);
+            return;
+          }
+          
+          console.log("Job data from Firestore:", job); // Log từng job để kiểm tra
+    
+          // Tạo thẻ job card
+          const jobCard = document.createElement("div");
+          jobCard.className = "frame"; // Gán class giống job card
+    
+          jobCard.innerHTML = `
+          
+            <img class="logo-avatar-for" src="${job.logo || 'https://via.placeholder.com/150'}" alt="Company Logo" />
+            <div class="frame-2">
+              <div class="text-wrapper-2">${job.title || "No Title"}</div>
+              <div class="text-wrapper-3">${job.company || "No Company"}</div>
+              <div class="frame-3">
+                <div class="group">
+                  <img class="img-2" src="https://c.animaapp.com/guCknj7Q/img/ic-round-attach-money-3.svg" alt="Salary Icon" />
+                  <div class="text-wrapper-4">${job.salary || "N/A"}</div>
+                </div>
+                <div class="group-3">
+                  <img class="img-2" src="https://c.animaapp.com/guCknj7Q/img/ic-round-assignment-turned-in.svg" alt="Location Icon" />
+                  <div class="text-wrapper-5">Pending</div>
+                </div>
+                <div class="group-3">
+                  <img class="img-2" src="https://c.animaapp.com/guCknj7Q/img/ic-round-location-on.svg" alt="Location Icon" />
+                  <div class="text-wrapper-5">${job.location || "N/A"}</div>
+                </div>
+              </div>  
+              <div class="text-wrapper-6">Description:</div>
+              <p class="text-wrapper-7">${job.description || "No Description"}</p>
+              <div class="text-wrapper-6">Skills:</div>
+              <p class="text-wrapper-7">${job.skills || "No Skills"}</p>
+            </div>
+            <p class="text-wrapper-8">Applied on: ${notification.createdAt ? new Date(notification.createdAt).toLocaleString() : "Invalid Date"}</p>
+          `;
+    
+          // Thêm job card vào container
+          divContainer.appendChild(jobCard);
+        });
+      }, (error) => {
+        console.error("Error fetching jobs:", error);
+        alert("Failed to fetch jobs. Please try again later.");
+      });
     }
-
-    snapshot.forEach((doc) => {
-      const job = doc.data(); // Dữ liệu job từ Firestore
-
-      // Tạo thẻ job card
-      const jobCard = document.createElement("div");
-      jobCard.className = "frame"; // Gán class giống job card
-
-      jobCard.innerHTML = `
-        <img class="logo-avatar-for" src="${job.logo}" alt="Company Logo" />
-        <div class="frame-2">
-          <div class="text-wrapper-2">${job.title}</div>
-          <div class="text-wrapper-3">${job.company}</div>
-          <div class="frame-3">
-            <div class="group">
-              <img class="img-2" src="https://c.animaapp.com/guCknj7Q/img/ic-round-attach-money-3.svg" alt="Salary Icon" />
-              <div class="text-wrapper-4">${job.salary}</div>
-            </div>
-            <div class="group-2">
-              <img class="img-2" src="https://c.animaapp.com/guCknj7Q/img/ic-round-assignment-turned-in.svg" alt="Applications Icon" />
-              <div class="text-wrapper-5">${job.applications || "N/A"}</div>
-            </div>
-            <div class="group-3">
-              <img class="img-2" src="https://c.animaapp.com/guCknj7Q/img/ic-round-location-on.svg" alt="Location Icon" />
-              <div class="text-wrapper-5">${job.location}</div>
-            </div>
-          </div>
-          <div class="text-wrapper-6">Description:</div>
-          <p class="text-wrapper-7">${job.description}</p>
-          <div class="text-wrapper-6">Skills:</div>
-          <p class="text-wrapper-7">${job.skills}</p>
-        </div>
-        <p class="text-wrapper-8">Applied on: ${new Date(job.appliedAt).toLocaleString()}</p>
-      `;
-
-      // Thêm job card vào container
-      divContainer.appendChild(jobCard);
-    });
-  });
-}
-
-// Gọi hàm khi load trang
-fetchAppliedJobs();
-
-  </script>
+    
+    // Gọi hàm khi load trang
+    fetchAppliedJobs();
+    </script>
 </html>
