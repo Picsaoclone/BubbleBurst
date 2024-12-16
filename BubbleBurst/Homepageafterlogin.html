@@ -88,7 +88,7 @@ a {
   padding: 10px 16px;
   position: absolute;
   top: 0;
-  left: 509px;
+  left: 479px;
   background-color: #ffffff;
   border-radius: 99px;
   box-shadow: var(--mim);
@@ -557,6 +557,7 @@ width: 52.57px;
     </style>
   </head>
   <body>
+    
     <div class="TRANG-CH-LOGIN">
       <div class="div">
         <div class="overlap">
@@ -610,11 +611,11 @@ width: 52.57px;
         </div>
         <div class="overlap-4">
           <div class="group-4">
-            <div class="frame"><div class="text-wrapper-9">Recruit Freelancers</div></div>
-            <div class="frame-2"><div class="text-wrapper-9">Explore Jobs</div></div>
+            <div class="frame"><div class="text-wrapper-9"><a href="RecruitFreelancer.html">Recruit Freelancers</a></div></div>
+            <div class="frame-2"><div class="text-wrapper-9"><a href="ExploreJob.html">Explore Jobs</a></div></div>
             <div class="overlap-wrapper">
               <div class="overlap-5">
-                <img class="avatar" src="https://c.animaapp.com/RVLMzR8m/img/avatar@2x.png" />
+                <a href="Profilepage.html"><img class="avatar" src="https://c.animaapp.com/RVLMzR8m/img/avatar@2x.png" /></a>
                 <div class="overlap-group-wrapper">
                   <div class="vector-wrapper">
                     <img class="img" src="https://c.animaapp.com/RVLMzR8m/img/vector.svg" />
@@ -639,5 +640,32 @@ width: 52.57px;
         </div>
       </div>
     </div>
+    <script type="module">
+    import { checkUserLogin, fetchUserData, saveUserActivity } from "./auth.js";
+
+    const currentUser = checkUserLogin(); // Check if the user is logged in
+
+    if (currentUser) {
+        const { userId, username, name } = currentUser;
+
+        // Display welcome message
+        document.getElementById("welcomeMessage").innerText = `Welcome, ${name}!`;
+
+        // Fetch user-specific data
+        fetchUserData(userId).then((userData) => {
+            if (userData) {
+                console.log("User Data:", userData);
+            }
+        });
+
+        // Save user activity
+        saveUserActivity(userId, {
+            lastActive: new Date().toISOString(),
+            currentPage: "Homepageafterlogin"
+        });
+    }
+</script>
+
   </body>
+  
 </html>

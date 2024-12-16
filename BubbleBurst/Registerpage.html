@@ -53,59 +53,59 @@
 
     
     <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
-        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
-    
-        const firebaseConfig = {
-            apiKey: "AIzaSyCuaxQNIaVE473Vsm5zui7vFygrnl5T8fw",
-            authDomain: "bubbleburst-c6d7a.firebaseapp.com",
-            projectId: "bubbleburst-c6d7a",
-            storageBucket: "bubbleburst-c6d7a.firebasestorage.app",
-            messagingSenderId: "751694660490",
-            appId: "1:751694660490:web:25051146cb0abdc79b7e73",
-            measurementId: "G-2Z1XC7Z33V"
-        };
-    
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-        const db = getFirestore(app);
-    
-        // Lấy các phần tử HTML
-        const nameInput = document.querySelector("input[placeholder='Your name']");
-        const usernameInput = document.querySelector("input[placeholder='Username']");
-        const passwordInput = document.querySelector("input[placeholder='Password']");
-        const continueButton = document.querySelector(".button");
-    
-        // Hàm lưu dữ liệu vào Firestore
-        async function registerUser() {
-            const name = nameInput.value;
-            const username = usernameInput.value;
-            const password = passwordInput.value;
-    
-            // Kiểm tra các trường không trống
-            if (name === "" || username === "" || password === "") {
-                alert("Vui lòng điền đầy đủ thông tin.");
-                return;
-            }
-    
-            try {
-                // Tạo một document mới trong collection "users"
-                const docRef = await addDoc(collection(db, "users"), {
-                    name: name,
-                    username: username,
-                    password: password  // Lưu ý: không nên lưu mật khẩu dạng plain text trong thực tế
-                });
-                alert("Đăng ký thành công với ID: " + docRef.id);
-            } catch (e) {
-                alert("Đã xảy ra lỗi: " + e.message);
-            }
-        }
-    
-        // Lắng nghe sự kiện click của nút Continue
-        continueButton.addEventListener("click", registerUser);
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+
+// Firebase Configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyA5v1pvNZFDdTnk_KXDxT1FAG1MrfKrnFc",
+    authDomain: "bubbleburst-ca46f.firebaseapp.com",
+    projectId: "bubbleburst-ca46f",
+    storageBucket: "bubbleburst-ca46f.appspot.com",
+    messagingSenderId: "1083004742952",
+    appId: "1:1083004742952:web:3ded2f979aa3784bc5741d",
+    measurementId: "G-0BLTWVCZTZ"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+// DOM Elements
+const nameInput = document.querySelector("input[placeholder='Your name']");
+const usernameInput = document.querySelector("input[placeholder='Username']");
+const passwordInput = document.querySelector("input[placeholder='Password']");
+const continueButton = document.querySelector(".button");
+
+// Register User
+continueButton.addEventListener("click", async () => {
+    const name = nameInput.value;
+    const username = usernameInput.value;
+    const password = passwordInput.value;
+
+    if (!name || !username || !password) {
+        alert("Please fill in all fields.");
+        return;
+    }
+
+    try {
+        // Thêm người dùng vào Firestore với vai trò mặc định là "user"
+        await addDoc(collection(db, "users"), {
+            name,
+            username,
+            password,
+            role: "user", // Vai trò mặc định
+            createdAt: new Date().toISOString()
+        });
+
+        alert("Registration successful!");
+        window.location.href = "SingIn.html";
+    } catch (error) {
+        console.error("Error registering user:", error);
+        alert("Error registering user. Please try again.");
+    }
+});
     </script>
-    
     
 
 </body>

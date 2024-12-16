@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register-BubleBurst</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/index.css">
+    <link rel="stylesheet" type="text/css" href="./css/font.css">
+    <link rel="stylesheet" type="text/css" href="./css/styles.css">
+    <link rel="stylesheet" type="text/css" href="./css/components.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="singin.css">
+
+
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+          <img class="imglogo" src="./img/Logo02.png" alt="BubbleBurst Logo" />
+        </div>
+      </header>
+
+    <div class="container">
+        <div class="card">
+            <h2 >Sing in, stand out</h2>
+
+            <!-- New to BubbleBurst -->
+            <p class="new-account">New to BubbleBurst? <a href="#">Join here</a></p>
+            
+            <div class="input-group">
+                <span class="icon"><i class="fas fa-at"></i></span>
+                <input type="email" placeholder="Email">
+            </div>
+            
+            <div class="input-group">
+                <span class="icon"><i class="fas fa-lock"></i></span>
+                <input type="password" placeholder="Password">
+            </div>
+
+            <!-- Forgot Password -->
+            <p class="forgot-password"><a href="#">Forgot password?</a></p>
+
+            <button class="button">Continue</button>
+
+            <div class="agreement">
+                By clicking Continue, you agree to the BubbleBurst 
+                <a href="#">User Agreement</a>, <a href="#">Privacy Policy</a>, and <a href="#">Cookie Policy</a>.
+            </div>
+
+            
+        </div>
+        <footer>
+            &copy; 2024 BubbleBurst. All rights reserved.
+        </footer>
+        <script type="module">
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+            import { getFirestore, collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+        
+            // Firebase Configuration
+            const firebaseConfig = {
+                apiKey: "AIzaSyA5v1pvNZFDdTnk_KXDxT1FAG1MrfKrnFc",
+                authDomain: "bubbleburst-ca46f.firebaseapp.com",
+                projectId: "bubbleburst-ca46f",
+                storageBucket: "bubbleburst-ca46f.appspot.com",
+                messagingSenderId: "1083004742952",
+                appId: "1:1083004742952:web:3ded2f979aa3784bc5741d",
+                measurementId: "G-0BLTWVCZTZ"
+            };
+        
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+            const db = getFirestore(app);
+        
+            // DOM Elements
+            const usernameInput = document.querySelector("input[placeholder='Email']"); // Thay đổi thành 'username'
+            const passwordInput = document.querySelector("input[placeholder='Password']");
+            const continueButton = document.querySelector(".button");
+        
+            // Function to handle Sign-In
+            continueButton.addEventListener("click", async () => {
+    const username = usernameInput.value;
+    const password = passwordInput.value;
+
+    if (!username || !password) {
+        alert("Please fill in both username and password.");
+        return;
+    }
+
+    try {
+        // Query Firestore for user credentials
+        const usersRef = collection(db, "users");
+        const q = query(usersRef, where("username", "==", username), where("password", "==", password));
+        const querySnapshot = await getDocs(q);
+
+        if (querySnapshot.empty) {
+            alert("Invalid username or password.");
+        } else {
+            querySnapshot.forEach((doc) => {
+                const userData = doc.data();
+
+                // Lưu thông tin người dùng vào sessionStorage
+                sessionStorage.setItem("currentUser", JSON.stringify({
+                    userId: doc.id,
+                    username: userData.username,
+                    name: userData.name,
+                    role: userData.role // Vai trò người dùng
+                }));
+
+                // Kiểm tra vai trò để chuyển hướng
+                if (userData.role === "admin") {
+                    alert("Welcome Admin!");
+                    window.location.href = "admin.html"; // Chuyển hướng admin
+                } else {
+                    alert("Sign-In Successful!");
+                    window.location.href = "Homepageafterlogin.html"; // Chuyển hướng user
+                }
+            });
+        }
+    } catch (error) {
+        console.error("Error during sign-in:", error);
+        alert("An error occurred. Please try again.");
+    }
+});
+        </script>
+        
+        
+</body>
+</html>

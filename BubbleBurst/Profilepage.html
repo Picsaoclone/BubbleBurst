@@ -38,6 +38,7 @@ body{
   width: 1920px;
   height: 2883px;
   position: relative;
+  border: 1px solid #fddef1;
 }
 
 .profile-view .overlap {
@@ -276,7 +277,7 @@ body{
   background-color: transparent; /* Nền trong suốt để hòa vào thiết kế */
   border: none; /* Xóa viền mặc định */
   font-family: "Quicksand", Helvetica, sans-serif;
-  font-size: 16px;
+  font-size: 25px;
   font-weight: 500;
   color: #1d083a;
   cursor: pointer;
@@ -1056,18 +1057,67 @@ a {
   text-align: center;
   white-space: nowrap;
 }
+a{
+  color:#e63285;
+}
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 400px;
+}
+
+.modal-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.button.confirm {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.button.cancel {
+    background-color: #f44336;
+    color: white;
+}
+
     </style>
   </head>
   <body>
     <div class="profile-view">
       <div class="div">
+      
         <div class="overlap">
           <div class="group">
-            <div class="frame"><div class="text-wrapper">Recruit Freelancers</div></div>
-            <div class="div-wrapper"><div class="text-wrapper">Explore Jobs</div></div>
+            <div class="frame"><div class="text-wrapper"><a href="RecruitFreelancer.html">Recruit Freelancers</a></div></div>
+            <div class="div-wrapper"><div class="text-wrapper"><a href="ExploreJob.html">Explore Jobs</a></div></div>
             <div class="overlap-wrapper">
               <div class="overlap-group">
-                <img class="avatar" src="https://c.animaapp.com/eKaXFwfJ/img/avatar@2x.png" />
+                <a href="Profilepage.html"><img class="avatar" src="https://c.animaapp.com/eKaXFwfJ/img/avatar@2x.png" /></a>
                 <div class="overlap-group-wrapper">
                   <div class="vector-wrapper">
                     <img class="vector" src="https://c.animaapp.com/eKaXFwfJ/img/vector.svg" />
@@ -1097,10 +1147,8 @@ a {
             <div class="SORT">
                 <select id="job-category" class="dropdown">
                   <option value="freelancer" selected>Freelancer</option>
-                  <option value="developer">Developer</option>
-                  <option value="designer">Designer</option>
-                  <option value="writer">Writer</option>
-                  <option value="marketer">Marketer</option>
+                  <option value="developer">Employer</option>
+               
                 </select>
                 <img class="ic-round-expand-more" src="https://c.animaapp.com/eKaXFwfJ/img/ic-round-expand-more.svg" />
 
@@ -1215,59 +1263,120 @@ a {
         </div>
       </div>
     </div>
-    
-    <script>
- function handleFileUpload(event) {
-  const file = event.target.files[0]; // Lấy file mà người dùng tải lên
-  if (file) {
-    const reader = new FileReader();
+    <!-- Modal Xác Nhận -->
+<div id="confirmation-modal" class="modal" style="display: none;">
+          <div class="modal-content">
+              <h3>Bạn có chắc chắn muốn lưu thông tin?</h3>
+              <p>Dữ liệu sẽ được đồng bộ lên hệ thống Firebase.</p>
+              <div class="modal-buttons">
+                  <button id="confirm-sync" class="button confirm">Có</button>
+                  <button id="cancel-sync" class="button cancel">Không</button>
+              </div>
+          </div>
+        </div>  
 
-    // Đọc file và chuyển sang URL dạng base64
-    reader.onload = function (e) {
-      const avatarElement = document.querySelector('.avatar-3'); // Tìm .avatar-3
-      avatarElement.style.backgroundImage = `url('${e.target.result}')`; // Đặt ảnh làm background
-      avatarElement.style.backgroundSize = 'cover'; // Căn chỉnh kích thước ảnh
-      avatarElement.style.backgroundPosition = 'center'; // Đặt vị trí căn giữa
+    <script>
+     // DOM Elements
+const modal = document.getElementById('confirmation-modal');
+const saveChangesButton = document.getElementById('save-changes');
+const confirmSyncButton = document.getElementById('confirm-sync');
+const cancelSyncButton = document.getElementById('cancel-sync');
+
+// Handle File Upload
+function handleFileUpload(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            const avatarElement = document.querySelector('.avatar-3');
+            avatarElement.style.backgroundImage = `url('${e.target.result}')`;
+            avatarElement.style.backgroundSize = 'cover';
+            avatarElement.style.backgroundPosition = 'center';
+        };
+        reader.readAsDataURL(file);
+    } else {
+        alert("Không có file nào được chọn!");
+    }
+}
+
+// Clear Avatar
+function clearAvatar() {
+    const avatarElement = document.querySelector('.avatar-3');
+    avatarElement.style.backgroundImage = '';
+    alert('Avatar đã được xóa.');
+}
+
+// Handle Job Category Change
+document.getElementById('job-category').addEventListener('change', function (event) {
+    const selectedCategory = event.target.value;
+    console.log(`Bạn đã chọn: ${selectedCategory}`);
+    if (selectedCategory === 'developer') {
+        window.location.href = 'ProfilePageforEmployer.html';
+    }
+});
+
+// Hiển thị Modal khi nhấn "Save Changes"
+saveChangesButton.addEventListener('click', function () {
+    console.log("Save Changes button clicked!");
+    modal.style.display = 'flex'; // Hiển thị modal
+});
+
+// Đóng Modal khi nhấn "Không"
+cancelSyncButton.addEventListener('click', function () {
+    modal.style.display = 'none'; // Ẩn modal
+});
+
+// Xử lý khi nhấn "Có" trong Modal
+confirmSyncButton.addEventListener('click', function () {
+    modal.style.display = 'none'; // Ẩn modal
+
+    // Lấy dữ liệu từ các input
+    const profileData = {
+        name: document.getElementById('name').value,
+        address: document.getElementById('address').value,
+        portfolio: document.getElementById('portfolio').value,
+        skills: document.getElementById('skills').value,
+        certifications: document.getElementById('certifications').value,
+        workExperience: document.getElementById('work-experience').value,
+        email: document.getElementById('email').value,
+        phoneNumber: document.getElementById('phone-number').value,
+        payPerHour: document.getElementById('pay-per-hour').value,
+        availability: document.getElementById('availability').value,
     };
 
-    reader.readAsDataURL(file); // Đọc file
-  } else {
-    alert("Không có file nào được chọn!");
-  }
-}
+    console.log("Dữ liệu sẽ được lưu:", profileData);
 
-function clearAvatar() {
-  const avatarElement = document.querySelector('.avatar-3');
-  avatarElement.style.backgroundImage = ''; // Xóa background-image
-  alert('Avatar đã được xóa.');
-}
-document.getElementById('job-category').addEventListener('change', function (event) {
-  const selectedCategory = event.target.value; // Lấy giá trị danh mục đã chọn
-  console.log(`Bạn đã chọn: ${selectedCategory}`);
-  // Bạn có thể xử lý thêm (ví dụ gửi dữ liệu lên server, hiển thị UI tương ứng, v.v.)
+    // Lưu dữ liệu vào localStorage
+    localStorage.setItem('profileData', JSON.stringify(profileData));
+    alert("Thông tin của bạn đã được lưu thành công!");
 });
-document.getElementById('save-changes').addEventListener('click', function () {
-  // Lấy dữ liệu từ các input
-  const profileData = {
-    name: document.getElementById('name').value,
-    address: document.getElementById('address').value,
-    portfolio: document.getElementById('portfolio').value,
-    skills: document.getElementById('skills').value,
-    certifications: document.getElementById('certifications').value,
-    workExperience: document.getElementById('work-experience').value,
-    email: document.getElementById('email').value,
-    phoneNumber: document.getElementById('phone-number').value,
-    payPerHour: document.getElementById('pay-per-hour').value,
-    availability: document.getElementById('availability').value,
-  };
-
-  // Lưu dữ liệu vào localStorage (hoặc xử lý logic khác nếu cần)
-  localStorage.setItem('profileData', JSON.stringify(profileData));
-
-  alert('Thông tin của bạn đã được lưu thành công!');
-});
-
     </script>
+       <script type="module">
+        import { checkUserLogin, fetchUserData, saveUserActivity } from "./auth.js";
+    
+        const currentUser = checkUserLogin(); // Check if the user is logged in
+    
+        if (currentUser) {
+            const { userId, username, name } = currentUser;
+    
+            // Display welcome message
+            document.getElementById("welcomeMessage").innerText = `Welcome, ${name}!`;
+    
+            // Fetch user-specific data
+            fetchUserData(userId).then((userData) => {
+                if (userData) {
+                    console.log("User Data:", userData);
+                }
+            });
+    
+            // Save user activity
+            saveUserActivity(userId, {
+                lastActive: new Date().toISOString(),
+                currentPage: "Profilepage.html"
+            });
+        }
+    </script>
+
   </body>
   
 </html>

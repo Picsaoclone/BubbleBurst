@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <h1 id="welcomeMessage"></h1>
+    <section>
+        <h2>Manage Users</h2>
+        <table id="usersTable">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Role</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- User rows will be populated here -->
+            </tbody>
+        </table>
+    </section>
+</body>
+<script type="module">
+    import { checkUserLogin, db } from "./auth.js";
+    import { collection, getDocs, updateDoc, doc, deleteDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+
+    const currentUser = checkUserLogin();
+
+    if (currentUser) {
+        const { role, name } = currentUser;
+
+        if (role !== "admin") {
+            alert("Access denied! Only admins can view this page.");
+            window.location.href = "Homepageafterlogin.html";
+        } else {
+            document.getElementById("welcomeMessage").innerText = `Welcome Admin, ${name}!`;
+
+            // Fetch and display users
+            const usersTable = document.getElementById("usersTable").querySelector("tbody");
+            const usersRef = collection(db, "users");
+
+            getDocs(usersRef).then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                    const userData = doc.data();
+                    const row = document.createElement("tr");
+                    row.innerHTML = `
+                        <td>${userData.username}</td>
+                        <td>${userData.role}</td>
+                        <td>
+                            <button onclick="updateRole('${doc.id}', '${userData.role}')">Toggle Role</button>
+                            <button onclick="deleteUser('${doc.id}')">Delete</button>
+                        </td>
+                    `;
+                    usersTable.appendChild(row);
+                });
+            });
+
+            // Update role function
+            window.updateRole = async (userId, currentRole) => {
+                const newRole = currentRole === "admin" ? "user" : "admin";
+                const userDocRef = doc(db, "users", userId);
+                await updateDoc(userDocRef, { role: newRole });
+                alert("Role updated successfully!");
+                location.reload();
+            };
+
+            // Delete user function
+            window.deleteUser = async (userId) => {
+                const userDocRef = doc(db, "users", userId);
+                await deleteDoc(userDocRef);
+                alert("User deleted successfully!");
+                location.reload();
+            };
+        }
+    }
+</script>
+</html>
