@@ -577,25 +577,8 @@ input{
   left: 0;
 }
 
-.FREELANCER-MENU-SAU .huynh-quang-thinh-wrapper {
-  position: absolute;
-  width: 14px;
-  height: 14px;
-  top: 0;
-  left: 30px;
-  background-color: #f5eeff;
-  border-radius: 7.12px;
-}
 
-.FREELANCER-MENU-SAU .huynh-quang-thinh {
-  position: relative;
-  width: 11px;
-  height: 11px;
-  top: 2px;
-  left: 2px;
-  background-color: #ff2600;
-  border-radius: 5.41px;
-}
+
 
 .FREELANCER-MENU-SAU .group-7 {
   position: absolute;
@@ -619,7 +602,7 @@ input{
   position: absolute;
   width: 37px;
   height: 46px;
-  top: 1px;
+  top: -10px;
   left: 0;
 }
 
@@ -1340,7 +1323,72 @@ textarea#project-description:focus {
   border-color: #ff3d96;
   outline: none;
 }
+.notification-container {
+  position: relative;
+  display: inline-block;
+  margin-right: 20px;
+  cursor: pointer;
+}
+h3{
+  font-weight: bold;
+}
+.bell-icon img {
+  width: 40px;
+  height: 40px;
+}
 
+.badge {
+  position: absolute;
+  top: -10px;
+  right: -50px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 3px 6px;
+  font-size: 12px;
+  font-family: "Quicksand";
+  display: none;
+}
+
+/* Dropdown menu */
+.dropdown {
+  font-family: "Quicksand";
+  position: absolute;
+  top: 50px;
+  right: 0;
+  width: 300px;
+  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  z-index: 10;
+}
+
+.dropdown.hidden {
+  display: none;
+}
+
+.dropdown h3 {
+  margin: 10px;
+  font-size: 18px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+}
+
+.notification-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.notification-list li {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+
+.notification-list li:hover {
+  background-color: #f9f9f9;
+}
     </style>
   </head>
   <body>
@@ -1417,11 +1465,23 @@ textarea#project-description:focus {
           </div>
           <div class="group-7">
             <div class="overlap-3">
+              <div class="notification-container">
+                <div class="bell-icon" id="bell-icon">
               <img class="vector-5" src="./img/Vector.png" />
+              <span id="notification-badge" class="badge">0</span>
+               </div>
+               <!-- Dropdown menu -->
+  <div id="notification-dropdown" class="dropdown hidden">
+    <h3>Notifications</h3>
+    <ul id="notification-list" class="notification-list">
+      <!-- Nội dung thông báo sẽ được render ở đây -->
+    </ul>
+  </div>
+</div>
               <div class="huynh-quang-thinh-wrapper"><div class="huynh-quang-thinh"></div></div>
             </div>
           </div>
-          <img class="layer" src="./img/Layer 3.png" />
+          <a href="Homepageafterlogin.html"><img class="layer" src="./img/Layer 3.png" /></a>
         </div>
         <div id="job-modal" class="modal">
           <div class="modal-content">
@@ -1497,7 +1557,6 @@ postButton.addEventListener("click", (e) => {
   }
 
   // Nếu tất cả các trường đã được điền đầy đủ
-  alert("Post thành công!");
 });
 
 // Các chức năng chỉnh sửa văn bản trong textarea mô tả dự án
@@ -1546,4 +1605,132 @@ function applyBullet() {
 }
 
    </script>
+<script type="module">
+  // Import Firebase
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+  import {
+    getFirestore,
+    collection,
+    addDoc,
+    query,
+    where,
+    onSnapshot,
+  } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+
+  // Firebase Configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyA5v1pvNZFDdTnk_KXDxT1FAG1MrfKrnFc",
+    authDomain: "bubbleburst-ca46f.firebaseapp.com",
+    projectId: "bubbleburst-ca46f",
+    storageBucket: "bubbleburst-ca46f.appspot.com",
+    messagingSenderId: "1083004742952",
+    appId: "1:1083004742952:web:3ded2f979aa3784bc5741d",
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  // DOM Elements
+  const saveButton = document.getElementById("save-changes");
+  const badge = document.getElementById("notification-badge");
+  const notificationList = document.getElementById("notification-list");
+  const dropdown = document.getElementById("notification-dropdown");
+  const bellIcon = document.getElementById("bell-icon");
+
+  // Toggle Dropdown Menu
+  bellIcon.addEventListener("click", () => {
+    dropdown.classList.toggle("hidden");
+  });
+
+  // Function to Add Project and Notification
+  async function handlePostProject() {
+    const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
+    if (!currentUser) {
+      alert("You must log in to post a project.");
+      window.location.href = "SignIn.html";
+      return;
+    }
+
+    // Lấy dữ liệu từ form
+    const projectData = {
+      userId: currentUser.userId, // Lưu userId
+      title: document.querySelector("#name").value.trim(),
+      skills: document.querySelectorAll("#name")[1].value.trim(),
+      budget: document.querySelectorAll("#name")[2].value.trim(),
+      workplace: document.querySelectorAll("#name")[3].value.trim(),
+      description: document.querySelector(".frame-4").value.trim(),
+      createdAt: new Date().toISOString(),
+    };
+
+    // Kiểm tra input bắt buộc
+    if (!projectData.title || !projectData.skills || !projectData.budget || !projectData.workplace || !projectData.description) {
+      alert("Please fill in all required fields!");
+      return;
+    }
+
+    try {
+      // 1. Lưu dự án vào Firestore (collection "projects")
+      await addDoc(collection(db, "projects"), projectData);
+
+      // 2. Tạo thông báo lưu vào Firestore (collection "notifications")
+      const notificationMessage = `Your project "${projectData.title}" has been posted successfully!`;
+      await addDoc(collection(db, "notifications"), {
+        userId: currentUser.userId,
+        message: notificationMessage,
+        createdAt: new Date().toISOString(),
+      });
+
+      alert("Project posted successfully!");
+
+      // Cập nhật thông báo UI
+      fetchNotifications();
+    } catch (error) {
+      console.error("Error posting project or notification:", error);
+      alert("An error occurred while posting your project. Please try again.");
+    }
+  }
+
+  // Function to Fetch and Display Notifications
+  function fetchNotifications() {
+    const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
+    if (!currentUser) return;
+
+    const q = query(
+      collection(db, "notifications"),
+      where("userId", "==", currentUser.userId)
+    );
+
+    onSnapshot(q, (snapshot) => {
+      notificationList.innerHTML = ""; // Clear old notifications
+      let count = 0;
+
+      snapshot.forEach((doc) => {
+        const notification = doc.data();
+        count++;
+
+        // Tạo item thông báo
+        const li = document.createElement("li");
+        li.textContent = notification.message || "New notification";
+        notificationList.appendChild(li);
+      });
+
+      // Cập nhật badge
+      if (count > 0) {
+        badge.textContent = count;
+        badge.style.display = "block";
+      } else {
+        badge.style.display = "none";
+      }
+    });
+  }
+
+  // Gọi hàm fetch notifications khi load trang
+  fetchNotifications();
+
+  // Event Listener cho nút "Post"
+  saveButton.addEventListener("click", handlePostProject);
+</script>
+
+
 </html>

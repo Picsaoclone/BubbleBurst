@@ -1063,5 +1063,35 @@ a {
         </div>
       </div>
     </div>
+    <script>
+ // Lắng nghe sự kiện DOMContentLoaded để đảm bảo script chạy sau khi DOM tải xong
+document.addEventListener("DOMContentLoaded", () => {
+  // Chọn tất cả các nút Accept và Reject
+  const acceptButtons = document.querySelectorAll(".accept-button");
+  const rejectButtons = document.querySelectorAll(".reject-button");
+
+  // Thêm sự kiện click cho từng nút Accept
+  acceptButtons.forEach((button) => {
+    button.addEventListener("click", (event) => {
+      const candidateCard = event.target.closest(".frame-7"); // Tìm phần tử cha chứa candidate
+      if (candidateCard) {
+        candidateCard.remove(); // Xóa candidate khỏi giao diện
+        alert("Candidate accepted!");
+      }
+    });
+  });
+
+  // Thêm sự kiện click cho từng nút Reject
+  rejectButtons.forEach((button) => {
+    button.addEventListener("click", (event) => {
+      const candidateCard = event.target.closest(".frame-7"); // Tìm phần tử cha chứa candidate
+      if (candidateCard) {
+        candidateCard.remove(); // Xóa candidate khỏi giao diện
+        alert("Candidate rejected!");
+      }
+    });
+  });
+});
+    </script>
   </body>
 </html>

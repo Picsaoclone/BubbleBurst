@@ -294,7 +294,16 @@ width: 52.57px;
   width: 32px;
   height: 32px;
   top: 5px;
-  left: 0;
+  left: 40px;
+  margin-right: 200px;
+}
+.FREELANCER-MENU-SAU .img-4 {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  top: 5px;
+  left: 120px;
+  margin-right: 200px;
 }
 
 .FREELANCER-MENU-SAU .text-wrapper-4 {
@@ -309,6 +318,8 @@ width: 52.57px;
   letter-spacing: 0;
   line-height: normal;
   white-space: nowrap;
+  margin-right: 200px;
+ 
 }
 
 .FREELANCER-MENU-SAU .group-2 {
@@ -321,7 +332,7 @@ width: 52.57px;
   position: absolute;
   height: 17px;
   top: 8px;
-  left: 32px;
+  left: 70px;
   font-family: "Quicksand", Helvetica;
   font-weight: 400;
   color: #6b5f7d;
@@ -331,6 +342,19 @@ width: 52.57px;
   white-space: nowrap;
 }
 
+.FREELANCER-MENU-SAU .text-wrapper-x {
+  position: absolute;
+  height: 17px;
+  top: 8px;
+  left: 150px;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 400;
+  color: #6b5f7d;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
 .FREELANCER-MENU-SAU .group-3 {
   position: relative;
   width: 122px;
@@ -629,8 +653,8 @@ width: 52.57px;
   left: 11px;
 }
 
-.FREELANCER-MENU-SAU .vector-5 {
-  position: absolute;
+.FREELANCER-MENU-SAU . {
+vector-5  position: absolute;
   width: 37px;
   height: 46px;
   top: -10px;
@@ -942,7 +966,8 @@ button#save-changes4:hover{
 .FREELANCER-MENU-SAU .logo-avatar-for{
   position: relative;
   right: 69px;
-  top:20px;
+  top:50px;
+  width: 200px;
 }
 /* Modal Container */
 /* Modal Background */
@@ -1077,7 +1102,7 @@ h3{
 .badge {
   position: absolute;
   top: -10px;
-  right: -50px;
+  right: -20px;
   background-color: red;
   color: white;
   border-radius: 50%;
@@ -1126,6 +1151,10 @@ h3{
 .notification-list li:hover {
   background-color: #f9f9f9;
 }
+ .money{
+  position:relative;
+  left:200px;
+}
     </style>
   </head>
   <body>
@@ -1140,7 +1169,7 @@ h3{
         <div class="text-wrapper">Find Your Next Gig</div>
         <div class="talent">
           <button id="save-changes" class="joinnow-button-2">
-            <a  style ="color:#e9e9e9"href="Profilepage.html">Update my profile</a>
+            <a  style ="color:#ffffff"href="Profilepage.html">Update my profile</a>
             <img class="vector" src="./img/vector3.png" />
 
           </button> 
@@ -1202,7 +1231,7 @@ h3{
 </div>
             </div>
           </div>
-          <img class="layer" src="https://c.animaapp.com/guCknj7Q/img/layer-3@2x.png" />
+          <a href="Homepageafterlogin.html"><img class="layer" src="https://c.animaapp.com/guCknj7Q/img/layer-3@2x.png" /></a>
         </div>
         <div id="job-modal" class="modal">
           <div class="modal-content">
@@ -1519,67 +1548,94 @@ applyButton.addEventListener("click", async () => {
   }
 });
 
-// Tạo và thêm từng job card vào bên trong thẻ .div
-jobs.forEach((job) => {
-  const jobCard = document.createElement("div");
-  jobCard.className = "frame";
+function listenToJobs() {
+  const q = query(collection(db, "projects"));
+  
+  onSnapshot(q, (snapshot) => {
+    const jobs = [];
+    
+    snapshot.forEach((doc) => {
+      const jobData = doc.data();
+      console.log("Job Data:", jobData); // Kiểm tra dữ liệu đã nhận được
 
-  jobCard.innerHTML = `
-    <img class="logo-avatar-for" src="${job.logo}" alt="Company Logo" />
-    <div class="frame-2">
-      <div class="text-wrapper-2">${job.title}</div>
-      <div class="text-wrapper-3">${job.company}</div>
-      <div class="frame-3">
-        <div class="group">
-          <img class="img-2" src="https://c.animaapp.com/guCknj7Q/img/ic-round-attach-money-3.svg" alt="Salary Icon" />
-          <div class="text-wrapper-4">${job.salary}</div>
-        </div>
-        <div class="group-2">
-          <img class="img-2" src="https://c.animaapp.com/guCknj7Q/img/ic-round-assignment-turned-in.svg" alt="Applications Icon" />
-          <div class="text-wrapper-5">${job.applications}</div>
-        </div>
-        <div class="group-3">
-          <img class="img-2" src="https://c.animaapp.com/guCknj7Q/img/ic-round-location-on.svg" alt="Location Icon" />
-          <div class="text-wrapper-5">${job.location}</div>
-        </div>
-         <div class="group-3">
-          <img class="img-2" src="./img/star.png" alt="star iconn" />
-          <div class="text-wrapper-5">${job.rating}</div>
-        </div>
-      </div>
-      <div class="text-wrapper-6">Description:</div>
-      <p class="text-wrapper-7">${job.description}</p>
-    </div>
-    <div class="group-4">
-      <div class="ic-round-message-wrapper">
-        <button id="save-changes3" class="no-popup-button joinnow-button-4">
-          <img class="vector-2" src="https://c.animaapp.com/guCknj7Q/img/vector-6.svg" alt="Message Icon" />
-        </button> 
-      </div>
-      <div class="ic-round-bookmark-wrapper">
-        <button id="save-changes4" class="no-popup-button joinnow-button-5">
-          <img class="ic-round-bookmark" src="https://c.animaapp.com/guCknj7Q/img/ic-round-bookmark-border.svg" alt="Bookmark Icon" />
-        </button> 
-      </div>
-    </div>
-    <p class="text-wrapper-8">${job.date}</p>
-  `;
-
-  // Ngăn việc mở modal khi click vào các nút trong group-4
-  const noPopupButtons = jobCard.querySelectorAll(".no-popup-button");
-  noPopupButtons.forEach((button) => {
-    button.addEventListener("click", (event) => {
-      event.stopPropagation(); // Ngăn sự kiện click lan đến jobCard
-      alert("Button clicked!"); // Thay bằng logic cụ thể (bookmark hoặc message)
+      jobs.push({
+        title: jobData.title,
+        company: jobData.company || "N/A",
+        salary: jobData.budget || "N/A",
+        applications: jobData.applications || "0 applications received",
+        location: jobData.workplace || "N/A",
+        rating: jobData.rating || "4.0/5",
+        description: jobData.description || "No description",
+        skills: jobData.skills || "N/A",
+        date: jobData.createdAt,
+        logo: jobData.logo || "./img/Frame 95.png",
+      });
     });
+
+    // Cập nhật giao diện UI với các job
+    updateJobsUI(jobs);
   });
+}
+// Cập nhật UI danh sách job
+function updateJobsUI(jobs) {
+  const divContainer = document.querySelector(".div"); // Lựa chọn div chứa toàn bộ UI
 
-  // Thêm sự kiện click để mở modal
-  jobCard.addEventListener("click", () => openModal(job, jobCard));
+  if (jobs.length === 0) {
+    divContainer.innerHTML = "<p>No jobs available</p>"; // Thông báo nếu không có job
+    return;
+  }
 
-  // Thêm job card vào thẻ .div
-  divContainer.appendChild(jobCard);
-});
+  jobs.forEach((job) => {
+    const jobCard = document.createElement("div"); // Tạo một job card
+    jobCard.className = "frame"; // Thêm class "frame" cho job card
+
+    jobCard.innerHTML = `
+      <img class="logo-avatar-for" src="${job.logo}" alt="Company Logo" />
+      <div class="frame-2">
+        <div class="text-wrapper-2">${job.title}</div>
+        <div class="text-wrapper-3">${job.company}</div>
+        <div class="frame-3">
+          <div class="group">
+            <img class="img-3" src="https://c.animaapp.com/guCknj7Q/img/ic-round-attach-money-3.svg" alt="Salary Icon" />
+            <div class="text-wrapper-4">${job.salary}</div>
+          </div>
+         
+          <div class="group-3">
+            <img class="img-2" src="https://c.animaapp.com/guCknj7Q/img/ic-round-location-on.svg" alt="Location Icon" />
+            <div class="text-wrapper-5">${job.location}</div>
+          </div>
+          <div class="group-3">
+            <img class="img-4" src="./img/star.png  " alt="Location Icon" />
+            <div class="text-wrapper-x">4.5/5</div>
+          </div>
+          
+        </div>
+        <div class="text-wrapper-6">Description:</div>
+        <p class="text-wrapper-7">${job.description}</p>
+      </div>
+      <div class="group-4">
+        <div class="ic-round-message-wrapper">
+          <button id="save-changes3" class="no-popup-button joinnow-button-4">
+            <img class="vector-2" src="https://c.animaapp.com/guCknj7Q/img/vector-6.svg" alt="Message Icon" />
+          </button> 
+        </div>
+        <div class="ic-round-bookmark-wrapper">
+          <button id="save-changes4" class="no-popup-button joinnow-button-5">
+            <img class="ic-round-bookmark" src="https://c.animaapp.com/guCknj7Q/img/ic-round-bookmark-border.svg" alt="Bookmark Icon" />
+          </button> 
+        </div>
+      </div>
+      <p class="text-wrapper-8">${job.date}</p>
+    `;
+
+    // Thêm job card vào divContainer
+    divContainer.appendChild(jobCard);
+  });
+}
+
+
+// Bắt đầu lắng nghe các job khi load trang
+listenToJobs(); // Bắt đầu lắng nghe thay đổi từ Firestore
 
   </script>
 

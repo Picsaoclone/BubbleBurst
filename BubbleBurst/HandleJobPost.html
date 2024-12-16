@@ -36,7 +36,6 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center; /* Căn giữa nội dung trong container */
-  padding: 20px; /* Khoảng cách từ mép ngoài */
   gap: 30px; /* Khoảng cách giữa các phần */
   width: 100%; /* Chiều rộng chiếm toàn bộ */
   box-sizing: border-box; /* Đảm bảo padding không làm vỡ layout */
@@ -338,6 +337,7 @@ width: 52.57px;
   position: relative;
   width: 122px;
   height: 32px;
+  left:100px;
 }
 
 .FREELANCER-MENU-SAU .text-wrapper-6 {
@@ -976,7 +976,7 @@ button#save-changes4:hover{
 
 /* Close Button */
 .close-button {
-  color: #ff3d96;
+  color: #6439A1;
   font-size: 20px;
   font-weight: bold;
   position: absolute;
@@ -1031,7 +1031,7 @@ button#save-changes4:hover{
 
 /* Apply Button */
 .apply-button {
-  background-color: #ff3d96;
+  background-color: #6439A1;
   border: none;
   color: #fff;
   font-size: 16px;
@@ -1094,10 +1094,10 @@ p{
             <img id="modal-logo" class="modal-logo" alt="Job Logo">
             <h2 id="modal-title">[Job Title]</h2>
             <p><strong>Project Description:</strong></p>
-            <textarea id="modal-description" readonly></textarea>
+            <textarea id="modal-description" ></textarea>
             <p><strong>Skills Required:</strong></p>
-            <input id="modal-skills" type="text" readonly>
-            <button id="apply-button" class="apply-button">Apply</button>
+            <input id="modal-skills" type="text" >
+            <button id="apply-button" class="apply-button">Edit</button>
           </div>
         </div>
         
@@ -1135,66 +1135,25 @@ p{
       </div>
     </div>
   </body>
-  <script>
-const divContainer = document.querySelector(".div");
+  <script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+import { getFirestore, collection, query, onSnapshot,deleteDoc, doc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
-// Danh sách các job card
-const jobs = [
-  {
-    title: "Data Visualization Project",
-    company: "DataWorks Inc.",
-    salary: "$1,000",
-    applications: "5 applications received",
-    location: "Remote",
-    description: "Create interactive dashboards using Power BI.",
-    skills: "Power BI, SQL",
-    date: "December 13, 2024 at 10:35 AM",
-    logo: "https://c.animaapp.com/guCknj7Q/img/logo-avatar-for-dataworks-inc--3@2x.png",
-  },
-  {
-    title: "Frontend Developer",
-    company: "TechFlow Inc.",
-    salary: "$2,500",
-    applications: "8 applications received",
-    location: "Hybrid",
-    description: "Build and optimize user interfaces using React.js.",
-    skills: "React.js, JavaScript, CSS",
-    date: "December 12, 2024 at 9:00 AM",
-    logo: "https://c.animaapp.com/guCknj7Q/img/logo-avatar-for-dataworks-inc--3@2x.png",
-  },
-  {
-    title: "Backend Engineer",
-    company: "Cloud Solutions Ltd.",
-    salary: "$3,000",
-    applications: "12 applications received",
-    location: "Remote",
-    description: "Develop scalable APIs and cloud-based solutions.",
-    skills: "Node.js, API Development, Cloud Services",
-    logo: "https://c.animaapp.com/guCknj7Q/img/logo-avatar-for-dataworks-inc--3@2x.png",
-  },
-  {
-    title: "UX/UI Designer",
-    company: "CreativeWorks Studio",
-    salary: "$1,800",
-    applications: "4 applications received",
-    location: "On-site",
-    description: "Design user-friendly interfaces and experiences.",
-    skills: "Figma, Adobe XD, User Research",
-    date: "December 10, 2024 at 2:00 PM",
-    logo: "https://c.animaapp.com/guCknj7Q/img/logo-avatar-for-dataworks-inc--3@2x.png",
-  },
-  {
-    title: "Data Visualization Project",
-    company: "DataWorks Inc.",
-    salary: "$1,000",
-    applications: "5 applications received",
-    location: "Remote",
-    description: "Create interactive dashboards using Power BI.",
-    skills: "Power BI, SQL",
-    date: "December 13, 2024 at 10:35 AM",
-    logo: "https://c.animaapp.com/guCknj7Q/img/logo-avatar-for-dataworks-inc--3@2x.png",
-  }
-];
+// Firebase Configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyA5v1pvNZFDdTnk_KXDxT1FAG1MrfKrnFc",
+  authDomain: "bubbleburst-ca46f.firebaseapp.com",
+  projectId: "bubbleburst-ca46f",
+  storageBucket: "bubbleburst-ca46f.appspot.com",
+  messagingSenderId: "1083004742952",
+  appId: "1:1083004742952:web:3ded2f979aa3784bc5741d",
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+const divContainer = document.querySelector(".div");
 
 // Tạo modal (popup)
 const modalHTML = `
@@ -1204,10 +1163,10 @@ const modalHTML = `
       <img id="modal-logo" class="modal-logo" alt="Job Logo">
       <h2 id="modal-title"></h2>
       <p><strong>Project Description:</strong></p>
-      <textarea id="modal-description" readonly></textarea>
+      <textarea id="modal-description" ></textarea>
       <p><strong>Skills Required:</strong></p>
       <input id="modal-skills" type="text" readonly>
-      <button id="apply-button" class="apply-button">Apply</button>
+      <button id="apply-button" class="apply-button">Edit</button>
     </div>
   </div>
 `;
@@ -1215,33 +1174,28 @@ const modalHTML = `
 // Thêm modal vào body
 document.body.insertAdjacentHTML("beforeend", modalHTML);
 
-// Các biến để xử lý modal
+// Biến modal
 const modal = document.getElementById("job-modal");
 const closeButton = document.querySelector(".close-button");
-const applyButton = document.getElementById("apply-button");
+const editSaveButton = document.getElementById("apply-button");
 
-// Lưu trữ thông tin job hiện tại trong modal
-let currentJobCard = null; // Thẻ job card hiện tại
-
+let currentJobId = null; 
+let currentJobCard = null;
 // Hàm mở modal
-function openModal(job, jobCard) {
-  currentJobCard = jobCard; // Ghi lại thẻ job card hiện tại
-  document.getElementById("modal-logo").src = job.logo;
-  document.getElementById("modal-title").textContent = `Apply for ${job.title}`;
+function openModal(job, jobCard, jobId) {
+  document.getElementById("modal-logo").src = job.logo || "./img/Frame 95.png";
+  document.getElementById("modal-title").textContent = job.title;
   document.getElementById("modal-description").value = job.description;
   document.getElementById("modal-skills").value = job.skills;
-
   modal.style.display = "block";
 }
 
 // Hàm đóng modal
 function closeModal() {
   modal.style.display = "none";
-  currentJobCard = null; // Reset thẻ job card
 }
-
-// Thêm sự kiện đóng modal
 closeButton.addEventListener("click", closeModal);
+
 
 // Đóng modal khi click bên ngoài modal
 window.addEventListener("click", (event) => {
@@ -1250,62 +1204,119 @@ window.addEventListener("click", (event) => {
   }
 });
 
-// Thêm sự kiện vào nút Apply
-applyButton.addEventListener("click", () => {
-  if (currentJobCard) {
-    alert("Your application has been submitted successfully!");
-    currentJobCard.remove(); // Xóa job card khỏi giao diện
+// Xử lý khi nhấn Save trong modal
+editSaveButton.addEventListener("click", async () => {
+  if (!currentJobId || !currentJobCard) return;
+
+  const updatedDescription = document.getElementById("modal-description").value.trim();
+  const updatedSkills = document.getElementById("modal-skills").value.trim();
+
+  try {
+    const jobRef = doc(db, "projects", currentJobId);
+    await updateDoc(jobRef, {
+      description: updatedDescription,
+      skills: updatedSkills,
+    });
+
+    // Cập nhật ngay trên giao diện
+    currentJobCard.querySelector(".text-wrapper-7").textContent = updatedDescription;
+    currentJobCard.querySelector(".text-wrapper-5").textContent = updatedSkills;
+
+    alert("Job updated successfully!");
     closeModal();
+  } catch (error) {
+    console.error("Error updating job:", error);
+    alert("Failed to update the job.");
   }
 });
 
-// Tạo và thêm từng job card vào bên trong thẻ .div
-jobs.forEach((job) => {
-  const jobCard = document.createElement("div");
-  jobCard.className = "frame";
+// Lấy dữ liệu từ Firestore và render job card
+function fetchAndRenderJobs() {
+  const jobsQuery = query(collection(db, "projects")); // Collection 'projects'
 
-  jobCard.innerHTML = `
-    <img class="logo-avatar-for" src="${job.logo}" alt="Company Logo" />
-    <div class="frame-2">
-      <div class="text-wrapper-2">${job.title}</div>
-      <div class="text-wrapper-3">${job.company}</div>
-      <div class="frame-3">
-        <div class="group">
-          <img class="img-2 money" src="./img/Vector (3-2).png" alt="Salary Icon" />
-          <div class="text-wrapper-4">${job.salary}</div>
-        </div>
-        <div class="group-2">
-          <img class="img-2" src="./img/Vector (4-2).png" alt="Applications Icon" />
-          <div class="text-wrapper-5">${job.applications}</div>
-        </div>
-        <div class="group-3">
-          <img class="img-2 location" src="./img/Vector (5-2).png" alt="Location Icon" />
-          <div class="text-wrapper-5">${job.location}</div>
-        </div>
-      </div>
-      <div class="text-wrapper-6">Description:</div>
-      <p class="text-wrapper-7">${job.description}</p>
+  onSnapshot(jobsQuery, (snapshot) => {
 
-      <div class="ic-round-bookmark-wrapper">
-        <img class="ic-round-bookmark" src="./img/pencil.png" alt="Bookmark Icon" />
-      </div>
+    if (snapshot.empty) {
+      divContainer.innerHTML = `<h2>No job posts available!</h2>`;
+      return;
+    }
+
+    snapshot.forEach((doc) => {
+      const job = doc.data(); // Dữ liệu của từng document
       
-    </div>
-    
-    <div class="group-4">
-      <div class="ic-round-garbage-wrapper">
-        <img class="garbage" src="./img/garbage.png" alt="Message Icon" />
-      </div>
-    
-    </div>
-  `;
-  // Thêm sự kiện click để mở modal
-  jobCard.addEventListener("click", () => openModal(job, jobCard));
+      console.log("Job fetched from Firestore:", job);
 
-  // Thêm job card vào thẻ .div
-  divContainer.appendChild(jobCard);
-});
+      const jobCard = document.createElement("div");
+      jobCard.className = "frame";
 
+      jobCard.innerHTML = `
+        <img class="logo-avatar-for" src="${job.logo || "./img/Frame 95.png"}" alt="Company Logo" />
+        <div class="frame-2">
+          <div class="text-wrapper-2">${job.title}</div>
+          <div class="text-wrapper-3">${job.company || "No company info"}</div>
+          <div class="frame-3">
+            <div class="group">
+              <img class="img-2 money" src="./img/Vector (3-2).png" alt="Salary Icon" />
+              <div class="text-wrapper-4">${job.budget || "No budget info"}</div>
+            </div>
+            <div class="group-3">
+              <img class="img-2 location" src="./img/Vector (5-2).png" alt="Location Icon" />
+              <div class="text-wrapper-5">${job.workplace || "No workplace info"}</div>
+            </div>
+          </div>
+          <div class="text-wrapper-6">Description:</div>
+          <p class="text-wrapper-7">${job.description || "No description provided."}</p>
+        </div>
+        
+        <div class="group-4">
+          <div class="ic-round-garbage-wrapper">
+            <button id ="save-changes3"class="no-popup-button  joinnow-button-4"><img class="garbage" src="./img/garbage.png" alt="Delete Icon" />
+              </button>
+          </div>
+          <div class="ic-round-bookmark-wrapper">
+            <button class=""no-popup-button save-changes4 joinnow-button-5"><img class="ic-round-bookmark" src="./img/pencil.png" alt="Edit Icon" />
+              </button>
+          </div>
+        </div>
+      `;
 
+      // Thêm sự kiện click để mở modal
+      jobCard.addEventListener("click", () => openModal(job));
+
+      // Thêm sự kiện vào nút delete (nếu cần)
+      const deleteButton = jobCard.querySelector(".garbage");
+      deleteButton.addEventListener("click", (event) => {
+        event.stopPropagation(); // Ngăn sự kiện click lan đến jobCard
+        console.log(`Delete job with ID: ${doc.id}`);
+      });
+
+      // Thêm sự kiện vào nút edit (nếu cần)
+      const editButton = jobCard.querySelector(".ic-round-bookmark");
+      editButton.addEventListener("click", (event) => {
+        event.stopPropagation(); // Ngăn sự kiện click lan đến jobCard
+        console.log(`Edit job with ID: ${doc.id}`);
+      });
+      deleteButton.addEventListener("click", async (event) => {
+        event.stopPropagation(); // Ngăn không lan sự kiện click sang job-card
+
+        const confirmDelete = confirm("Are you sure you want to delete this job?");
+        if (confirmDelete) {
+          try {
+            await deleteDoc(doc(db, "projects", jobId));
+            jobCard.remove(); // Xóa job-card khỏi giao diện
+            alert("Job deleted successfully!");
+          } catch (error) {
+            console.error("Error deleting job:", error);
+            alert("Failed to delete the job.");
+          }
+        }
+      });
+      divContainer.appendChild(jobCard);
+    });
+  });
+}
+
+// Gọi hàm fetch dữ liệu khi trang load
+fetchAndRenderJobs();
   </script>
 </html>
