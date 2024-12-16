@@ -1,0 +1,150 @@
+/* Tổng quan layout */
+body {
+    margin: 0;
+    font-family: "Quicksand", Helvetica, sans-serif;
+    background-color: #e9daff;
+  }
+  
+  .ADMIN-account {
+    display: flex;
+  }
+  
+  /* Sidebar */
+  .rectangle {
+    position: fixed;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: #0f0223;
+  }
+  
+  .frame-wrapper,
+  .div-wrapper,
+  .frame-2 {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 30px;
+    border-bottom: 1px solid #1d083a;
+    color: #ffffff;
+    cursor: pointer;
+  }
+  
+  .text-wrapper {
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+    white-space: nowrap;
+  }
+  
+  .img {
+    width: 30px;
+    height: 30px;
+  }
+  
+  /* Header */
+  .header {
+    top: 0;
+    left: 250px;
+    width: calc(100% - 250px);
+    height: 120px;
+    background-color: #fcfbff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+/* Logo Container */
+.logo-container {
+    background-color: #f8f5f5; /* Màu nền đúng như ảnh 2 */
+    position: fixed; /* Cố định vị trí trên cùng */
+    top: 0;
+    left: 250px; /* Dịch phải để tránh sidebar */
+    width: 100%; /* Chiều rộng trừ sidebar */
+    height: 120px; /* Chiều cao của header */
+    display: flex;
+    align-items: center; /* Canh giữa theo chiều dọc */
+    justify-content: center; /* Canh giữa theo chiều ngang */
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+    z-index: 1000; /* Đảm bảo hiển thị trên các phần khác */
+  }
+  
+  .imglogo{
+    position: fixed;
+    left: 50%;
+  }
+  
+  
+  /* Nội dung bảng */
+  .content-wrapper {
+    margin-left: 270px;
+    margin-top: 150px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+    width: calc(100% - 300px);
+  }
+  
+  .text-wrapper-2 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #1d083a;
+    margin-bottom: 20px;
+  }
+  
+  .account-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .account-table th,
+  .account-table td {
+    text-align: center;
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    font-size: 16px;
+  }
+  
+  .account-table th {
+    background-color: #e9daff;
+    font-weight: 600;
+  }
+  
+  .account-table td img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+  
+  .account-table a {
+    color: #6438a0;
+    text-decoration: underline;
+    font-weight: 400;
+  }
+  
+  .account-table tr:hover {
+    background-color: #f9f7ff;
+  }
+  
+  /* Responsive chỉnh bảng */
+  @media (max-width: 768px) {
+    .rectangle {
+      width: 100px;
+    }
+  
+    
+  
+    .content-wrapper {
+      margin-left: 120px;
+      width: calc(100% - 140px);
+    }
+  
+    .account-table th,
+    .account-table td {
+      font-size: 14px;
+      padding: 8px;
+    }
+  }
+  

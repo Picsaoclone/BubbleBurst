@@ -1,28 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
-</head>
-<body>
-    <h1 id="welcomeMessage"></h1>
-    <section>
-        <h2>Manage Users</h2>
-        <table id="usersTable">
-            <thead>
-                <tr>
-                    <th>Username</th>
-                    <th>Role</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- User rows will be populated here -->
-            </tbody>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="admin.css" />
+  </head>
+  <body>
+    <!-- Wrapper chính -->
+    <div class="ADMIN-account">
+      <!-- Sidebar -->
+      <div class="rectangle">
+        <div class="frame-wrapper">
+          <img
+            class="img"
+            src="https://c.animaapp.com/2KUAsKmO/img/ic-round-supervised-user-circle.svg"
+            alt="Accounts"
+          />
+          <div class="text-wrapper">Accounts</div>
+        </div>
+        <div class="div-wrapper">
+          <img
+            class="img"
+            src="https://c.animaapp.com/2KUAsKmO/img/ic-round-assignment.svg"
+            alt="Projects"
+          />
+          <div class="text-wrapper">Projects</div>
+        </div>
+        <div class="frame-2">
+          <img
+            class="img"
+            src="https://c.animaapp.com/2KUAsKmO/img/ic-round-note-alt.svg"
+            alt="Feedback"
+          />
+          <div class="text-wrapper">Feedback</div>
+        </div>
+      </div>
+
+      <!-- Header -->
+      <header>
+        <div class="logo-container">
+          <img class="imglogo" src="./img/Layer 3.png" alt="BubbleBurst Logo" />
+        </div>
+      </header>
+
+      <!-- Nội dung chính -->
+      <div class="content-wrapper">
+        <h2 class="text-wrapper-2">Manage Accounts</h2>
+        <table class="account-table">
+          <thead>
+            <tr>
+              <th>Avatar</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Username</th>
+              <th>Detail</th>
+              <th>Remove</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Dòng 1 -->
+            <tr>
+              <td>
+                <img
+                  src="https://c.animaapp.com/2KUAsKmO/img/colorful-avatars@2x.png"
+                  alt="Avatar"
+                />
+              </td>
+              <td>Thinh Huynh Quang</td>
+              <td><a href="mailto:hquangthinh13@gmail.com" target="_blank" rel="noopener noreferrer">
+                <div class="text-wrapper-4">hquangthinh13@gmail.com</div></a></td>
+              <td>hquangthinh13</td>
+              <td><a href="#">Detail</a></td>
+              <td><a href="#">Remove</a></td>
+            </tr>
+            <!-- Dòng 2 -->
+            <tr>
+              <td>
+                <img
+                  src="https://c.animaapp.com/2KUAsKmO/img/colorful-avatars-1@2x.png"
+                  alt="Avatar"
+                />
+              </td>
+              <td>Thinh Huynh Quang</td>
+              <td><a href="mailto:hquangthinh13@gmail.com" target="_blank" rel="noopener noreferrer">
+                <div class="text-wrapper-4">hquangthinh13@gmail.com</div></a></td>
+              <td>hquangthinh13</td>
+              <td><a href="#">Detail</a></td>
+              <td><a href="#">Remove</a></td>
+            </tr>
+            <!-- Dòng 3 -->
+            <tr>
+                <td>
+                  <img
+                    src="https://c.animaapp.com/2KUAsKmO/img/logo-avatar-for-dataworks-inc--4@2x.png"
+                    alt="Avatar"
+                  />
+                </td>
+                <td>Thinh Huynh Quang</td>
+                <td><a href="mailto:hquangthinh13@gmail.com" target="_blank" rel="noopener noreferrer">
+                    <div class="text-wrapper-4">hquangthinh13@gmail.com</div></a></td>
+                <td>hquangthinh13</td>
+                <td><a href="#">Detail</a></td>
+                <td><a href="#">Remove</a></td>
+              </tr>
+              <!-- Dòng 4 -->
+            <tr>
+                <td>
+                  <img
+                    src="https://c.animaapp.com/2KUAsKmO/img/logo-avatar-for-dataworks-inc--4@2x.png"
+                    alt="Avatar"
+                  />
+                </td>
+                <td>Thinh Huynh Quang</td>
+                <td><a href="mailto:hquangthinh13@gmail.com" target="_blank" rel="noopener noreferrer">
+                    <div class="text-wrapper-4">hquangthinh13@gmail.com</div></a></td>
+                <td>hquangthinh13</td>
+                <td><a href="#">Detail</a></td>
+                <td><a href="#">Remove</a></td>
+              </tr>
+              <!-- Dòng 5 -->
+            <tr>
+                <td>
+                  <img
+                    src="https://c.animaapp.com/2KUAsKmO/img/logo-avatar-for-dataworks-inc--4@2x.png"
+                    alt="Avatar"
+                  />
+                </td>
+                <td>Thinh Huynh Quang</td>
+                <td><a href="mailto:hquangthinh13@gmail.com" target="_blank" rel="noopener noreferrer">
+                    <div class="text-wrapper-4">hquangthinh13@gmail.com</div></a></td>
+                <td>hquangthinh13</td>
+                <td><a href="#">Detail</a></td>
+                <td><a href="#">Remove</a></td>
+              </tr>
+              <!-- Dòng 6 -->
+            <tr>
+                <td>
+                  <img
+                    src="https://c.animaapp.com/2KUAsKmO/img/logo-avatar-for-dataworks-inc--4@2x.png"
+                    alt="Avatar"
+                  />
+                </td>
+                <td>Thinh Huynh Quang</td>
+                <td><a href="mailto:hquangthinh13@gmail.com" target="_blank" rel="noopener noreferrer">
+                    <div class="text-wrapper-4">hquangthinh13@gmail.com</div></a></td>
+                <td>hquangthinh13</td>
+                <td><a href="#">Detail</a></td>
+                <td><a href="#">Remove</a></td>
+              </tr>
+          </tbody>
         </table>
-    </section>
-</body>
+      </div>
+    </div>
+  </body>
+
 <script type="module">
     import { checkUserLogin, db } from "./auth.js";
     import { collection, getDocs, updateDoc, doc, deleteDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
