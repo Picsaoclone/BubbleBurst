@@ -38,7 +38,6 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center; /* Căn giữa nội dung trong container */
-  padding: 20px; /* Khoảng cách từ mép ngoài */
   gap: 30px; /* Khoảng cách giữa các phần */
   width: 100%; /* Chiều rộng chiếm toàn bộ */
   box-sizing: border-box; /* Đảm bảo padding không làm vỡ layout */
@@ -49,8 +48,9 @@ a {
     background-color: #fff4fa;
   overflow: hidden;
   width: 1920px;
-  height: 2883px;
+  height: 2883px; 
   position: absolute;
+  border: 1px solid #fddef1;
 }
 
 .FREELANCER-MENU-SAU .hey-there-thinh {
@@ -633,7 +633,7 @@ width: 52.57px;
   position: absolute;
   width: 37px;
   height: 46px;
-  top: 1px;
+  top: -10px;
   left: 0;
 }
 
@@ -1046,7 +1046,83 @@ p{
   margin-bottom: 10px;
   font-weight: bold;
 }
+.FREELANCER-MENU-SAU #welcomeMessage{
+  position: absolute;
+  height: 94px;
+  top: 233px;
+  left: 418px;
+  font-family: "Quicksand", Helvetica;
+  font-weight: 600;
+  color: #ff3d96;
+  font-size: 48px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+/* Nút chuông */
+.notification-container {
+  position: relative;
+  display: inline-block;
+  margin-right: 20px;
+  cursor: pointer;
+}
 
+.bell-icon img {
+  width: 40px;
+  height: 40px;
+}
+
+.badge {
+  position: absolute;
+  top: -10px;
+  right: -50px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 3px 6px;
+  font-size: 12px;
+  font-family: "Quicksand";
+  display: none;
+}
+
+/* Dropdown menu */
+.dropdown {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  width: 300px;
+  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  z-index: 10;
+}
+
+.dropdown.hidden {
+  display: none;
+}
+
+.dropdown h3 {
+  margin: 10px;
+  font-size: 18px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+}
+
+.notification-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.notification-list li {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+
+.notification-list li:hover {
+  background-color: #f9f9f9;
+}
     </style>
   </head>
   <body>
@@ -1056,18 +1132,19 @@ p{
 
     <div class="FREELANCER-MENU-SAU">
       <div class="div">
-        <p class="hey-there-thinh">Hey there, Thinh Huynh Quang!<br />Ready to discover your next career adventure?</p>
+        
+        <h1 id="welcomeMessage"><br>hello con cặc</h1>
         <div class="text-wrapper">Find Your Next Gig</div>
         <div class="talent">
           <button id="save-changes" class="joinnow-button-2">
-            Update my profile
+            <a  style ="color:#e9e9e9"href="Profilepage.html">Update my profile</a>
             <img class="vector" src="./img/vector3.png" />
 
           </button> 
         </div>
         <div class="talent-2">
           <button id="save-changes2" class="joinnow-button-3">
-            Manage applied jobs
+            <a style = "color:#e63285" href ="ListofAppliedJob.html"> Manage applied jobs</a>
             <img class="vector-second" src="https://c.animaapp.com/guCknj7Q/img/vector-1.svg" />
           </button>
           
@@ -1086,8 +1163,8 @@ p{
     
         <div class="group-5">
 
-          <div class="div-wrapper"><div class="text-wrapper-9">Recruit Freelancers</div></div>
-          <div class="frame-7"><div class="text-wrapper-9">Explore Jobs</div></div>
+          <a href="RecruitFreelancer.html"><div class="div-wrapper"><div class="text-wrapper-9">Recruit Freelancers</div></a></div>
+          <a href="ExploreJob.html"><div class="frame-7"><div class="text-wrapper-9">Explore Jobs</div></a></div>
           <div class="overlap-wrapper">
             <div class="overlap">
               <img class="avatar" src="https://c.animaapp.com/guCknj7Q/img/avatar@2x.png" />
@@ -1105,9 +1182,21 @@ p{
             </div>
           </div>
           <div class="group-7">
+            
             <div class="overlap-3">
+              <div class="notification-container">
+                <div class="bell-icon" id="bell-icon">
               <img class="vector-5" src="https://c.animaapp.com/guCknj7Q/img/vector-9.svg" />
-              <div class="huynh-quang-thinh-wrapper"><div class="huynh-quang-thinh"></div></div>
+              <span id="notification-badge" class="badge">0</span>
+               </div>
+               <!-- Dropdown menu -->
+  <div id="notification-dropdown" class="dropdown hidden">
+    <h3>Notifications</h3>
+    <ul id="notification-list" class="notification-list">
+      <!-- Nội dung thông báo sẽ được render ở đây -->
+    </ul>
+  </div>
+</div>
             </div>
           </div>
           <img class="layer" src="https://c.animaapp.com/guCknj7Q/img/layer-3@2x.png" />
@@ -1159,9 +1248,110 @@ p{
       </div>
     </div>
   </body>
-  <script>
-const divContainer = document.querySelector(".div");
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+import { getFirestore, collection, addDoc, query, onSnapshot } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
+// Firebase Configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyA5v1pvNZFDdTnk_KXDxT1FAG1MrfKrnFc",
+    authDomain: "bubbleburst-ca46f.firebaseapp.com",
+    projectId: "bubbleburst-ca46f",
+    storageBucket: "bubbleburst-ca46f.appspot.com",
+    messagingSenderId: "1083004742952",
+    appId: "1:1083004742952:web:3ded2f979aa3784bc5741d",
+    measurementId: "G-0BLTWVCZTZ"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const divContainer = document.querySelector(".div");
+//DOM elements
+// DOM Elements
+const bellIcon = document.getElementById("bell-icon");
+const badge = document.getElementById("notification-badge");
+const dropdown = document.getElementById("notification-dropdown");
+const notificationList = document.getElementById("notification-list");
+
+let notificationCount = 0;
+
+// Hàm lưu thông báo vào Firestore
+async function addNotification(message, job = null) {
+  const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
+  if (!currentUser) {
+    console.error("No currentUser found in sessionStorage");
+    return;
+  }
+
+  try {
+    const notificationData = {
+      userId: currentUser.userId,
+      message: message,
+      createdAt: new Date().toISOString(),
+    };
+
+    // Nếu có thông tin job, thêm vào dữ liệu lưu
+    if (job) {
+      notificationData.jobDetails = {
+        title: job.title,
+        company: job.company,
+        salary: job.salary,
+        location: job.location,
+        description: job.description,
+        skills: job.skills,
+        logo: job.logo,
+      };
+    }
+
+    await addDoc(collection(db, "notifications"), notificationData);
+
+    console.log("Notification added successfully:", notificationData);
+  } catch (error) {
+    console.error("Lỗi khi thêm thông báo:", error);
+  }
+}
+
+// Cập nhật UI thông báo
+function updateNotificationsUI(notifications) {
+  notificationList.innerHTML = "";
+  notificationCount = notifications.length;
+
+  notifications.forEach((notif) => {
+    const listItem = document.createElement("li");
+    listItem.textContent = notif.message;
+    notificationList.appendChild(listItem);
+  });
+
+  // Cập nhật badge
+  badge.textContent = notificationCount;
+  badge.style.display = notificationCount > 0 ? "block" : "none";
+}
+
+// Lắng nghe Firestore để cập nhật thông báo
+function listenToNotifications() {
+  const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
+  if (!currentUser) return;
+
+  const q = query(collection(db, "notifications"));
+  onSnapshot(q, (snapshot) => {
+    const notifications = [];
+    snapshot.forEach((doc) => {
+      if (doc.data().userId === currentUser.userId) {
+        notifications.push(doc.data());
+      }
+    });
+    updateNotificationsUI(notifications);
+  });
+}
+
+// Xử lý click vào chuông
+bellIcon.addEventListener("click", () => {
+  dropdown.classList.toggle("hidden");
+});
+
+// Bắt đầu lắng nghe thông báo khi load trang
+listenToNotifications();
 // Danh sách các job card
 const jobs = [
   {
@@ -1235,11 +1425,13 @@ const closeButton = document.querySelector(".close-button");
 const applyButton = document.getElementById("apply-button");
 
 // Lưu trữ thông tin job hiện tại trong modal
-let currentJobCard = null; // Thẻ job card hiện tại
+let currentJobCard = null;
+let currentJob = null; // Thẻ job card hiện tại
 
 // Hàm mở modal
 function openModal(job, jobCard) {
   currentJobCard = jobCard; // Ghi lại thẻ job card hiện tại
+  currentJob=job;
   document.getElementById("modal-logo").src = job.logo;
   document.getElementById("modal-title").textContent = `Apply for ${job.title}`;
   document.getElementById("modal-description").value = job.description;
@@ -1252,6 +1444,7 @@ function openModal(job, jobCard) {
 function closeModal() {
   modal.style.display = "none";
   currentJobCard = null; // Reset thẻ job card
+  currentJob = null;
 }
 
 // Thêm sự kiện đóng modal
@@ -1263,13 +1456,53 @@ window.addEventListener("click", (event) => {
     closeModal();
   }
 });
+// Hàm lưu công việc vào Firestore
+async function saveJobToFirestore(job) {
+  const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+  if (!currentUser) {
+    alert("Bạn cần đăng nhập để ứng tuyển!");
+    window.location.href = "SignIn.html";
+    return;
+  }
 
-// Thêm sự kiện vào nút Apply
-applyButton.addEventListener("click", () => {
-  if (currentJobCard) {
+  const userId = currentUser.userId;
+
+  try {
+    await addDoc(collection(db, "user_jobs"), {
+      userId: userId,
+      job: job,
+      appliedAt: new Date().toISOString(),
+    });
     alert("Your application has been submitted successfully!");
-    currentJobCard.remove(); // Xóa job card khỏi giao diện
-    closeModal();
+  } catch (error) {
+    console.error("Lỗi khi lưu công việc vào Firestore:", error);
+    alert("Đã xảy ra lỗi khi ứng tuyển. Vui lòng thử lại.");
+  }
+}
+// Thêm sự kiện vào nút Apply
+applyButton.addEventListener("click", async () => {
+  console.log("Apply button clicked!");
+  
+  if (currentJobCard && currentJob) {
+    console.log("Current Job Card:", currentJobCard);
+    console.log("Current Job:", currentJob);
+
+    const message = `You applied for ${currentJob.title} at ${currentJob.company}.`;
+
+    try {
+      // Gọi hàm lưu thông báo, truyền cả job
+      await addNotification(message, currentJob);
+      console.log("Notification added successfully!");
+
+      alert("Your application has been submitted successfully!");
+      currentJobCard.remove(); // Xóa job card khỏi giao diện
+      closeModal();
+    } catch (error) {
+      console.error("Error saving notification:", error);
+      alert("Failed to submit the application. Please try again.");
+    }
+  } else {
+    console.log("currentJobCard hoặc currentJob bị null!");
   }
 });
 
@@ -1302,14 +1535,27 @@ jobs.forEach((job) => {
     </div>
     <div class="group-4">
       <div class="ic-round-message-wrapper">
-        <img class="vector-2" src="https://c.animaapp.com/guCknj7Q/img/vector-6.svg" alt="Message Icon" />
+        <button id="save-changes3" class="no-popup-button joinnow-button-4">
+          <img class="vector-2" src="https://c.animaapp.com/guCknj7Q/img/vector-6.svg" alt="Message Icon" />
+        </button> 
       </div>
       <div class="ic-round-bookmark-wrapper">
-        <img class="ic-round-bookmark" src="https://c.animaapp.com/guCknj7Q/img/ic-round-bookmark-border.svg" alt="Bookmark Icon" />
+        <button id="save-changes4" class="no-popup-button joinnow-button-5">
+          <img class="ic-round-bookmark" src="https://c.animaapp.com/guCknj7Q/img/ic-round-bookmark-border.svg" alt="Bookmark Icon" />
+        </button> 
       </div>
     </div>
     <p class="text-wrapper-8">${job.date}</p>
   `;
+
+  // Ngăn việc mở modal khi click vào các nút trong group-4
+  const noPopupButtons = jobCard.querySelectorAll(".no-popup-button");
+  noPopupButtons.forEach((button) => {
+    button.addEventListener("click", (event) => {
+      event.stopPropagation(); // Ngăn sự kiện click lan đến jobCard
+      alert("Button clicked!"); // Thay bằng logic cụ thể (bookmark hoặc message)
+    });
+  });
 
   // Thêm sự kiện click để mở modal
   jobCard.addEventListener("click", () => openModal(job, jobCard));
@@ -1318,6 +1564,34 @@ jobs.forEach((job) => {
   divContainer.appendChild(jobCard);
 });
 
-
   </script>
+
+      <script type="module">
+        import { checkUserLogin, fetchUserData, saveUserActivity } from "./auth.js";
+    
+        const currentUser = checkUserLogin(); // Check if the user is logged in
+    
+        if (currentUser) {
+            const { userId, username, name } = currentUser;
+    
+            // Display welcome message
+            document.getElementById("welcomeMessage").innerHTML  = `Hey there, ${name}!<br>Ready to discover your next career adventure?`;
+    
+            // Fetch user-specific data
+            fetchUserData(userId).then((userData) => {
+                if (userData) {
+                    console.log("User Data:", userData);
+                }
+            });
+    
+            // Save user activity
+            saveUserActivity(userId, {
+                lastActive: new Date().toISOString(),
+                currentPage: "Homepageafterlogin"
+            });
+        }
+ 
+
+    </script>
+    
 </html>
